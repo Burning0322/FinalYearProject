@@ -8,7 +8,8 @@ local_model_path = "/Users/renhonglow/Desktop/FYP/DTI/ChemBERTa-10M-MTR"
 # model = AutoModelForMaskedLM.from_pretrained(local_model_path)
 
 import torch
-device = torch.device("mps") if torch.backends.mps.is_available() else torch.device("cpu")
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+#device = torch.device("mps") if torch.backends.mps.is_available() else torch.device("cpu")
 print(f"Using device: {device}")
 
 from transformers import AutoTokenizer,RobertaModel
