@@ -1,0 +1,4 @@
+Test the stable model
+Train: Loss:0.07011;Accuracy:0.98670;Precision:0.98748;Recall:0.98590;AUC:0.99898;PRC:0.99891.
+Valid: Loss:0.86291;Accuracy:0.82179;Precision:0.82965;Recall:0.81257;AUC:0.89511;PRC:0.90520.
+Test: Loss:0.90290;Accuracy:0.81136;Precision:0.80596;Recall:0.81732;AUC:0.89135;PRC:0.89514.
