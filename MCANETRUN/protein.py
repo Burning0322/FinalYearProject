@@ -1,6 +1,17 @@
 import torch
-with open('/kaggle/input/davis-n-kiba/Davis.txt', 'r') as f:
+import os
+import re
+from torch.nn.parallel import DataParallel
+
+# 设置环境变量以减少内存碎片
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
+
+with open('Davis.txt', 'r') as f:
     lines = f.readlines()
+
+# with open('KIBA.txt', 'r') as f:
+#     lines = f.readlines()
 
 data = []
 for line in lines:
@@ -16,27 +27,55 @@ for line in lines:
             'label': int(label)
         })
 
+
 proteins = set()
 for protein in data:
     proteins.add(protein['sequence'])
-
 proteins = list(proteins)
 
-print(len(proteins))
+print(f"Number of unique proteins: {len(proteins)}")
 
-sequence_examples = proteins
 
-import re
-sequence_examples = [" ".join(list(re.sub(r"[UZOB]", "X", sequence))) for sequence in sequence_examples]
+sequence_examples = [" ".join(list(re.sub(r"[UZOB]", "X", sequence))) for sequence in proteins]
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 
 from transformers import T5Tokenizer, T5EncoderModel
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_uniref50")
-model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_uniref50").to(device)
+local_path_model = "Rostlab/prot_t5_xl_uniref50"
+tokenizer = T5Tokenizer.from_pretrained(local_path_model, legacy=False)
+model = T5EncoderModel.from_pretrained(local_path_model)
+
+# 使用多个GPU 因为Memory不够
+if torch.cuda.device_count() > 1:
+    print(f"Using {torch.cuda.device_count()} GPUs!")
+    model = DataParallel(model)
+
+model = model.to(device)
 model.eval()
 
-input = tokenizer(sequence_examples, return_tensors="pt", padding=True, truncation=True,max_length=1000).to(device)
+batch_size = 32
+embeddings = []
+max_length = 1000
 
-with torch.no_grad():
-    outputs = model(**input)
+for i in range(0, len(sequence_examples), batch_size):
+    batch_sequences = sequence_examples[i:i + batch_size]
+
+    inputs = tokenizer(batch_sequences, return_tensors="pt", padding="max_length",
+                       truncation=True, max_length=max_length).to(device)
+
+    with torch.no_grad():
+        outputs = model(**inputs)
+
+
+    batch_embeddings = outputs.last_hidden_state
+    embeddings.append(batch_embeddings.cpu())
+
+    del inputs, outputs, batch_embeddings
+    torch.cuda.empty_cache()
+
+embeddings = torch.cat(embeddings, dim=0)
+print(f"Embeddings shape: {embeddings.shape}")
+
+torch.save(embeddings, "protein_davis.pt")
