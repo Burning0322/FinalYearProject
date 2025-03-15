@@ -17,7 +17,11 @@ print(drug_embedding.shape)
 protein_embedding = torch.load()
 
 drug_dim = drug_embedding.shape[2]
+protein_dim = protein_embedding.shape[2]
 conv = 40
+attention_dim = conv * 4
+mix_attention_head = 5
+
 class Model(nn.Module):
     def __init__(self):
         super(Model, self).__init__()
@@ -34,7 +38,27 @@ class Model(nn.Module):
 
         self.protein_CNN = nn.Sequential(
             nn.Conv1d(in_channels=protein_dim,out_channels=conv,kernel_size=protein_kernel[0]),
+            nn.ReLU(),
+            nn.Conv1d(in_channels=conv,out_channels=conv*2,kernel_size=protein_kernel[1]),
+            nn.ReLU(),
+            nn.Conv1d(in_channels=conv*2,out_channels=conv*4,kernel_size=protein_kernel[2]),
+            nn.ReLU(),
         )
+        self.protein_CNN_max_pool = nn.MaxPool1d(protein_afterCNN)
+
+        self.mix_attention_layer = nn.MultiheadAttention(
+            attention_dim, mix_attention_head)
+
+        self.dropout1 = nn.Dropout(0.1)
+        self.dropout2 = nn.Dropout(0.1)
+        self.dropout3 = nn.Dropout(0.1)
+
+        self.leaky_relu = nn.LeakyReLU()
+
+        self.fc1 = nn.Linear(conv * 8 , 1024)
+        self.fc2 = nn.Linear(1024, 1024)
+        self.fc3 = nn.Linear(1024, 512)
+        self.out = nn.Linear(512, 2)
 
     def forward(self, x):
 
