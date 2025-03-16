@@ -1,8 +1,8 @@
-with open('Davis.txt', 'r') as f:
-    lines = f.readlines()
-
-# with open('KIBA.txt', 'r') as f:
+# with open('Davis.txt', 'r') as f:
 #     lines = f.readlines()
+
+with open('KIBA.txt', 'r') as f:
+    lines = f.readlines()
 
 data = []
 for line in lines:
@@ -44,6 +44,8 @@ with torch.no_grad():
 
 print(output.last_hidden_state.shape)
 print(output.pooler_output.shape)
+
+torch.save(output.last_hidden_state, 'ligands_kiba.pt')
 
 # 处理 SMILES
 # smiles_list = list(set([d['smiles'] for d in data]))
