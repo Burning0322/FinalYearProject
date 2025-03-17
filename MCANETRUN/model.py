@@ -107,6 +107,7 @@ class Model(nn.Module):
         predict = self.out(fully3)
 
         return predict
+
 import torch
 from torch.utils.data import Dataset, DataLoader
 
