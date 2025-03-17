@@ -106,3 +106,60 @@ class Model(nn.Module):
         predict = self.out(fully3)
 
         return predict
+import torch
+from torch.utils.data import Dataset, DataLoader
+
+drug_embedding = torch.load("/Volumes/PASSPORT/FinalYearProject/MCANETRUN/ligands_davis.pt")
+protein_embedding = torch.load("/Volumes/PASSPORT/FinalYearProject/MCANETRUN/protein_davis.pt")
+
+
+class Dataset(Dataset):
+    def __init__(self, file_path, drug_embedding, protein_embedding):
+        self.drug_embedding = drug_embedding
+        self.protein_embedding = protein_embedding
+
+        self.unique_smiles = []
+        self.unique_protein = []
+
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+
+        self.data = []
+        for line in lines:
+            parts = line.strip().split(' ',4)
+            if len(parts) == 5:
+                compound_id, protein_name, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
+                sequence, label = rest.rsplit(' ', 1)
+
+                if smiles not in self.unique_smiles:
+                    self.unique_smiles.append(smiles)
+                drug_idx = self.unique_smiles.index(smiles)
+                if sequence not in self.unique_protein:
+                    self.unique_protein.append(sequence)
+                protein_idx = self.unique_protein.index(sequence)
+                label = int(label)
+
+                self.data.append((drug_idx, protein_idx, label))
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        drug_idx,protein_idx,label = self.data[idx]
+
+        drug_feature =self.drug_embedding[drug_idx]
+        protein_feature = self.protein_embedding[protein_idx]
+
+        return {
+            'drug_feature': drug_feature,
+            'protein_feature': protein_feature,
+            'label': label
+        }
+
+train_dataset = Dataset('davis.txt',drug_embedding,protein_embedding)
+
+train_loader = DataLoader(train_dataset,batch_size=64,shuffle=True)
+
+print(f"数据集总条数: {len(train_dataset)}")
+print(f"独特药物数量: {len(train_dataset.unique_smiles)}")
+print(f"独特蛋白质数量: {len(train_dataset.unique_protein)}")
