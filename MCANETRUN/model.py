@@ -182,6 +182,8 @@ for epoch in range(200):
     epoch_time = epoch_end_time - epoch_start_time
     print(f"Epoch [{epoch+1}/200], Loss: {loss.item():.4f}, Time: {epoch_time:.2f} seconds")
 
+torch.save(model.state_dict(), "model.pth")
+
 total_end_time = time.time()
 total_time = total_end_time - total_start_time
 print(f"Total training time: {total_time:.2f} seconds")
