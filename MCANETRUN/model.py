@@ -3,7 +3,7 @@ import torch.nn as nn
 import time
 
 learning_rate = 0.001
-epoch = 200
+epochs = 200
 batch_size = 32
 drug_max_length = 100
 protein_max_length = 1000
@@ -179,7 +179,7 @@ model.to(device)
 
 total_start_time = time.time()
 
-for epoch in range(200):
+for epoch in range(epochs):
     epoch_start_time = time.time()
 
     for batch in train_loader:
@@ -195,7 +195,7 @@ for epoch in range(200):
 
     epoch_end_time = time.time()
     epoch_time = epoch_end_time - epoch_start_time
-    print(f"Epoch [{epoch+1}/200], Loss: {loss.item():.4f}, Time: {epoch_time:.2f} seconds")
+    print(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}, Time: {epoch_time:.2f} seconds")
 
 total_end_time = time.time()
 total_time = total_end_time - total_start_time
