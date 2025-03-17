@@ -4,8 +4,8 @@ import time
 
 learning_rate = 0.001
 epochs = 200
-batch_size = 32
-drug_max_length = 100
+batch_size = 128
+drug_max_length = 94
 protein_max_length = 1000
 drug_kernel = [4,6,8]
 protein_kernel = [4,8,12]
@@ -13,11 +13,14 @@ drug_afterCNN = drug_max_length - drug_kernel[0] - drug_kernel[1] - drug_kernel[
 protein_afterCNN = protein_max_length - protein_kernel[0] - protein_kernel[1] - protein_kernel[2] + 3
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 drug_embedding = torch.load("ligands_davis.pt").to(device)
 protein_embedding = torch.load("protein_davis.pt").to(device)
 
+
 drug_dim = drug_embedding.shape[2]
 protein_dim = protein_embedding.shape[2]
+
 conv = 40
 attention_dim = conv * 4
 mix_attention_head = 5
@@ -109,7 +112,7 @@ class Model(nn.Module):
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-class Dataset(Dataset,drug_embedding,protein_embedding):
+class Dataset(Dataset):
     def __init__(self, file_path, drug_embedding, protein_embedding):
         self.drug_embedding = drug_embedding
         self.protein_embedding = protein_embedding
@@ -141,10 +144,7 @@ class Dataset(Dataset,drug_embedding,protein_embedding):
         return len(self.data)
 
     def __getitem__(self, idx):
-        drug_idx,protein_idx,label = self.data[idx]
-
-        drug_feature =self.drug_embedding[drug_idx]
-        protein_feature = self.protein_embedding[protein_idx]
+        drug_idx, protein_idx, label = self.data[idx]
 
         return {
             'drug_idx': torch.tensor(drug_idx, dtype=torch.long),
@@ -153,20 +153,14 @@ class Dataset(Dataset,drug_embedding,protein_embedding):
         }
 
 train_dataset = Dataset('davis.txt',drug_embedding,protein_embedding)
-train_loader = DataLoader(train_dataset,batch_size=128,shuffle=True)
-
-# print(f"数据集总条数: {len(train_dataset)}")
-# print(f"独特药物数量: {len(train_dataset.unique_smiles)}")
-# print(f"独特蛋白质数量: {len(train_dataset.unique_protein)}")
+train_loader = DataLoader(train_dataset,batch_size=batch_size,shuffle=True)
 
 model = Model(drug_embedding,protein_embedding).to(device)
 
 # 定义损失函数
 criterion = nn.CrossEntropyLoss()
-
 # 定义优化器
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-
 
 total_start_time = time.time()
 
