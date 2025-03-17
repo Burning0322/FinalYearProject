@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-learning_rate = 1e-4
+learning_rate = 0.001
 epoch = 200
 batch_size = 32
 drug_max_length = 100
@@ -24,7 +24,7 @@ attention_dim = conv * 4
 mix_attention_head = 5
 
 class Model(nn.Module):
-    def __init__(self):
+    def __init__(self,drug_embedding,protein_embedding):
         super(Model, self).__init__()
 
         self.drug_embedding = drug_embedding
@@ -151,15 +151,51 @@ class Dataset(Dataset):
         protein_feature = self.protein_embedding[protein_idx]
 
         return {
-            'drug_feature': drug_feature,
-            'protein_feature': protein_feature,
+            'drug_idx': drug_feature,
+            'protein_idx': protein_feature,
             'label': label
         }
 
 train_dataset = Dataset('davis.txt',drug_embedding,protein_embedding)
 
-train_loader = DataLoader(train_dataset,batch_size=64,shuffle=True)
+train_loader = DataLoader(train_dataset,batch_size=128,shuffle=True)
 
 print(f"数据集总条数: {len(train_dataset)}")
 print(f"独特药物数量: {len(train_dataset.unique_smiles)}")
 print(f"独特蛋白质数量: {len(train_dataset.unique_protein)}")
+
+model = Model()
+
+# 定义损失函数
+criterion = nn.CrossEntropyLoss()
+
+# 定义优化器
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+
+
+total_start_time = time.time()
+
+for epoch in range(200):
+    epoch_start_time = time.time()
+
+    for batch in train_loader:
+        drug_idx = batch['drug_idx'].to(device)
+        protein_idx = batch['protein_idx'].to(device)
+        labels = batch['label'].to(device)
+
+        optimizer.zero_grad()
+        outputs = model(drug_idx, protein_idx)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+    epoch_end_time = time.time()
+    epoch_time = epoch_end_time - epoch_start_time
+    print(f"Epoch [{epoch+1}/200], Loss: {loss.item():.4f}, Time: {epoch_time:.2f} seconds")
+
+total_end_time = time.time()
+total_time = total_end_time - total_start_time
+print(f"Total training time: {total_time:.2f} seconds")
