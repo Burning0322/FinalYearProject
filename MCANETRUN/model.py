@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import time
 
 learning_rate = 0.001
 epoch = 200
