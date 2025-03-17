@@ -12,11 +12,9 @@ protein_kernel = [4,8,12]
 drug_afterCNN = drug_max_length - drug_kernel[0] - drug_kernel[1] - drug_kernel[2] + 3
 protein_afterCNN = protein_max_length - protein_kernel[0] - protein_kernel[1] - protein_kernel[2] + 3
 
-drug_embedding = torch.load("/Volumes/PASSPORT/FinalYearProject/MCANETRUN/ligands_davis.pt")
-print(drug_embedding.shape)
-
-protein_embedding = torch.load("/Volumes/PASSPORT/FinalYearProject/MCANETRUN/protein_davis.pt")
-print(protein_embedding.shape)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+drug_embedding = torch.load("ligands_davis.pt").to(device)
+protein_embedding = torch.load("protein_davis.pt").to(device)
 
 drug_dim = drug_embedding.shape[2]
 protein_dim = protein_embedding.shape[2]
@@ -28,8 +26,8 @@ class Model(nn.Module):
     def __init__(self,drug_embedding,protein_embedding):
         super(Model, self).__init__()
 
-        self.drug_embedding = drug_embedding
-        self.protein_embedding = protein_embedding
+        self.drug_embedding = nn.Parameter(drug_embedding, requires_grad=False)
+        self.protein_embedding = nn.Parameter(protein_embedding, requires_grad=False)
 
         self.drug_CNN = nn.Sequential(
             nn.Conv1d(in_channels=drug_dim,out_channels=conv,kernel_size=drug_kernel[0]),
@@ -111,11 +109,7 @@ class Model(nn.Module):
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-drug_embedding = torch.load("/Volumes/PASSPORT/FinalYearProject/MCANETRUN/ligands_davis.pt")
-protein_embedding = torch.load("/Volumes/PASSPORT/FinalYearProject/MCANETRUN/protein_davis.pt")
-
-
-class Dataset(Dataset):
+class Dataset(Dataset,drug_embedding,protein_embedding):
     def __init__(self, file_path, drug_embedding, protein_embedding):
         self.drug_embedding = drug_embedding
         self.protein_embedding = protein_embedding
@@ -153,20 +147,19 @@ class Dataset(Dataset):
         protein_feature = self.protein_embedding[protein_idx]
 
         return {
-            'drug_idx': drug_feature,
-            'protein_idx': protein_feature,
-            'label': label
+            'drug_idx': torch.tensor(drug_idx, dtype=torch.long),
+            'protein_idx': torch.tensor(protein_idx, dtype=torch.long),
+            'label': torch.tensor(label, dtype=torch.long)
         }
 
 train_dataset = Dataset('davis.txt',drug_embedding,protein_embedding)
-
 train_loader = DataLoader(train_dataset,batch_size=128,shuffle=True)
 
-print(f"数据集总条数: {len(train_dataset)}")
-print(f"独特药物数量: {len(train_dataset.unique_smiles)}")
-print(f"独特蛋白质数量: {len(train_dataset.unique_protein)}")
+# print(f"数据集总条数: {len(train_dataset)}")
+# print(f"独特药物数量: {len(train_dataset.unique_smiles)}")
+# print(f"独特蛋白质数量: {len(train_dataset.unique_protein)}")
 
-model = Model()
+model = Model(drug_embedding,protein_embedding).to(device)
 
 # 定义损失函数
 criterion = nn.CrossEntropyLoss()
@@ -174,13 +167,10 @@ criterion = nn.CrossEntropyLoss()
 # 定义优化器
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.to(device)
-
 
 total_start_time = time.time()
 
-for epoch in range(epochs):
+for epoch in range(200):
     epoch_start_time = time.time()
 
     for batch in train_loader:
@@ -196,7 +186,7 @@ for epoch in range(epochs):
 
     epoch_end_time = time.time()
     epoch_time = epoch_end_time - epoch_start_time
-    print(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}, Time: {epoch_time:.2f} seconds")
+    print(f"Epoch [{epoch+1}/200], Loss: {loss.item():.4f}, Time: {epoch_time:.2f} seconds")
 
 total_end_time = time.time()
 total_time = total_end_time - total_start_time
