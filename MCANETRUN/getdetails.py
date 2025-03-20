@@ -56,8 +56,8 @@ print(len(sort_ligands))
 # chrome_options.add_argument("--no-sandbox")
 
 # 设置下载目录
-download_dir_2D = 'MCANETRUN/2D/'
-download_dir_3D = 'MCANETRUN/3D/'
+download_dir_2D = '/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN'
+download_dir_3D = '/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN'
 for directory in [download_dir_2D, download_dir_3D]:
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -76,10 +76,31 @@ count = 0
 total = 0
 
 # 设置 ChromeDriver 路径
-local_path = "MCANETRUN/chromedriver-mac-arm64"
+local_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/chromedriver-mac-arm64/chromedriver"
 service = Service(local_path)
 
-for query in sort_ligands:
+failed_compounds = [
+    "CHEMBL1974574",
+    "CHEMBL1978099",
+    "CHEMBL1978166",
+    "CHEMBL1980904",
+    "CHEMBL1981045",
+    "CHEMBL1982866",
+    "CHEMBL1996923",
+    "CHEMBL269557",
+    "CHEMBL384283",
+    "CHEMBL396377",
+    "CHEMBL409397",
+    "CHEMBL413375",
+    "CHEMBL41783",
+    "CHEMBL86664"
+]
+
+
+sorted_failed_compounds = sorted(failed_compounds)
+print("错误的sort",len(sorted_failed_compounds))
+
+for query in sorted_failed_compounds:
     browser = None
     try:
         start = time.time()
