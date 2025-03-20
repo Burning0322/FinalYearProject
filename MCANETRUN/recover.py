@@ -48,7 +48,7 @@ sort_ligands = sorted(ligands)
 print(len(sort_ligands))
 
 # 设置 ChromeDriver 路径
-local_path = "/MCANETRUN/chromedriver-mac-arm64/chromedriver"
+local_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/chromedriver-mac-arm64/chromedriver"
 service = Service(local_path)
 
 for query in sort_ligands:
