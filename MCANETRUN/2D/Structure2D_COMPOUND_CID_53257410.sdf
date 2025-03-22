@@ -1,0 +1,190 @@
+53257410
+  -OEChem-03202500322D
+
+ 32 35  0     0  0  0  0  0  0999 V2000
+    3.1567    1.9841    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1182    2.2785    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6187    0.3378    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9229    0.6949    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1182   -1.7901    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3092   -1.2023    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6182   -0.2513    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9272   -1.2023    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6182   -0.2513    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0253   -2.8276    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3135    0.6949    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3512   -1.6113    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7835   -1.7333    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0770   -3.2586    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9290   -3.2733    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1182    1.2785    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2343   -2.6463    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7844   -2.7409    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3630    1.0056    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2062    2.2948    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    3.2733    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8538   -1.2411    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.3251   -1.4316    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0146   -3.8754    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9595   -3.8925    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6670   -2.8963    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.3265   -3.0417    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5866    2.2742    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1189    1.6810    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6067    3.4011    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8721    3.8800    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3933    3.1454    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 19  1  0  0  0  0
+  1 20  1  0  0  0  0
+  2 16  2  0  0  0  0
+  3 19  2  0  0  0  0
+  4  9  2  0  0  0  0
+  4 16  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5  8  1  0  0  0  0
+  5 10  2  0  0  0  0
+  6  7  1  0  0  0  0
+  6 12  2  0  0  0  0
+  7  9  1  0  0  0  0
+  7 11  2  0  0  0  0
+  8  9  1  0  0  0  0
+  8 13  2  0  0  0  0
+ 10 14  1  0  0  0  0
+ 10 15  1  0  0  0  0
+ 11 16  1  0  0  0  0
+ 11 19  1  0  0  0  0
+ 12 17  1  0  0  0  0
+ 12 22  1  0  0  0  0
+ 13 18  1  0  0  0  0
+ 13 23  1  0  0  0  0
+ 14 17  2  0  0  0  0
+ 14 24  1  0  0  0  0
+ 15 18  2  0  0  0  0
+ 15 25  1  0  0  0  0
+ 17 26  1  0  0  0  0
+ 18 27  1  0  0  0  0
+ 20 21  1  0  0  0  0
+ 20 28  1  0  0  0  0
+ 20 29  1  0  0  0  0
+ 21 30  1  0  0  0  0
+ 21 31  1  0  0  0  0
+ 21 32  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+53257410
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+575
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+3
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+0
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+3
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB6MAAAAAAAAAAAAAAAAAAAAYIAAAAwYAAAAAAQAGDBUAAAHgAAAAAADAihmAIyCMIABACoAyHyHACCAAAgAAAIiAEgANgIJK6IMRCCMAAioAAIqQcAgMAOgAACAAAQAAAAAAQAACAAAQAACAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+ethyl 8-oxoacenaphthyleno[2,1-b]pyrrole-9-carboxylate
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+8-oxo-9-acenaphthyleno[2,1-b]pyrrolecarboxylic acid ethyl ester
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+ethyl 8-oxoacenaphthyleno[2,1-b]pyrrole-9-carboxylate
+
+> <PUBCHEM_IUPAC_NAME>
+ethyl 8-oxoacenaphthyleno[2,1-b]pyrrole-9-carboxylate
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+ethyl 8-oxidanylideneacenaphthyleno[2,1-b]pyrrole-9-carboxylate
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+8-ketoacenaphtho[2,1-b]pyrrole-9-carboxylic acid ethyl ester
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C17H11NO3/c1-2-21-17(20)14-13-10-7-3-5-9-6-4-8-11(12(9)10)15(13)18-16(14)19/h3-8H,2H2,1H3
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+CEEHIKQKZBQZLL-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+2.9
+
+> <PUBCHEM_EXACT_MASS>
+277.07389321
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C17H11NO3
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+277.27
+
+> <PUBCHEM_SMILES>
+CCOC(=O)C1=C2C3=CC=CC4=C3C(=CC=C4)C2=NC1=O
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CCOC(=O)C1=C2C3=CC=CC4=C3C(=CC=C4)C2=NC1=O
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CCOC(=O)C1=C2C3=CC=CC4=C3C(=CC=C4)C2=NC1=O
+
+> <PUBCHEM_CACTVS_TPSA>
+55.7
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+277.07389321
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+21
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  14  8
+10  15  8
+12  17  8
+13  18  8
+14  17  8
+15  18  8
+5  10  8
+5  6  8
+5  8  8
+6  12  8
+8  13  8
+
+$$$$

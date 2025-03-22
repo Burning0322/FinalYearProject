@@ -1,0 +1,194 @@
+49831032
+  -OEChem-03202504032D
+
+ 32 34  0     0  0  0  0  0  0999 V2000
+   10.6648    1.6760    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6648   -0.0560    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0812    0.7487    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0812   -0.8608    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+   10.6648   -0.0560    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -1.0560    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5369   -1.0560    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    7.6648   -0.0560    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1350    0.4440    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1350   -0.5560    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.6648   -0.0560    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1648    0.8100    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1648   -0.9221    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.1648    0.8100    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.1648   -0.9221    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690    0.9440    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4030    0.4440    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4030   -0.5560    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   11.1648    0.8100    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   12.1648    0.8100    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8548    1.3469    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8548   -1.4590    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.4748    1.3469    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.4748   -1.4590    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690    1.5640    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.7540    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   10.9748   -0.5930    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.7460    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5369   -1.6760    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   12.1648    0.1900    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   12.7848    0.8100    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   12.1648    1.4300    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 19  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  8  1  0  0  0  0
+  3  9  2  0  0  0  0
+  4 10  2  0  0  0  0
+  5 11  1  0  0  0  0
+  5 19  1  0  0  0  0
+  5 27  1  0  0  0  0
+  6 10  1  0  0  0  0
+  6 18  2  0  0  0  0
+  7 18  1  0  0  0  0
+  7 28  1  0  0  0  0
+  7 29  1  0  0  0  0
+  8 12  2  0  0  0  0
+  8 13  1  0  0  0  0
+  9 10  1  0  0  0  0
+  9 16  1  0  0  0  0
+ 11 14  2  0  0  0  0
+ 11 15  1  0  0  0  0
+ 12 14  1  0  0  0  0
+ 12 21  1  0  0  0  0
+ 13 15  2  0  0  0  0
+ 13 22  1  0  0  0  0
+ 14 23  1  0  0  0  0
+ 15 24  1  0  0  0  0
+ 16 17  2  0  0  0  0
+ 16 25  1  0  0  0  0
+ 17 18  1  0  0  0  0
+ 17 26  1  0  0  0  0
+ 19 20  1  0  0  0  0
+ 20 30  1  0  0  0  0
+ 20 31  1  0  0  0  0
+ 20 32  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49831032
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+357
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+5
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+2
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzoAAAAAAAAAAAAAAAAAAAAWAAAAA8QAAAAAAAAFgB/AAAHgAYAAAACAiBlwAz8L7IEACqASdydACShC8hEqAdmCAwdJiIaOLAmZGUIAhgnALIyCcQAAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+N-[4-(5-aminotriazolo[4,5-b]pyridin-2-yl)phenyl]acetamide
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+N-[4-(5-amino-2-triazolo[4,5-b]pyridinyl)phenyl]acetamide
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+<I>N</I>-[4-(5-aminotriazolo[4,5-b]pyridin-2-yl)phenyl]acetamide
+
+> <PUBCHEM_IUPAC_NAME>
+N-[4-(5-aminotriazolo[4,5-b]pyridin-2-yl)phenyl]acetamide
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+N-[4-(5-azanyl-[1,2,3]triazolo[4,5-b]pyridin-2-yl)phenyl]ethanamide
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+N-[4-(5-aminotriazolo[4,5-b]pyridin-2-yl)phenyl]acetamide
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C13H12N6O/c1-8(20)15-9-2-4-10(5-3-9)19-17-11-6-7-12(14)16-13(11)18-19/h2-7H,1H3,(H,15,20)(H2,14,16,18)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+GZAQDFYUURXJSL-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+1.4
+
+> <PUBCHEM_EXACT_MASS>
+268.10725903
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C13H12N6O
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+268.27
+
+> <PUBCHEM_SMILES>
+CC(=O)NC1=CC=C(C=C1)N2N=C3C=CC(=NC3=N2)N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC(=O)NC1=CC=C(C=C1)N2N=C3C=CC(=NC3=N2)N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC(=O)NC1=CC=C(C=C1)N2N=C3C=CC(=NC3=N2)N
+
+> <PUBCHEM_CACTVS_TPSA>
+98.7
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+268.10725903
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+20
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+11  14  8
+11  15  8
+12  14  8
+13  15  8
+16  17  8
+17  18  8
+2  3  8
+2  4  8
+3  9  8
+4  10  8
+6  10  8
+6  18  8
+8  12  8
+8  13  8
+9  10  8
+9  16  8
+
+$$$$

@@ -1,0 +1,202 @@
+24905204
+  -OEChem-03202500042D
+
+ 33 36  0     0  0  0  0  0  0999 V2000
+    3.7899    1.4861    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7617    1.2769    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3107    0.4212    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6678   -1.2737    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3142   -1.8117    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3568   -1.7465    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8648    0.2882    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9570   -0.1169    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7308   -0.2118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2892    0.6274    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5968    0.2882    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4629   -0.2118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6464   -1.0674    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7308   -1.2118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4629   -1.2118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5968   -1.7118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3864    2.4011    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3568    0.3229    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.5294    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.2629   -0.1910    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.2629   -1.2326    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5968    0.9082    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1939   -1.5218    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5968   -2.3318    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9536    2.6513    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1361    2.9683    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8191    2.1508    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3496    0.9428    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3933   -0.6572    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1216   -2.4011    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9209   -1.6839    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.7986    0.1211    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.7986   -1.5447    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1 10  1  0  0  0  0
+  1 17  1  0  0  0  0
+  2  7  2  0  0  0  0
+  3 10  2  0  0  0  0
+  3 19  1  0  0  0  0
+  4 13  1  0  0  0  0
+  4 19  2  0  0  0  0
+  5 13  1  0  0  0  0
+  5 30  1  0  0  0  0
+  5 31  1  0  0  0  0
+  6 15  1  0  0  0  0
+  6 21  2  0  0  0  0
+  7  8  1  0  0  0  0
+  7  9  1  0  0  0  0
+  8 10  1  0  0  0  0
+  8 13  2  0  0  0  0
+  9 11  2  0  0  0  0
+  9 14  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 22  1  0  0  0  0
+ 12 15  2  0  0  0  0
+ 12 18  1  0  0  0  0
+ 14 16  2  0  0  0  0
+ 14 23  1  0  0  0  0
+ 15 16  1  0  0  0  0
+ 16 24  1  0  0  0  0
+ 17 25  1  0  0  0  0
+ 17 26  1  0  0  0  0
+ 17 27  1  0  0  0  0
+ 18 20  2  0  0  0  0
+ 18 28  1  0  0  0  0
+ 19 29  1  0  0  0  0
+ 20 21  1  0  0  0  0
+ 20 32  1  0  0  0  0
+ 21 33  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+24905204
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+377
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+5
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+1
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzgAAAAAAAAAAAAAAAAAAAAWAAAAA8WIAAAAAAAFix/gAAHAAYAAAADAjBHwQ/8P5IEACiAzZnZACShCsxgqAd2CA4ZJiIKOLA2dGEpAhoiALIyCcQgMAOCAACAAACAAAQAAQAAAQAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+1-methyl-3-(6-quinolyl)pyrazolo[3,4-d]pyrimidin-4-amine
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+1-methyl-3-(6-quinolinyl)-4-pyrazolo[3,4-d]pyrimidinamine
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+1-methyl-3-quinolin-6-ylpyrazolo[3,4-d]pyrimidin-4-amine
+
+> <PUBCHEM_IUPAC_NAME>
+1-methyl-3-quinolin-6-ylpyrazolo[3,4-d]pyrimidin-4-amine
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+1-methyl-3-quinolin-6-yl-pyrazolo[3,4-d]pyrimidin-4-amine
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+[1-methyl-3-(6-quinolyl)pyrazolo[3,4-d]pyrimidin-4-yl]amine
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C15H12N6/c1-21-15-12(14(16)18-8-19-15)13(20-21)10-4-5-11-9(7-10)3-2-6-17-11/h2-8H,1H3,(H2,16,18,19)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+UGUJFPIEAZXKAK-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+1.8
+
+> <PUBCHEM_EXACT_MASS>
+276.11234441
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C15H12N6
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+276.30
+
+> <PUBCHEM_SMILES>
+CN1C2=NC=NC(=C2C(=N1)C3=CC4=C(C=C3)N=CC=C4)N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CN1C2=NC=NC(=C2C(=N1)C3=CC4=C(C=C3)N=CC=C4)N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CN1C2=NC=NC(=C2C(=N1)C3=CC4=C(C=C3)N=CC=C4)N
+
+> <PUBCHEM_CACTVS_TPSA>
+82.5
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+276.11234441
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+21
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  10  8
+1  2  8
+11  12  8
+12  15  8
+12  18  8
+14  16  8
+15  16  8
+18  20  8
+2  7  8
+20  21  8
+3  10  8
+3  19  8
+4  13  8
+4  19  8
+6  15  8
+6  21  8
+7  8  8
+8  10  8
+8  13  8
+9  11  8
+9  14  8
+
+$$$$

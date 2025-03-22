@@ -1,0 +1,192 @@
+44328730
+  -OEChem-03202507342D
+
+ 34 36  0     0  0  0  0  0  0999 V2000
+    6.5406    3.2736    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    8.6097    0.4257    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6783    0.7088    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5406   -0.2466    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8007    2.0135    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5699   -2.6839    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2619    1.5135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2619    1.5135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8497    0.7045    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    1.0135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    2.0135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6783    2.3182    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8497    2.3225    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8007    1.0135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2098   -0.9897    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.5135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    2.5135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9008   -1.9408    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    1.0135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    2.0135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8709    0.1194    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8709    2.9076    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9342   -0.3755    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.7572   -1.2808    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5915   -0.5012    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3023    2.3779    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.1065    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    3.1335    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3533   -1.6497    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5190   -2.4293    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631    0.7035    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631    2.3235    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.3783   -3.2736    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1763   -2.5550    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 13  2  0  0  0  0
+  2 14  2  0  0  0  0
+  3  7  1  0  0  0  0
+  3 10  1  0  0  0  0
+  3 21  1  0  0  0  0
+  4  9  1  0  0  0  0
+  4 15  1  0  0  0  0
+  4 23  1  0  0  0  0
+  5 13  1  0  0  0  0
+  5 14  1  0  0  0  0
+  5 26  1  0  0  0  0
+  6 18  1  0  0  0  0
+  6 33  1  0  0  0  0
+  6 34  1  0  0  0  0
+  7  8  1  0  0  0  0
+  7 12  2  0  0  0  0
+  8  9  2  0  0  0  0
+  8 13  1  0  0  0  0
+  9 14  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 16  2  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 17  2  0  0  0  0
+ 12 22  1  0  0  0  0
+ 15 18  1  0  0  0  0
+ 15 24  1  0  0  0  0
+ 15 25  1  0  0  0  0
+ 16 19  1  0  0  0  0
+ 16 27  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 17 28  1  0  0  0  0
+ 18 29  1  0  0  0  0
+ 18 30  1  0  0  0  0
+ 19 20  2  0  0  0  0
+ 19 31  1  0  0  0  0
+ 20 32  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+44328730
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+460
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+4
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+4
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+4
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzsAAAAAAAAAAAAAAAAAAAAWIAAAAwAAAAAAAAAFgB8AAAHgAQAAAADAjBngQwwPLJkACoAyVyVACCgCAhAiAImaG4ZNgIYPrA1bGUIAhglCDIyUcYiICOAAAAAAACAAAAAAAAAAQAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+3-(2-aminoethylamino)-4-(1H-indol-2-yl)pyrrole-2,5-dione
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+3-(2-aminoethylamino)-4-(1H-indol-2-yl)pyrrole-2,5-dione
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+3-(2-aminoethylamino)-4-(1<I>H</I>-indol-2-yl)pyrrole-2,5-dione
+
+> <PUBCHEM_IUPAC_NAME>
+3-(2-aminoethylamino)-4-(1H-indol-2-yl)pyrrole-2,5-dione
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+3-(2-azanylethylamino)-4-(1H-indol-2-yl)pyrrole-2,5-dione
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+3-(2-aminoethylamino)-4-(1H-indol-2-yl)-3-pyrroline-2,5-quinone
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C14H14N4O2/c15-5-6-16-12-11(13(19)18-14(12)20)10-7-8-3-1-2-4-9(8)17-10/h1-4,7,17H,5-6,15H2,(H2,16,18,19,20)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+CTENBIIRXOOCRV-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+0.3
+
+> <PUBCHEM_EXACT_MASS>
+270.11167570
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C14H14N4O2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+270.29
+
+> <PUBCHEM_SMILES>
+C1=CC=C2C(=C1)C=C(N2)C3=C(C(=O)NC3=O)NCCN
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C1=CC=C2C(=C1)C=C(N2)C3=C(C(=O)NC3=O)NCCN
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C1=CC=C2C(=C1)C=C(N2)C3=C(C(=O)NC3=O)NCCN
+
+> <PUBCHEM_CACTVS_TPSA>
+100
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+270.11167570
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+20
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  11  8
+10  16  8
+11  12  8
+11  17  8
+16  19  8
+17  20  8
+19  20  8
+3  10  8
+3  7  8
+7  12  8
+
+$$$$

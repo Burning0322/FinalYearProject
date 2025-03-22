@@ -1,0 +1,198 @@
+49830643
+  -OEChem-03202503282D
+
+ 34 37  0     0  0  0  0  0  0999 V2000
+    7.6672    0.0545    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4103   -1.2008    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1374    0.5545    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4103   -2.8103    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    7.9939   -2.0055    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.5055    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    8.2096    2.6949    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2591    3.0055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.4158    1.7164    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5148    2.3377    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.6715    1.0485    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7210    1.3592    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7210   -0.2503    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -1.5055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9939   -2.0055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -2.5055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -1.0055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -3.0055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.5055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -2.5055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -1.0055    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.8292    2.7154    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.2969    3.3087    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5511    3.5525    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7712    3.3881    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.7434    1.1900    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.9911    1.9476    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1871    2.8641    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9395    2.1064    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -0.3855    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -3.6255    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1951   -2.8155    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3039   -2.5425    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3039   -1.4686    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 11  1  0  0  0  0
+  1 13  1  0  0  0  0
+  2 13  1  0  0  0  0
+  2 14  1  0  0  0  0
+  2 15  1  0  0  0  0
+  3 12  1  0  0  0  0
+  3 13  2  0  0  0  0
+  4 15  2  0  0  0  0
+  4 16  1  0  0  0  0
+  5 15  1  0  0  0  0
+  5 33  1  0  0  0  0
+  5 34  1  0  0  0  0
+  6 21  3  0  0  0  0
+  7  8  1  0  0  0  0
+  7  9  1  0  0  0  0
+  7 22  1  0  0  0  0
+  7 23  1  0  0  0  0
+  8 10  1  0  0  0  0
+  8 24  1  0  0  0  0
+  8 25  1  0  0  0  0
+  9 11  1  0  0  0  0
+  9 26  1  0  0  0  0
+  9 27  1  0  0  0  0
+ 10 12  1  0  0  0  0
+ 10 28  1  0  0  0  0
+ 10 29  1  0  0  0  0
+ 11 12  2  0  0  0  0
+ 14 16  2  0  0  0  0
+ 14 17  1  0  0  0  0
+ 16 18  1  0  0  0  0
+ 17 19  2  0  0  0  0
+ 17 30  1  0  0  0  0
+ 18 20  2  0  0  0  0
+ 18 31  1  0  0  0  0
+ 19 20  1  0  0  0  0
+ 19 21  1  0  0  0  0
+ 20 32  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49830643
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+449
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+5
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+1
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzgABAAAAAAAAAAAAAAAAAAWLAAAAwYAAAAAAAAFgB/AAAHAQQAAAADAiBXgAx0bdMEAi0ByRiZACi8K1hGrgJmDQwdJiI6KLgmZGUIAhogAJIyC8QgAAOCAAAQAAAACAQAACAAAACQAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+2-amino-3-(4,5,6,7-tetrahydro-1,3-benzothiazol-2-yl)benzimidazole-5-carbonitrile
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+2-amino-3-(4,5,6,7-tetrahydro-1,3-benzothiazol-2-yl)-5-benzimidazolecarbonitrile
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+2-amino-3-(4,5,6,7-tetrahydro-1,3-benzothiazol-2-yl)benzimidazole-5-carbonitrile
+
+> <PUBCHEM_IUPAC_NAME>
+2-amino-3-(4,5,6,7-tetrahydro-1,3-benzothiazol-2-yl)benzimidazole-5-carbonitrile
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+2-azanyl-3-(4,5,6,7-tetrahydro-1,3-benzothiazol-2-yl)benzimidazole-5-carbonitrile
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+2-amino-3-(4,5,6,7-tetrahydro-1,3-benzothiazol-2-yl)benzimidazole-5-carbonitrile
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C15H13N5S/c16-8-9-5-6-10-12(7-9)20(14(17)18-10)15-19-11-3-1-2-4-13(11)21-15/h5-7H,1-4H2,(H2,17,18)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+XCVOMKXWDRSPAQ-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+2.9
+
+> <PUBCHEM_EXACT_MASS>
+295.08916661
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C15H13N5S
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+295.4
+
+> <PUBCHEM_SMILES>
+C1CCC2=C(C1)N=C(S2)N3C4=C(C=CC(=C4)C#N)N=C3N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C1CCC2=C(C1)N=C(S2)N3C4=C(C=CC(=C4)C#N)N=C3N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C1CCC2=C(C1)N=C(S2)N3C4=C(C=CC(=C4)C#N)N=C3N
+
+> <PUBCHEM_CACTVS_TPSA>
+109
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+295.08916661
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+21
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  11  8
+1  13  8
+11  12  8
+14  16  8
+14  17  8
+16  18  8
+17  19  8
+18  20  8
+19  20  8
+2  14  8
+2  15  8
+3  12  8
+3  13  8
+4  15  8
+4  16  8
+
+$$$$

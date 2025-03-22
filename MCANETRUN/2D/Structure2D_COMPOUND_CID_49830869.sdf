@@ -1,0 +1,199 @@
+49830869
+  -OEChem-03202503352D
+
+ 34 36  0     0  0  0  0  0  0999 V2000
+    2.8660   -3.9239    0.0000 Br  0  0  0  0  0  0  0  0  0  0  0  0
+    6.2731    2.1639    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.0761    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962   -1.4239    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -1.4239    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    8.0622    1.0761    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641    0.5761    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -0.9239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981    0.0761    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.4239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641    1.5761    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301    0.0761    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301   -0.9239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6551    2.1639    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.9239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -2.4239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9641    3.1149    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9641    3.1149    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -1.4239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -2.9239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -2.4239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5519    3.9239    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962    0.5761    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0611    0.3861    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -2.0439    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0654    1.9723    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -2.7339    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5997    3.6165    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -1.1139    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -2.7339    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.0535    3.5595    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9163    4.4255    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0503    4.2884    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3291    0.3861    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 20  1  0  0  0  0
+  2 11  1  0  0  0  0
+  2 17  1  0  0  0  0
+  3 15  1  0  0  0  0
+  3 34  1  0  0  0  0
+  4 13  2  0  0  0  0
+  5  8  1  0  0  0  0
+  5 13  1  0  0  0  0
+  5 25  1  0  0  0  0
+  6 23  3  0  0  0  0
+  7  9  1  0  0  0  0
+  7 11  1  0  0  0  0
+  7 12  2  0  0  0  0
+  8  9  2  0  0  0  0
+  8 10  1  0  0  0  0
+  9 24  1  0  0  0  0
+ 10 15  2  0  0  0  0
+ 10 16  1  0  0  0  0
+ 11 14  2  0  0  0  0
+ 12 13  1  0  0  0  0
+ 12 23  1  0  0  0  0
+ 14 18  1  0  0  0  0
+ 14 26  1  0  0  0  0
+ 15 19  1  0  0  0  0
+ 16 20  2  0  0  0  0
+ 16 27  1  0  0  0  0
+ 17 18  2  0  0  0  0
+ 17 22  1  0  0  0  0
+ 18 28  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 19 29  1  0  0  0  0
+ 20 21  1  0  0  0  0
+ 21 30  1  0  0  0  0
+ 22 31  1  0  0  0  0
+ 22 32  1  0  0  0  0
+ 22 33  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49830869
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+621
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+4
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+2
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB7MABAEAAAAAAAAAAAAAAAASAAAAAwQAAAAAAAAAABwAAAHgRQCAABrAyB2AAyB4LAAgicBiVSUACjAIAgKhRIiBkGDOgIpiKikROEcAhmxBGomxeQwCAOABAAEAAIAAAAIAAgABAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+6-(5-bromo-2-hydroxy-phenyl)-4-(5-methyl-2-thienyl)-2-oxo-1H-pyridine-3-carbonitrile
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+6-(5-bromo-2-hydroxyphenyl)-4-(5-methyl-2-thiophenyl)-2-oxo-1H-pyridine-3-carbonitrile
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+6-(5-bromo-2-hydroxyphenyl)-4-(5-methylthiophen-2-yl)-2-oxo-1<I>H</I>-pyridine-3-carbonitrile
+
+> <PUBCHEM_IUPAC_NAME>
+6-(5-bromo-2-hydroxyphenyl)-4-(5-methylthiophen-2-yl)-2-oxo-1H-pyridine-3-carbonitrile
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+6-(5-bromanyl-2-oxidanyl-phenyl)-4-(5-methylthiophen-2-yl)-2-oxidanylidene-1H-pyridine-3-carbonitrile
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+6-(5-bromo-2-hydroxy-phenyl)-2-keto-4-(5-methyl-2-thienyl)-1H-pyridine-3-carbonitrile
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C17H11BrN2O2S/c1-9-2-5-16(23-9)11-7-14(20-17(22)13(11)8-19)12-6-10(18)3-4-15(12)21/h2-7,21H,1H3,(H,20,22)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+JRLSUZIPUYDUKX-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+3.4
+
+> <PUBCHEM_EXACT_MASS>
+385.97246
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C17H11BrN2O2S
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+387.3
+
+> <PUBCHEM_SMILES>
+CC1=CC=C(S1)C2=C(C(=O)NC(=C2)C3=C(C=CC(=C3)Br)O)C#N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC1=CC=C(S1)C2=C(C(=O)NC(=C2)C3=C(C=CC(=C3)Br)O)C#N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC1=CC=C(S1)C2=C(C(=O)NC(=C2)C3=C(C=CC(=C3)Br)O)C#N
+
+> <PUBCHEM_CACTVS_TPSA>
+101
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+385.97246
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+23
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  15  8
+10  16  8
+11  14  8
+12  13  8
+14  18  8
+15  19  8
+16  20  8
+17  18  8
+19  21  8
+2  11  8
+2  17  8
+20  21  8
+5  13  8
+5  8  8
+7  12  8
+7  9  8
+8  9  8
+
+$$$$

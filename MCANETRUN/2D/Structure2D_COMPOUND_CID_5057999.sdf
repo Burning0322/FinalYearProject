@@ -1,0 +1,202 @@
+5057999
+  -OEChem-03202502232D
+
+ 36 38  0     0  0  0  0  0  0999 V2000
+    2.0000    1.0000    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    5.5443    0.8047    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0
+    8.6279    0.8660    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+   11.6279   -0.8660    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1279   -1.7320    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1279    0.0000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5443   -0.8047    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    8.6279   -0.8660    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981    0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.1279    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1279    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.6279   -0.8660    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.1279   -1.7320    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   10.1279    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   10.6279   -0.8660    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   10.1279   -1.7320    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.1279    1.7320    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   12.1279   -1.7320    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.8179   -2.2690    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4379    0.5369    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   10.4379    0.5369    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    1.6200    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.6200    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   10.4379   -2.2690    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3291   -0.8100    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.6648    1.4220    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.4379    2.2690    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.5910    2.0420    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   11.5910   -2.0420    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   12.4379   -2.2690    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   12.6648   -1.4220    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 20  1  0  0  0  0
+  2  9  1  0  0  0  0
+  2 12  1  0  0  0  0
+  3 11  1  0  0  0  0
+  3 22  1  0  0  0  0
+  4 16  1  0  0  0  0
+  4 23  1  0  0  0  0
+  5 13  2  0  0  0  0
+  6 12  1  0  0  0  0
+  6 13  1  0  0  0  0
+  6 25  1  0  0  0  0
+  7 10  1  0  0  0  0
+  7 12  2  0  0  0  0
+  8 11  2  0  0  0  0
+  8 13  1  0  0  0  0
+  8 14  1  0  0  0  0
+  9 10  2  0  0  0  0
+  9 17  1  0  0  0  0
+ 10 18  1  0  0  0  0
+ 11 15  1  0  0  0  0
+ 14 19  2  0  0  0  0
+ 14 24  1  0  0  0  0
+ 15 16  2  0  0  0  0
+ 15 26  1  0  0  0  0
+ 16 19  1  0  0  0  0
+ 17 20  2  0  0  0  0
+ 17 27  1  0  0  0  0
+ 18 21  2  0  0  0  0
+ 18 28  1  0  0  0  0
+ 19 29  1  0  0  0  0
+ 20 21  1  0  0  0  0
+ 21 30  1  0  0  0  0
+ 22 31  1  0  0  0  0
+ 22 32  1  0  0  0  0
+ 22 33  1  0  0  0  0
+ 23 34  1  0  0  0  0
+ 23 35  1  0  0  0  0
+ 23 36  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+5057999
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+428
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+5
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+4
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB7MABEAAAAAAAAAAAAAAAAAWAAAAAwYAAAAAAAAFgB9AAAHgYQAAAADA6B3iIz17LIFAisAyVydACD+KllLzlJmD02btiMJ7blv5uEMWhv4RdI6aeY/C7OIABACBAIAQBAAIAQIBACAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+N-(6-chloro-1,3-benzothiazol-2-yl)-2,4-dimethoxy-benzamide
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+N-(6-chloro-1,3-benzothiazol-2-yl)-2,4-dimethoxybenzamide
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+<I>N</I>-(6-chloro-1,3-benzothiazol-2-yl)-2,4-dimethoxybenzamide
+
+> <PUBCHEM_IUPAC_NAME>
+N-(6-chloro-1,3-benzothiazol-2-yl)-2,4-dimethoxybenzamide
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+N-(6-chloranyl-1,3-benzothiazol-2-yl)-2,4-dimethoxy-benzamide
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+N-(6-chloro-1,3-benzothiazol-2-yl)-2,4-dimethoxy-benzamide
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C16H13ClN2O3S/c1-21-10-4-5-11(13(8-10)22-2)15(20)19-16-18-12-6-3-9(17)7-14(12)23-16/h3-8H,1-2H3,(H,18,19,20)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+UNVKXVCDLOLPJE-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+4.1
+
+> <PUBCHEM_EXACT_MASS>
+348.0335411
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C16H13ClN2O3S
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+348.8
+
+> <PUBCHEM_SMILES>
+COC1=CC(=C(C=C1)C(=O)NC2=NC3=C(S2)C=C(C=C3)Cl)OC
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+COC1=CC(=C(C=C1)C(=O)NC2=NC3=C(S2)C=C(C=C3)Cl)OC
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+COC1=CC(=C(C=C1)C(=O)NC2=NC3=C(S2)C=C(C=C3)Cl)OC
+
+> <PUBCHEM_CACTVS_TPSA>
+88.7
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+348.0335411
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+23
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  18  8
+11  15  8
+14  19  8
+15  16  8
+16  19  8
+17  20  8
+18  21  8
+2  12  8
+2  9  8
+20  21  8
+7  10  8
+7  12  8
+8  11  8
+8  14  8
+9  10  8
+9  17  8
+
+$$$$

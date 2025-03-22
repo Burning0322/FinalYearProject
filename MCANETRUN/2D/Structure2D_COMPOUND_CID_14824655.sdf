@@ -1,0 +1,186 @@
+14824655
+  -OEChem-03202506092D
+
+ 32 34  0     1  0  0  0  0  0999 V2000
+    7.0709   -0.1775    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    8.2432    0.3527    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    8.2432    2.5283    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7921   -1.9376    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6497   -2.2121    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8680    0.8466    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4831    0.6315    0.0000 C   0  0  3  0  0  0  0  0  0  0  0  0
+    7.4342    0.9405    0.0000 C   0  0  3  0  0  0  0  0  0  0  0  0
+    5.5320    0.3225    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8953    1.4405    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5320   -0.6775    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4342    1.9405    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4831    2.2495    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4831   -0.9865    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6381    0.8571    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8953    1.4405    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6381   -1.2122    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    0.3433    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -0.6983    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    0.3500    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.9866    1.2220    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2915    2.8392    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6453    1.4771    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8953    2.0605    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2753    1.4405    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8953    0.8205    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.8096    0.6049    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1963   -1.0104    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1164   -2.5283    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6921    0.8881    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4619    0.0420    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3079   -0.1882    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  7  1  0  0  0  0
+  1 14  1  0  0  0  0
+  2  8  1  0  0  0  0
+  2 27  1  0  0  0  0
+  3 12  2  0  0  0  0
+  4 14  2  0  0  0  0
+  5 17  1  0  0  0  0
+  5 29  1  0  0  0  0
+  6 18  1  0  0  0  0
+  6 20  1  0  0  0  0
+  7  8  1  0  0  0  0
+  7  9  1  0  0  0  0
+  7 10  1  0  0  0  0
+  8 12  1  0  0  0  0
+  8 21  1  0  0  0  0
+  9 11  2  0  0  0  0
+  9 15  1  0  0  0  0
+ 10 13  2  0  0  0  0
+ 10 16  1  0  0  0  0
+ 11 14  1  0  0  0  0
+ 11 17  1  0  0  0  0
+ 12 13  1  0  0  0  0
+ 13 22  1  0  0  0  0
+ 15 18  2  0  0  0  0
+ 15 23  1  0  0  0  0
+ 16 24  1  0  0  0  0
+ 16 25  1  0  0  0  0
+ 16 26  1  0  0  0  0
+ 17 19  2  0  0  0  0
+ 18 19  1  0  0  0  0
+ 19 28  1  0  0  0  0
+ 20 30  1  0  0  0  0
+ 20 31  1  0  0  0  0
+ 20 32  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+14824655
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+498
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+6
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+1
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBwOAAAAAAAAAAAAAAAAAAAASIAAAAwAAAAAAAAAEgBAAAAGgAACAAADFSgmAIyDoAABgCIAqDSCAICCAAkIAAAiAFGCMgNNzaGNRqCcWAl4BULuQfK7PzOoAABCAAYAABAAAIQADAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+5,7'-dihydroxy-5'-methoxy-3-methyl-spiro[cyclopent-2-ene-4,3'-isobenzofuran]-1,1'-dione
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+5,7'-dihydroxy-5'-methoxy-3-methylspiro[cyclopent-2-ene-4,3'-isobenzofuran]-1,1'-dione
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+5&apos;,7-dihydroxy-5-methoxy-3&apos;-methylspiro[2-benzofuran-3,4&apos;-cyclopent-2-ene]-1,1&apos;-dione
+
+> <PUBCHEM_IUPAC_NAME>
+5',7-dihydroxy-5-methoxy-3'-methylspiro[2-benzofuran-3,4'-cyclopent-2-ene]-1,1'-dione
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+5-methoxy-3'-methyl-5',7-bis(oxidanyl)spiro[2-benzofuran-3,4'-cyclopent-2-ene]-1,1'-dione
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+5,7'-dihydroxy-5'-methoxy-3-methyl-spiro[cyclopent-2-ene-4,3'-phthalan]-1,1'-quinone
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C14H12O6/c1-6-3-10(16)12(17)14(6)8-4-7(19-2)5-9(15)11(8)13(18)20-14/h3-5,12,15,17H,1-2H3
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+ISNKGHIHBITAEG-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+0.8
+
+> <PUBCHEM_EXACT_MASS>
+276.06338810
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C14H12O6
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+276.24
+
+> <PUBCHEM_SMILES>
+CC1=CC(=O)C(C12C3=C(C(=CC(=C3)OC)O)C(=O)O2)O
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC1=CC(=O)C(C12C3=C(C(=CC(=C3)OC)O)C(=O)O2)O
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC1=CC(=O)C(C12C3=C(C(=CC(=C3)OC)O)C(=O)O2)O
+
+> <PUBCHEM_CACTVS_TPSA>
+93.1
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+276.06338810
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+20
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+2
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+11  17  8
+15  18  8
+17  19  8
+18  19  8
+8  2  3
+7  9  3
+9  11  8
+9  15  8
+
+$$$$

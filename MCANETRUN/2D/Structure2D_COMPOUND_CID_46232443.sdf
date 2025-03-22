@@ -1,0 +1,200 @@
+46232443
+  -OEChem-03202507102D
+
+ 34 36  0     1  0  0  0  0  0999 V2000
+    4.5981    1.2673    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -1.7327    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    2.2673    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641   -0.2327    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    8.9561   -2.2673    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -0.7327    0.0000 C   0  0  1  0  0  0  0  0  0  0  0  0
+    3.7320   -0.2327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -1.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301   -0.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.0622   -0.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    0.7673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962   -0.2327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.0622   -1.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301   -1.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962   -2.2327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    1.2673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.2327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.9561   -0.1980    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    0.7673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.8622   -0.7119    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.8622   -1.7535    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -0.1127    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9781   -1.7327    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981   -2.3527    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2181   -1.7327    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962    0.3873    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7932   -2.0427    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962   -2.8527    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -0.5427    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.9490    0.4220    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631    1.0773    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   10.3979   -0.3998    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   10.3979   -2.0656    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 11  1  0  0  0  0
+  2 12  1  0  0  0  0
+  3 17  1  0  0  0  0
+  6  4  1  6  0  0  0
+  4  9  1  0  0  0  0
+  5 14  1  0  0  0  0
+  5 22  2  0  0  0  0
+  6  7  1  0  0  0  0
+  6  8  1  0  0  0  0
+  6 23  1  0  0  0  0
+  7 11  1  0  0  0  0
+  7 12  2  0  0  0  0
+  8 24  1  0  0  0  0
+  8 25  1  0  0  0  0
+  8 26  1  0  0  0  0
+  9 13  2  0  0  0  0
+  9 15  1  0  0  0  0
+ 10 13  1  0  0  0  0
+ 10 14  2  0  0  0  0
+ 10 19  1  0  0  0  0
+ 11 17  2  0  0  0  0
+ 12 18  1  0  0  0  0
+ 13 27  1  0  0  0  0
+ 14 16  1  0  0  0  0
+ 15 16  2  0  0  0  0
+ 15 28  1  0  0  0  0
+ 16 29  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 20  2  0  0  0  0
+ 18 30  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 19 31  1  0  0  0  0
+ 20 32  1  0  0  0  0
+ 21 22  1  0  0  0  0
+ 21 33  1  0  0  0  0
+ 22 34  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+46232443
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+373
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+3
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+0
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+3
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB6IQAGAAAAAAAAAAAAAAAAAAAAAAA8YIAAAAAAAACx9AAAHwIAAAAADB7hni4+xvIIFACgAzRnRACCiCAxJyAI2CA+bpgMJuLFs5uGOCjkwBHI6AewwLAOAEABAACDAAAAgAIAAQYAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+6-[(1R)-1-(2,6-dichloro-3-fluoro-phenyl)ethoxy]quinoline
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+6-[(1R)-1-(2,6-dichloro-3-fluorophenyl)ethoxy]quinoline
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+6-[(1<I>R</I>)-1-(2,6-dichloro-3-fluorophenyl)ethoxy]quinoline
+
+> <PUBCHEM_IUPAC_NAME>
+6-[(1R)-1-(2,6-dichloro-3-fluorophenyl)ethoxy]quinoline
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+6-[(1R)-1-[2,6-bis(chloranyl)-3-fluoranyl-phenyl]ethoxy]quinoline
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+6-[(1R)-1-(2,6-dichloro-3-fluoro-phenyl)ethoxy]quinoline
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C17H12Cl2FNO/c1-10(16-13(18)5-6-14(20)17(16)19)22-12-4-7-15-11(9-12)3-2-8-21-15/h2-10H,1H3/t10-/m1/s1
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+DORFEDMRVQLEQT-SNVBAGLBSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+5.4
+
+> <PUBCHEM_EXACT_MASS>
+335.0279976
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C17H12Cl2FNO
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+336.2
+
+> <PUBCHEM_SMILES>
+C[C@H](C1=C(C=CC(=C1Cl)F)Cl)OC2=CC3=C(C=C2)N=CC=C3
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC(C1=C(C=CC(=C1Cl)F)Cl)OC2=CC3=C(C=C2)N=CC=C3
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C[C@H](C1=C(C=CC(=C1Cl)F)Cl)OC2=CC3=C(C=C2)N=CC=C3
+
+> <PUBCHEM_CACTVS_TPSA>
+22.1
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+335.0279976
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+22
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+1
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  13  8
+10  14  8
+10  19  8
+11  17  8
+12  18  8
+14  16  8
+15  16  8
+17  20  8
+18  20  8
+19  21  8
+21  22  8
+6  4  6
+5  14  8
+5  22  8
+7  11  8
+7  12  8
+9  13  8
+9  15  8
+
+$$$$

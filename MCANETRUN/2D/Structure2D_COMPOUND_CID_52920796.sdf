@@ -1,0 +1,231 @@
+52920796
+  -OEChem-03202500242D
+
+ 49 52  0     1  0  0  0  0  0999 V2000
+   10.4164    5.3011    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    3.0598    5.5824    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5878    0.0301    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0000    1.0482    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0772    2.1461    0.0000 N   0  0  3  0  0  0  0  0  0  0  0  0
+    2.3907    4.8392    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7054    8.1756    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8394    5.6756    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6516    6.8709    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9734    7.1756    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    7.9156   10.7383    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9651   11.0489    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0990    1.9382    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5772    1.2801    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9945    0.9437    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9081    0.5369    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4839    3.0596    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8907    3.9732    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8688    4.1811    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9734    5.1756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7054    7.1756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8394    6.6756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6516    8.4804    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8394    8.6756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9734    8.1756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2352    7.6756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9623    9.4309    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1073    8.6756    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.9139    9.7383    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3759   10.2409    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0342    2.5548    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4791    1.9382    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9921    0.8193    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0788    1.6445    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5981    0.0000    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4097    0.1725    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9175    3.3118    0.0000 H   1  0  0  0  0  0  0  0  0  0  0  0
+    3.0503    2.8075    0.0000 H   1  0  0  0  0  0  0  0  0  0  0  0
+    4.3296    3.7662    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3763    5.3656    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8394    9.2956    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.8552    7.6756    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4173    9.2126    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5704    8.9856    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7973    8.1387    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.4148    9.3730    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7559   10.2420    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.4178   11.1018    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   11.4164    5.3011    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 49  1  0  0  0  0
+  2  6  1  0  0  0  0
+  2 20  1  0  0  0  0
+  3 15  1  0  0  0  0
+  4 15  1  0  0  0  0
+  5 13  1  0  0  0  0
+  5 14  1  0  0  0  0
+  5 17  1  0  0  0  0
+  6 18  2  0  0  0  0
+  7 21  1  0  0  0  0
+  7 23  1  0  0  0  0
+  7 24  1  0  0  0  0
+  8 20  1  0  0  0  0
+  8 22  1  0  0  0  0
+  8 40  1  0  0  0  0
+  9 21  2  0  0  0  0
+  9 26  1  0  0  0  0
+ 10 22  2  0  0  0  0
+ 10 25  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 29  1  0  0  0  0
+ 11 48  1  0  0  0  0
+ 12 30  2  0  0  0  0
+ 13 15  1  0  0  0  0
+ 13 31  1  0  0  0  0
+ 13 32  1  0  0  0  0
+ 14 16  1  0  0  0  0
+ 14 33  1  0  0  0  0
+ 14 34  1  0  0  0  0
+ 15 16  1  0  0  0  0
+ 16 35  1  0  0  0  0
+ 16 36  1  0  0  0  0
+ 17 18  1  0  0  0  0
+ 17 37  1  0  0  0  0
+ 17 38  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 19 20  2  0  0  0  0
+ 19 39  1  0  0  0  0
+ 21 22  1  0  0  0  0
+ 23 26  2  0  0  0  0
+ 23 27  1  0  0  0  0
+ 24 25  2  0  0  0  0
+ 24 41  1  0  0  0  0
+ 25 28  1  0  0  0  0
+ 26 42  1  0  0  0  0
+ 27 29  2  0  0  0  0
+ 27 30  1  0  0  0  0
+ 28 43  1  0  0  0  0
+ 28 44  1  0  0  0  0
+ 28 45  1  0  0  0  0
+ 29 46  1  0  0  0  0
+ 30 47  1  0  0  0  0
+M  ISO  2  37   2  38   2
+M  END
+> <PUBCHEM_COMPOUND_CID>
+52920796
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+586
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+9
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+3
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+5
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADceB7wYBEAAAAAAAAAAAAAAAAAWLFiwAsAAAAAAAAAFgB/gAAHQQYQAAADAjBXxQ/sZ/vGACmAzZnZACThD0xkqlR+bg4dJiIaMBAycEUhAxIGALAQCAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+3-[dideuterio-(3,3-difluoropyrrolidin-1-yl)methyl]-N-[6-methyl-3-(1H-pyrazol-4-yl)imidazo[1,2-a]pyrazin-8-yl]isothiazol-5-amine;hydrochloride
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+3-[dideuterio-(3,3-difluoro-1-pyrrolidinyl)methyl]-N-[6-methyl-3-(1H-pyrazol-4-yl)-8-imidazo[1,2-a]pyrazinyl]-5-isothiazolamine;hydrochloride
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+3-[dideuterio-(3,3-difluoropyrrolidin-1-yl)methyl]-<I>N</I>-[6-methyl-3-(1<I>H</I>-pyrazol-4-yl)imidazo[1,2-a]pyrazin-8-yl]-1,2-thiazol-5-amine;hydrochloride
+
+> <PUBCHEM_IUPAC_NAME>
+3-[dideuterio-(3,3-difluoropyrrolidin-1-yl)methyl]-N-[6-methyl-3-(1H-pyrazol-4-yl)imidazo[1,2-a]pyrazin-8-yl]-1,2-thiazol-5-amine;hydrochloride
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+3-[[3,3-bis(fluoranyl)pyrrolidin-1-yl]-dideuterio-methyl]-N-[6-methyl-3-(1H-pyrazol-4-yl)imidazo[1,2-a]pyrazin-8-yl]-1,2-thiazol-5-amine;hydrochloride
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+[3-[dideuterio-(3,3-difluoropyrrolidino)methyl]isothiazol-5-yl]-[6-methyl-3-(1H-pyrazol-4-yl)imidazo[1,2-a]pyrazin-8-yl]amine;hydrochloride
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C18H18F2N8S.ClH/c1-11-8-28-14(12-5-22-23-6-12)7-21-17(28)16(24-11)25-15-4-13(26-29-15)9-27-3-2-18(19,20)10-27;/h4-8H,2-3,9-10H2,1H3,(H,22,23)(H,24,25);1H/i9D2;
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+NFJPXRXPCPLHJV-PWLDLRDISA-N
+
+> <PUBCHEM_EXACT_MASS>
+454.1235513
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C18H19ClF2N8S
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+454.9
+
+> <PUBCHEM_SMILES>
+[2H]C([2H])(C1=NSC(=C1)NC2=NC(=CN3C2=NC=C3C4=CNN=C4)C)N5CCC(C5)(F)F.Cl
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC1=CN2C(=CN=C2C(=N1)NC3=CC(=NS3)CN4CCC(C4)(F)F)C5=CNN=C5.Cl
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+[2H]C([2H])(C1=NSC(=C1)NC2=NC(=CN3C2=NC=C3C4=CNN=C4)C)N5CCC(C5)(F)F.Cl
+
+> <PUBCHEM_CACTVS_TPSA>
+115
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+454.1235513
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+30
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+2
+
+> <PUBCHEM_COMPONENT_COUNT>
+2
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  22  8
+10  25  8
+11  12  8
+11  29  8
+12  30  8
+18  19  8
+19  20  8
+2  20  8
+2  6  8
+21  22  8
+23  26  8
+24  25  8
+27  29  8
+27  30  8
+6  18  8
+7  21  8
+7  23  8
+7  24  8
+9  21  8
+9  26  8
+
+$$$$

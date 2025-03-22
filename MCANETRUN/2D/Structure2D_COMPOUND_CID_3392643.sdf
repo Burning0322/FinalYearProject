@@ -1,0 +1,165 @@
+3392643
+  -OEChem-03202502582D
+
+ 20 22  0     0  0  0  0  0  0999 V2000
+    4.8370   -1.3830    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8311   -1.3821    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0274    1.1005    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0274    1.1005    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3364    0.1494    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7183    0.1494    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5274   -0.4384    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3424    1.8852    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1391   -0.4370    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7029   -0.0828    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3219    1.6765    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    0.6859    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6338    1.2294    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9626    1.7171    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5408    2.4726    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7291   -0.2464    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5182   -0.6747    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.4734   -1.8852    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9088    2.1388    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3940    0.5546    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  7  1  0  0  0  0
+  1 18  1  0  0  0  0
+  2  9  2  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+  3 13  1  0  0  0  0
+  3 14  1  0  0  0  0
+  4  6  1  0  0  0  0
+  4  8  2  0  0  0  0
+  5  7  2  0  0  0  0
+  5  9  1  0  0  0  0
+  6  7  1  0  0  0  0
+  6 10  2  0  0  0  0
+  8 11  1  0  0  0  0
+  8 15  1  0  0  0  0
+  9 16  1  0  0  0  0
+ 10 12  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  2  0  0  0  0
+ 11 19  1  0  0  0  0
+ 12 20  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+3392643
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+181
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+1
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+0
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzAAAAAAAAAAAAAAAAAAAAAeIAAAAwAAAAAAAWAGABwAAAHAAYAAAADAjBHgQ8gJBjAACiAzRnQACSBAAggAAYuSAgRJgIIKKA0dGApABgiAAIyAcQgMAOgAAAAAAQAAAAAAAAACAAASAACQAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+1,4-dihydroindeno[1,2-c]pyrazole
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+1,4-dihydroindeno[1,2-c]pyrazole
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+1,4-dihydroindeno[1,2-c]pyrazole
+
+> <PUBCHEM_IUPAC_NAME>
+1,4-dihydroindeno[1,2-c]pyrazole
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+1,4-dihydroindeno[1,2-c]pyrazole
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+1,4-dihydroindeno[1,2-c]pyrazole
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C10H8N2/c1-2-4-9-7(3-1)5-8-6-11-12-10(8)9/h1-4,6H,5H2,(H,11,12)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+DGYDIEIMGSEYDK-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+1.9
+
+> <PUBCHEM_EXACT_MASS>
+156.068748264
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C10H8N2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+156.18
+
+> <PUBCHEM_SMILES>
+C1C2=CC=CC=C2C3=C1C=NN3
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C1C2=CC=CC=C2C3=C1C=NN3
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C1C2=CC=CC=C2C3=C1C=NN3
+
+> <PUBCHEM_CACTVS_TPSA>
+28.7
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+156.068748264
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+12
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  2  8
+1  7  8
+10  12  8
+11  12  8
+2  9  8
+4  6  8
+4  8  8
+5  7  8
+5  9  8
+6  10  8
+8  11  8
+
+$$$$

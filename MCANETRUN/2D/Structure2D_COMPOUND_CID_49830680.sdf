@@ -1,0 +1,201 @@
+49830680
+  -OEChem-03202502142D
+
+ 35 37  0     0  0  0  0  0  0999 V2000
+    2.0000   -4.2568    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    8.1282    4.2673    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
+    9.1282    3.2673    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1282    3.2673    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2622   -1.2327    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5301   -1.2327    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5301   -4.2327    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3961    0.2673    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2622    1.7673    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6641   -2.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5301   -2.2327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6641   -3.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7702   -2.1980    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3961   -2.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7702   -4.2673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8641   -2.7118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8641   -3.7535    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3961   -3.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3961   -0.7327    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2622    0.7673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1282    2.2673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1282    0.2673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.9942    1.7673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.9942    0.7673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1282    3.2673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7773   -1.5780    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9932   -0.9227    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9331   -2.4227    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7773   -4.8873    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3284   -2.3998    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9331   -4.0427    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8592    0.5773    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1282   -0.3527    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.5312    2.0773    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    9.5312    0.4573    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 17  1  0  0  0  0
+  2 25  1  0  0  0  0
+  3 25  1  0  0  0  0
+  4 25  1  0  0  0  0
+  5 19  2  0  0  0  0
+  6 11  1  0  0  0  0
+  6 19  1  0  0  0  0
+  6 27  1  0  0  0  0
+  7 12  2  0  0  0  0
+  7 18  1  0  0  0  0
+  8 19  1  0  0  0  0
+  8 20  1  0  0  0  0
+  8 32  1  0  0  0  0
+  9 20  1  0  0  0  0
+  9 21  2  0  0  0  0
+ 10 11  2  0  0  0  0
+ 10 12  1  0  0  0  0
+ 10 13  1  0  0  0  0
+ 11 14  1  0  0  0  0
+ 12 15  1  0  0  0  0
+ 13 16  2  0  0  0  0
+ 13 26  1  0  0  0  0
+ 14 18  2  0  0  0  0
+ 14 28  1  0  0  0  0
+ 15 17  2  0  0  0  0
+ 15 29  1  0  0  0  0
+ 16 17  1  0  0  0  0
+ 16 30  1  0  0  0  0
+ 18 31  1  0  0  0  0
+ 20 22  2  0  0  0  0
+ 21 23  1  0  0  0  0
+ 21 25  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 22 33  1  0  0  0  0
+ 23 24  2  0  0  0  0
+ 23 34  1  0  0  0  0
+ 24 35  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49830680
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+479
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+6
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+2
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB7oYAEAAAAAAAAAAAAAAAAAAAAAAA8WIAAAAAAAACx/AAAHwIQAAAADArBHjQ98PLIEACoAzZndACCgCkxByAJ2CA4ZpiIIOLB09GEJAholQLIyCcQgIAOBAAAAAICAAAIAAAABAQAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+1-(7-chloro-4-quinolyl)-3-[6-(trifluoromethyl)-2-pyridyl]urea
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+1-(7-chloro-4-quinolinyl)-3-[6-(trifluoromethyl)-2-pyridinyl]urea
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+1-(7-chloroquinolin-4-yl)-3-[6-(trifluoromethyl)pyridin-2-yl]urea
+
+> <PUBCHEM_IUPAC_NAME>
+1-(7-chloroquinolin-4-yl)-3-[6-(trifluoromethyl)pyridin-2-yl]urea
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+1-(7-chloranylquinolin-4-yl)-3-[6-(trifluoromethyl)pyridin-2-yl]urea
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+1-(7-chloro-4-quinolyl)-3-[6-(trifluoromethyl)-2-pyridyl]urea
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C16H10ClF3N4O/c17-9-4-5-10-11(6-7-21-12(10)8-9)22-15(25)24-14-3-1-2-13(23-14)16(18,19)20/h1-8H,(H2,21,22,23,24,25)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+JUTMUSMWCYHBGU-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+3.6
+
+> <PUBCHEM_EXACT_MASS>
+366.0495231
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C16H10ClF3N4O
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+366.72
+
+> <PUBCHEM_SMILES>
+C1=CC(=NC(=C1)NC(=O)NC2=C3C=CC(=CC3=NC=C2)Cl)C(F)(F)F
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C1=CC(=NC(=C1)NC(=O)NC2=C3C=CC(=CC3=NC=C2)Cl)C(F)(F)F
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C1=CC(=NC(=C1)NC(=O)NC2=C3C=CC(=CC3=NC=C2)Cl)C(F)(F)F
+
+> <PUBCHEM_CACTVS_TPSA>
+66.9
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+366.0495231
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+25
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  11  8
+10  12  8
+10  13  8
+11  14  8
+12  15  8
+13  16  8
+14  18  8
+15  17  8
+16  17  8
+20  22  8
+21  23  8
+22  24  8
+23  24  8
+7  12  8
+7  18  8
+9  20  8
+9  21  8
+
+$$$$

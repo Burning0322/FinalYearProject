@@ -1,0 +1,200 @@
+24905160
+  -OEChem-03192523402D
+
+ 35 37  0     0  0  0  0  0  0999 V2000
+    4.6783   -1.3831    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2619   -0.5784    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -1.5784    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.0784    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    1.4216    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    8.2351    2.7461    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9889   -2.3336    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.0784    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -0.0784    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6783    0.2264    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9674   -2.5398    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3211   -3.0779    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9889    1.1769    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.4216    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9674    1.3831    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3211    1.9212    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -1.0784    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2781    2.3336    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6318    2.8717    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6103    3.0779    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2566    2.5398    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1815   -2.9229    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8396   -3.1465    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5741   -2.6677    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0953   -1.9332    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8596   -2.6639    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9070   -3.5394    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7826   -3.4920    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3815    0.9216    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7144    1.7933    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -1.3884    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2177    3.3332    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3291    1.7316    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4030    1.7316    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8029    3.6672    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  7  1  0  0  0  0
+  1  8  1  0  0  0  0
+  2 10  2  0  0  0  0
+  3  8  2  0  0  0  0
+  3 17  1  0  0  0  0
+  4 14  1  0  0  0  0
+  4 17  2  0  0  0  0
+  5 14  1  0  0  0  0
+  5 33  1  0  0  0  0
+  5 34  1  0  0  0  0
+  6 21  3  0  0  0  0
+  7 11  1  0  0  0  0
+  7 12  1  0  0  0  0
+  7 22  1  0  0  0  0
+  8  9  1  0  0  0  0
+  9 10  1  0  0  0  0
+  9 14  2  0  0  0  0
+ 10 13  1  0  0  0  0
+ 11 23  1  0  0  0  0
+ 11 24  1  0  0  0  0
+ 11 25  1  0  0  0  0
+ 12 26  1  0  0  0  0
+ 12 27  1  0  0  0  0
+ 12 28  1  0  0  0  0
+ 13 15  1  0  0  0  0
+ 13 16  2  0  0  0  0
+ 15 18  2  0  0  0  0
+ 15 29  1  0  0  0  0
+ 16 19  1  0  0  0  0
+ 16 30  1  0  0  0  0
+ 17 31  1  0  0  0  0
+ 18 20  1  0  0  0  0
+ 18 21  1  0  0  0  0
+ 19 20  2  0  0  0  0
+ 19 32  1  0  0  0  0
+ 20 35  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+24905160
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+416
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+5
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+2
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzgAAAAAAAAAAAAAAAAAAAAWAAAAA8QAAAAAAAAFgB/AAAHAAYAAAADCjBHwQ3sN5IEACyByZjZACyhCsxgKAd2CAoRJiIqKLA2dGEpAhoiALIyC8QgMAOAAACAAAAAAAAAAQAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+3-(4-amino-1-isopropyl-pyrazolo[3,4-d]pyrimidin-3-yl)benzonitrile
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+3-(4-amino-1-propan-2-yl-3-pyrazolo[3,4-d]pyrimidinyl)benzonitrile
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+3-(4-amino-1-propan-2-ylpyrazolo[3,4-d]pyrimidin-3-yl)benzonitrile
+
+> <PUBCHEM_IUPAC_NAME>
+3-(4-amino-1-propan-2-ylpyrazolo[3,4-d]pyrimidin-3-yl)benzonitrile
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+3-(4-azanyl-1-propan-2-yl-pyrazolo[3,4-d]pyrimidin-3-yl)benzenecarbonitrile
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+3-(4-amino-1-isopropyl-pyrazolo[3,4-d]pyrimidin-3-yl)benzonitrile
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C15H14N6/c1-9(2)21-15-12(14(17)18-8-19-15)13(20-21)11-5-3-4-10(6-11)7-16/h3-6,8-9H,1-2H3,(H2,17,18,19)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+YNOUNHICEHQLNM-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+1.9
+
+> <PUBCHEM_EXACT_MASS>
+278.12799447
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C15H14N6
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+278.31
+
+> <PUBCHEM_SMILES>
+CC(C)N1C2=NC=NC(=C2C(=N1)C3=CC=CC(=C3)C#N)N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC(C)N1C2=NC=NC(=C2C(=N1)C3=CC=CC(=C3)C#N)N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC(C)N1C2=NC=NC(=C2C(=N1)C3=CC=CC(=C3)C#N)N
+
+> <PUBCHEM_CACTVS_TPSA>
+93.4
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+278.12799447
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+21
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  2  8
+1  8  8
+13  15  8
+13  16  8
+15  18  8
+16  19  8
+18  20  8
+19  20  8
+2  10  8
+3  17  8
+3  8  8
+4  14  8
+4  17  8
+8  9  8
+9  10  8
+9  14  8
+
+$$$$

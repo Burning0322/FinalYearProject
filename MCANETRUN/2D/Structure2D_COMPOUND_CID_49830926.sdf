@@ -1,0 +1,202 @@
+49830926
+  -OEChem-03202502292D
+
+ 36 38  0     0  0  0  0  0  0999 V2000
+    7.1702    4.4092    0.0000 Br  0  0  0  0  0  0  0  0  0  0  0  0
+    5.3906    4.3159    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.0908    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -3.9092    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3147    0.9272    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6456    0.1841    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.9092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -2.9092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8147    1.7932    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    0.5908    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8366    1.5853    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.4092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -1.4092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -2.4092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -2.4092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2215    2.7068    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -4.4092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -4.4092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1996    2.9147    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7215    3.5728    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3041    3.9092    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3291    0.4008    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3758    2.0002    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -1.0992    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -1.0992    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -2.7192    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -2.7192    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9313    0.8624    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6900   -3.8723    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -4.7192    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3100   -4.9461    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4220   -4.9461    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -4.7192    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0420   -3.8723    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6604    2.4998    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1049    3.6376    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 21  1  0  0  0  0
+  2 20  1  0  0  0  0
+  2 21  1  0  0  0  0
+  3  7  1  0  0  0  0
+  3 10  1  0  0  0  0
+  3 22  1  0  0  0  0
+  4  8  1  0  0  0  0
+  4 17  1  0  0  0  0
+  4 18  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5  9  1  0  0  0  0
+  5 28  1  0  0  0  0
+  6 10  2  0  0  0  0
+  7 12  2  0  0  0  0
+  7 13  1  0  0  0  0
+  8 14  2  0  0  0  0
+  8 15  1  0  0  0  0
+  9 11  2  0  0  0  0
+  9 16  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 11 23  1  0  0  0  0
+ 12 14  1  0  0  0  0
+ 12 24  1  0  0  0  0
+ 13 15  2  0  0  0  0
+ 13 25  1  0  0  0  0
+ 14 26  1  0  0  0  0
+ 15 27  1  0  0  0  0
+ 16 19  1  0  0  0  0
+ 16 20  2  0  0  0  0
+ 17 29  1  0  0  0  0
+ 17 30  1  0  0  0  0
+ 17 31  1  0  0  0  0
+ 18 32  1  0  0  0  0
+ 18 33  1  0  0  0  0
+ 18 34  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 19 35  1  0  0  0  0
+ 20 36  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49830926
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+336
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+4
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+4
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzgABAEAAAAAAAAAAAAAAAAWJAAAAwAAAAAAAAAAAB8AAAHARYAAABLAiFXgSz8ZPjAAimAyZiYACTBIIhChRduTg4ZLiIIOLg2dGEpAhwmALoyjcQAAAOAACAAAAAAAAAAQAAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+N1-[5-(5-bromo-3-thienyl)-1H-pyrazol-3-yl]-N4,N4-dimethyl-benzene-1,4-diamine
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+N1-[5-(5-bromo-3-thiophenyl)-1H-pyrazol-3-yl]-N4,N4-dimethylbenzene-1,4-diamine
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+1-<I>N</I>-[5-(5-bromothiophen-3-yl)-1<I>H</I>-pyrazol-3-yl]-4-<I>N</I>,4-<I>N</I>-dimethylbenzene-1,4-diamine
+
+> <PUBCHEM_IUPAC_NAME>
+1-N-[5-(5-bromothiophen-3-yl)-1H-pyrazol-3-yl]-4-N,4-N-dimethylbenzene-1,4-diamine
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+N1-[5-(5-bromanylthiophen-3-yl)-1H-pyrazol-3-yl]-N4,N4-dimethyl-benzene-1,4-diamine
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+[4-[[5-(5-bromo-3-thienyl)-1H-pyrazol-3-yl]amino]phenyl]-dimethyl-amine
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C15H15BrN4S/c1-20(2)12-5-3-11(4-6-12)17-15-8-13(18-19-15)10-7-14(16)21-9-10/h3-9H,1-2H3,(H2,17,18,19)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+JQAOLPKLHNHEJX-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+4.6
+
+> <PUBCHEM_EXACT_MASS>
+362.02008
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C15H15BrN4S
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+363.3
+
+> <PUBCHEM_SMILES>
+CN(C)C1=CC=C(C=C1)NC2=NNC(=C2)C3=CSC(=C3)Br
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CN(C)C1=CC=C(C=C1)NC2=NNC(=C2)C3=CSC(=C3)Br
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CN(C)C1=CC=C(C=C1)NC2=NNC(=C2)C3=CSC(=C3)Br
+
+> <PUBCHEM_CACTVS_TPSA>
+72.2
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+362.02008
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+21
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  11  8
+12  14  8
+13  15  8
+16  19  8
+16  20  8
+19  21  8
+2  20  8
+2  21  8
+5  6  8
+5  9  8
+6  10  8
+7  12  8
+7  13  8
+8  14  8
+8  15  8
+9  11  8
+
+$$$$

@@ -1,0 +1,199 @@
+49830857
+  -OEChem-03202502282D
+
+ 37 38  0     0  0  0  0  0  0999 V2000
+    7.1962    0.5950    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    1.0950    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -0.4050    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641    0.5950    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641    3.5950    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -3.9050    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    8.0622    3.0950    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.9050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981    1.0950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -1.9050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320    0.5950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.4641    2.5950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5981    2.0950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301    1.0950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3301    2.0950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -2.4050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -2.4050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962   -0.4050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -3.4050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -3.4050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.0622   -0.9050    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1962    2.5950    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6540   -0.3224    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2554   -1.0127    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -0.7150    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0611    2.4050    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -2.0950    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -2.0950    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5856   -0.2973    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9841   -0.9876    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9272    3.9050    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0010    3.9050    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -3.7150    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -3.7150    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.7522   -1.4419    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.5991   -1.2150    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.3722   -0.3681    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 14  1  0  0  0  0
+  1 18  1  0  0  0  0
+  2 11  2  0  0  0  0
+  3  8  1  0  0  0  0
+  3 11  1  0  0  0  0
+  3 25  1  0  0  0  0
+  4  9  2  0  0  0  0
+  4 14  1  0  0  0  0
+  5 12  1  0  0  0  0
+  5 31  1  0  0  0  0
+  5 32  1  0  0  0  0
+  6 19  2  0  0  0  0
+  6 20  1  0  0  0  0
+  7 22  3  0  0  0  0
+  8 10  1  0  0  0  0
+  8 23  1  0  0  0  0
+  8 24  1  0  0  0  0
+  9 11  1  0  0  0  0
+  9 13  1  0  0  0  0
+ 10 16  2  0  0  0  0
+ 10 17  1  0  0  0  0
+ 12 13  2  0  0  0  0
+ 12 15  1  0  0  0  0
+ 13 26  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 22  1  0  0  0  0
+ 16 19  1  0  0  0  0
+ 16 27  1  0  0  0  0
+ 17 20  2  0  0  0  0
+ 17 28  1  0  0  0  0
+ 18 21  1  0  0  0  0
+ 18 29  1  0  0  0  0
+ 18 30  1  0  0  0  0
+ 19 33  1  0  0  0  0
+ 20 34  1  0  0  0  0
+ 21 35  1  0  0  0  0
+ 21 36  1  0  0  0  0
+ 21 37  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49830857
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+415
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+6
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+5
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzsAAAAAAAAAAAAAAAAAAAAAAAAAAsWAAAAAAAAAAB4AAAHgAQAAAADAjhngY+xJLIFAC4BzV3VACiiCA3IiAI2KG8bNgM5nLE9fuePSjm1hnI6Y+cWAEOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+4-amino-5-cyano-6-ethoxy-N-(4-pyridylmethyl)pyridine-2-carboxamide
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+4-amino-5-cyano-6-ethoxy-N-(pyridin-4-ylmethyl)-2-pyridinecarboxamide
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+4-amino-5-cyano-6-ethoxy-<I>N</I>-(pyridin-4-ylmethyl)pyridine-2-carboxamide
+
+> <PUBCHEM_IUPAC_NAME>
+4-amino-5-cyano-6-ethoxy-N-(pyridin-4-ylmethyl)pyridine-2-carboxamide
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+4-azanyl-5-cyano-6-ethoxy-N-(pyridin-4-ylmethyl)pyridine-2-carboxamide
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+4-amino-5-cyano-6-ethoxy-N-(4-pyridylmethyl)picolinamide
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C15H15N5O2/c1-2-22-15-11(8-16)12(17)7-13(20-15)14(21)19-9-10-3-5-18-6-4-10/h3-7H,2,9H2,1H3,(H2,17,20)(H,19,21)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+GPVFWBNYDOWIIQ-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+1.1
+
+> <PUBCHEM_EXACT_MASS>
+297.12257474
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C15H15N5O2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+297.31
+
+> <PUBCHEM_SMILES>
+CCOC1=C(C(=CC(=N1)C(=O)NCC2=CC=NC=C2)N)C#N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CCOC1=C(C(=CC(=N1)C(=O)NCC2=CC=NC=C2)N)C#N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CCOC1=C(C(=CC(=N1)C(=O)NCC2=CC=NC=C2)N)C#N
+
+> <PUBCHEM_CACTVS_TPSA>
+114
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+297.12257474
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+22
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  16  8
+10  17  8
+12  13  8
+12  15  8
+14  15  8
+16  19  8
+17  20  8
+4  14  8
+4  9  8
+6  19  8
+6  20  8
+9  13  8
+
+$$$$

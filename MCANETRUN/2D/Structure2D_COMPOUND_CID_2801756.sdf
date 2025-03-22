@@ -1,0 +1,163 @@
+2801756
+  -OEChem-03202502432D
+
+ 17 19  0     0  0  0  0  0  0999 V2000
+    7.0479    1.7605    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    3.5298   -0.2846    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2619   -1.2846    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3958   -1.7846    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5836    0.0201    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5836   -1.5894    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.7846    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3958    0.2154    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2619   -0.2846    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3798    1.2569    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5298   -1.2846    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1719    0.2222    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2778    1.7846    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.1799    1.2638    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8393    1.5607    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7052   -0.0940    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2754    2.4046    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 14  1  0  0  0  0
+  2  5  1  0  0  0  0
+  2  8  1  0  0  0  0
+  2 11  1  0  0  0  0
+  3  4  2  0  0  0  0
+  3  9  1  0  0  0  0
+  4 11  1  0  0  0  0
+  5  7  2  0  0  0  0
+  6  7  1  0  0  0  0
+  6 11  2  0  0  0  0
+  8  9  2  0  0  0  0
+  8 10  1  0  0  0  0
+  9 12  1  0  0  0  0
+ 10 13  2  0  0  0  0
+ 10 15  1  0  0  0  0
+ 12 14  2  0  0  0  0
+ 12 16  1  0  0  0  0
+ 13 14  1  0  0  0  0
+ 13 17  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+2801756
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+226
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+5
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+0
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+0
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADcQBjgAAEAAAAAAAAAAAAAAAAAWAAAAA8QAAAAAAAAFix8AAAHAIIAAAACAqBFiAx0LYIEACiASRiZACShC8hF6AdmCAwdpiIaKLBm5GUoAhgiAJIyCcQAAAAAABAAAIAACAAAIAABAAAQAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+7-chlorotetrazolo[5,1-c][1,2,4]benzotriazine
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+7-chlorotetrazolo[5,1-c][1,2,4]benzotriazine
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+7-chlorotetrazolo[5,1-c][1,2,4]benzotriazine
+
+> <PUBCHEM_IUPAC_NAME>
+7-chlorotetrazolo[5,1-c][1,2,4]benzotriazine
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+7-chloranyl-[1,2,3,4]tetrazolo[5,1-c][1,2,4]benzotriazine
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+7-chlorotetrazolo[5,1-c][1,2,4]benzotriazine
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C7H3ClN6/c8-4-1-2-6-5(3-4)9-10-7-11-12-13-14(6)7/h1-3H
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+MFYMBIZGFDNLPT-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+0.7
+
+> <PUBCHEM_EXACT_MASS>
+206.0107718
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C7H3ClN6
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+206.59
+
+> <PUBCHEM_SMILES>
+C1=CC2=C(C=C1Cl)N=NC3=NN=NN23
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C1=CC2=C(C=C1Cl)N=NC3=NN=NN23
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C1=CC2=C(C=C1Cl)N=NC3=NN=NN23
+
+> <PUBCHEM_CACTVS_TPSA>
+68.9
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+206.0107718
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+14
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  13  8
+12  14  8
+13  14  8
+2  11  8
+2  5  8
+2  8  8
+3  4  8
+3  9  8
+4  11  8
+5  7  8
+6  11  8
+6  7  8
+8  10  8
+8  9  8
+9  12  8
+
+$$$$

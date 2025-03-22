@@ -1,0 +1,204 @@
+49831023
+  -OEChem-03202501592D
+
+ 36 38  0     0  0  0  0  0  0999 V2000
+    4.6660   -0.7877    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5321    2.7122    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6660    2.2122    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8000   -0.2877    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8000    0.7123    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9061   -0.8224    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5321   -0.2877    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6660    1.2122    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9176   -1.8223    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9061    1.2469    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.3086    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5321    0.7123    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3981   -0.7877    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    0.7331    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3981   -1.7878    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2641   -0.2877    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0574   -2.3323    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2641   -2.2878    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1301   -0.7877    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1301   -1.7878    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0690   -3.3322    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1364   -2.4025    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5269   -1.7076    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9132    1.8669    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4643   -0.6206    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0690    1.0223    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4643    1.0451    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8612   -2.0978    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2641    0.3323    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5170   -2.0286    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2641   -2.9078    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.6671   -0.4777    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.6671   -2.0978    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5357   -3.6484    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6095   -3.6360    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5321    3.3322    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  1  7  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2 36  1  0  0  0  0
+  3  8  2  3  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+  5  8  1  0  0  0  0
+  5 10  2  0  0  0  0
+  6  9  1  0  0  0  0
+  6 11  1  0  0  0  0
+  7 12  2  0  0  0  0
+  7 13  1  0  0  0  0
+  8 12  1  0  0  0  0
+  9 17  1  0  0  0  0
+  9 22  1  0  0  0  0
+  9 23  1  0  0  0  0
+ 10 14  1  0  0  0  0
+ 10 24  1  0  0  0  0
+ 11 14  2  0  0  0  0
+ 11 25  1  0  0  0  0
+ 12 26  1  0  0  0  0
+ 13 15  2  0  0  0  0
+ 13 16  1  0  0  0  0
+ 14 27  1  0  0  0  0
+ 15 18  1  0  0  0  0
+ 15 28  1  0  0  0  0
+ 16 19  2  0  0  0  0
+ 16 29  1  0  0  0  0
+ 17 21  2  0  0  0  0
+ 17 30  1  0  0  0  0
+ 18 20  2  0  0  0  0
+ 18 31  1  0  0  0  0
+ 19 20  1  0  0  0  0
+ 19 32  1  0  0  0  0
+ 20 33  1  0  0  0  0
+ 21 34  1  0  0  0  0
+ 21 35  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+49831023
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+434
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+3
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+3
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB6MAAAAAAAAAAAAAAAAAAAAAAAAAAwYIAAAAAAAACBQAAAHgAECAAADAyBmAAwBoAQBACgAyBiAAACCAAgIAAIiAA0CJgMJqKEMRqCOCCkwBEIqAeAwOAOAAACAAAIAAAAAAQAABAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+8-allyl-2-phenyl-chromen-4-one oxime
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+2-phenyl-8-prop-2-enyl-1-benzopyran-4-one oxime
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+<I>N</I>-(2-phenyl-8-prop-2-enylchromen-4-ylidene)hydroxylamine
+
+> <PUBCHEM_IUPAC_NAME>
+N-(2-phenyl-8-prop-2-enylchromen-4-ylidene)hydroxylamine
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+N-(2-phenyl-8-prop-2-enyl-chromen-4-ylidene)hydroxylamine
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+8-allyl-2-phenyl-chromen-4-one oxime
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C18H15NO2/c1-2-7-14-10-6-11-15-16(19-20)12-17(21-18(14)15)13-8-4-3-5-9-13/h2-6,8-12,20H,1,7H2
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+HDRLAVNNWSHSOA-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+4.5
+
+> <PUBCHEM_EXACT_MASS>
+277.110278721
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C18H15NO2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+277.3
+
+> <PUBCHEM_SMILES>
+C=CCC1=C2C(=CC=C1)C(=NO)C=C(O2)C3=CC=CC=C3
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C=CCC1=C2C(=CC=C1)C(=NO)C=C(O2)C3=CC=CC=C3
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C=CCC1=C2C(=CC=C1)C(=NO)C=C(O2)C3=CC=CC=C3
+
+> <PUBCHEM_CACTVS_TPSA>
+41.8
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+277.110278721
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+21
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+1
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  4  8
+1  7  8
+10  14  8
+11  14  8
+13  15  8
+13  16  8
+15  18  8
+16  19  8
+18  20  8
+19  20  8
+3  8  1
+4  5  8
+4  6  8
+5  10  8
+5  8  8
+6  11  8
+7  12  8
+8  12  8
+
+$$$$

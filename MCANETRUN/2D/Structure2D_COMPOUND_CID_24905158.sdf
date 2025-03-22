@@ -1,0 +1,195 @@
+24905158
+  -OEChem-03192523352D
+
+ 33 35  0     0  0  0  0  0  0999 V2000
+    4.4026    1.4932    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6495    3.5716    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6783   -1.8768    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2619   -1.0721    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -2.0721    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -0.5721    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660    0.9279    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9889   -2.8273    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -1.5721    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7320   -0.5721    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6783   -0.2673    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9674   -3.0336    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3211   -3.5716    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9889    0.6832    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8660   -0.0721    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9405    0.9905    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000   -1.5721    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9422    1.9906    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9917    2.3012    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7523    2.5769    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1815   -3.4166    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8396   -3.6402    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.5741   -3.1614    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0953   -2.4269    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8596   -3.1576    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9070   -4.0331    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7826   -3.9857    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4415    0.6253    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4631   -1.8821    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8012    2.8912    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3291    1.2379    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4030    1.2379    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.3182    2.3238    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1 14  1  0  0  0  0
+  1 19  1  0  0  0  0
+  2 20  2  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  1  0  0  0  0
+  3  9  1  0  0  0  0
+  4 11  2  0  0  0  0
+  5  9  2  0  0  0  0
+  5 17  1  0  0  0  0
+  6 15  1  0  0  0  0
+  6 17  2  0  0  0  0
+  7 15  1  0  0  0  0
+  7 31  1  0  0  0  0
+  7 32  1  0  0  0  0
+  8 12  1  0  0  0  0
+  8 13  1  0  0  0  0
+  8 21  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 15  2  0  0  0  0
+ 11 14  1  0  0  0  0
+ 12 22  1  0  0  0  0
+ 12 23  1  0  0  0  0
+ 12 24  1  0  0  0  0
+ 13 25  1  0  0  0  0
+ 13 26  1  0  0  0  0
+ 13 27  1  0  0  0  0
+ 14 16  2  0  0  0  0
+ 16 18  1  0  0  0  0
+ 16 28  1  0  0  0  0
+ 17 29  1  0  0  0  0
+ 18 19  2  0  0  0  0
+ 18 20  1  0  0  0  0
+ 19 30  1  0  0  0  0
+ 20 33  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+24905158
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+367
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+6
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+3
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzsAAAAAAAAAAAAAAAAAAAAWJAAAAsAAAAAAAAAFgB/gAAHgAYAAAADCzhnwY3tN5IFECqA65z5ASSjCs3oKAV2CGuTNiOLrbM/duHvWjs6BPI6ae/2WGcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+5-(4-amino-1-isopropyl-pyrazolo[3,4-d]pyrimidin-3-yl)furan-3-carbaldehyde
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+5-(4-amino-1-propan-2-yl-3-pyrazolo[3,4-d]pyrimidinyl)-3-furancarboxaldehyde
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+5-(4-amino-1-propan-2-ylpyrazolo[3,4-d]pyrimidin-3-yl)furan-3-carbaldehyde
+
+> <PUBCHEM_IUPAC_NAME>
+5-(4-amino-1-propan-2-ylpyrazolo[3,4-d]pyrimidin-3-yl)furan-3-carbaldehyde
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+5-(4-azanyl-1-propan-2-yl-pyrazolo[3,4-d]pyrimidin-3-yl)furan-3-carbaldehyde
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+5-(4-amino-1-isopropyl-pyrazolo[3,4-d]pyrimidin-3-yl)furan-3-carbaldehyde
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C13H13N5O2/c1-7(2)18-13-10(12(14)15-6-16-13)11(17-18)9-3-8(4-19)5-20-9/h3-7H,1-2H3,(H2,14,15,16)
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+CDJSZJDGHKEHCW-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+0.8
+
+> <PUBCHEM_EXACT_MASS>
+271.10692467
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C13H13N5O2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+271.27
+
+> <PUBCHEM_SMILES>
+CC(C)N1C2=NC=NC(=C2C(=N1)C3=CC(=CO3)C=O)N
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC(C)N1C2=NC=NC(=C2C(=N1)C3=CC(=CO3)C=O)N
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC(C)N1C2=NC=NC(=C2C(=N1)C3=CC(=CO3)C=O)N
+
+> <PUBCHEM_CACTVS_TPSA>
+99.8
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+271.10692467
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+20
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  14  8
+1  19  8
+10  11  8
+10  15  8
+14  16  8
+16  18  8
+18  19  8
+3  4  8
+3  9  8
+4  11  8
+5  17  8
+5  9  8
+6  15  8
+6  17  8
+9  10  8
+
+$$$$

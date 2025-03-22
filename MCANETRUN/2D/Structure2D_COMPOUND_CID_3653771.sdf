@@ -1,0 +1,199 @@
+3653771
+  -OEChem-03202503492D
+
+ 35 37  0     0  0  0  0  0  0999 V2000
+    5.0274    0.5444    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5274    2.0832    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3923   -1.1878    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.0528   -1.9386    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9478    3.6368    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0274    0.5444    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3364    1.4955    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7123   -0.2403    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7183    1.4955    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3518    1.7277    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.0547    0.9590    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7328   -0.0316    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3424   -0.2403    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7029    1.7277    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.0321    1.1707    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3219   -0.0316    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    0.9590    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7328   -2.8860    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6498    2.6823    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3933   -3.6368    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1459   -0.4940    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5408   -0.8277    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7844   -1.3096    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5182    2.3195    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.1633    0.5648    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    8.6380    1.3019    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    7.9008    1.7766    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9088   -0.4940    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3940    1.0903    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6607   -1.8167    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1888   -2.5886    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3455   -3.3701    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9278   -4.0464    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8028   -4.1024    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8588   -3.2273    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  1  6  1  0  0  0  0
+  1  7  1  0  0  0  0
+  1  8  1  0  0  0  0
+  2  7  2  0  0  0  0
+  2  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  1  0  0  0  0
+  3 23  1  0  0  0  0
+  4 18  1  0  0  0  0
+  4 30  1  0  0  0  0
+  5 19  3  0  0  0  0
+  6  9  1  0  0  0  0
+  6 13  2  0  0  0  0
+  7 10  1  0  0  0  0
+  8 12  2  0  0  0  0
+  9 14  2  0  0  0  0
+ 10 11  2  0  0  0  0
+ 10 19  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 15  1  0  0  0  0
+ 12 21  1  0  0  0  0
+ 13 16  1  0  0  0  0
+ 13 22  1  0  0  0  0
+ 14 17  1  0  0  0  0
+ 14 24  1  0  0  0  0
+ 15 25  1  0  0  0  0
+ 15 26  1  0  0  0  0
+ 15 27  1  0  0  0  0
+ 16 17  2  0  0  0  0
+ 16 28  1  0  0  0  0
+ 17 29  1  0  0  0  0
+ 18 20  1  0  0  0  0
+ 18 31  1  0  0  0  0
+ 18 32  1  0  0  0  0
+ 20 33  1  0  0  0  0
+ 20 34  1  0  0  0  0
+ 20 35  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+3653771
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+389
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+4
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+3
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBzgAAAAAAAAAAAAAAAAAAAAWAAAAA8QAAAAAAAAFgB/AAAHAAYAAAADAjBHwQz8L9uGACwByZiZACihC0hEqIduKAwdJiI6OLAmZGUIAhokALIyC8QAAAOgAAAAAAAACAAAAAAAAAAQAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+1-(2-ethylhydrazino)-3-methyl-pyrido[1,2-a]benzimidazole-4-carbonitrile
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+1-(ethylhydrazo)-3-methyl-4-pyrido[1,2-a]benzimidazolecarbonitrile
+
+> <PUBCHEM_IUPAC_NAME_MARKUP>
+1-(2-ethylhydrazinyl)-3-methylpyrido[1,2-a]benzimidazole-4-carbonitrile
+
+> <PUBCHEM_IUPAC_NAME>
+1-(2-ethylhydrazinyl)-3-methylpyrido[1,2-a]benzimidazole-4-carbonitrile
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+1-(2-ethylhydrazinyl)-3-methyl-pyrido[1,2-a]benzimidazole-4-carbonitrile
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+1-(N'-ethylhydrazino)-3-methyl-pyrido[1,2-a]benzimidazole-4-carbonitrile
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C15H15N5/c1-3-17-19-14-8-10(2)11(9-16)15-18-12-6-4-5-7-13(12)20(14)15/h4-8,17,19H,3H2,1-2H3
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+PZWRTHWYVBLORC-UHFFFAOYSA-N
+
+> <PUBCHEM_XLOGP3_AA>
+3.7
+
+> <PUBCHEM_EXACT_MASS>
+265.13274550
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C15H15N5
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+265.31
+
+> <PUBCHEM_SMILES>
+CCNNC1=CC(=C(C2=NC3=CC=CC=C3N12)C#N)C
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CCNNC1=CC(=C(C2=NC3=CC=CC=C3N12)C#N)C
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CCNNC1=CC(=C(C2=NC3=CC=CC=C3N12)C#N)C
+
+> <PUBCHEM_CACTVS_TPSA>
+65.2
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+265.13274550
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+20
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+-1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+1  6  8
+1  7  8
+1  8  8
+10  11  8
+11  12  8
+13  16  8
+14  17  8
+16  17  8
+2  7  8
+2  9  8
+6  13  8
+6  9  8
+7  10  8
+8  12  8
+9  14  8
+
+$$$$
