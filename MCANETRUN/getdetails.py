@@ -29,26 +29,26 @@ import time
 #             'label': int(label)
 #         })
 
-with open('KIBA.txt', 'r') as f:
-    lines = f.readlines()
-
-data = []
-for line in lines:
-    parts = line.strip().split(' ', 4)
-    if len(parts) == 5:
-        compound_id, protein_name, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
-        sequence, label = rest.rsplit(' ', 1)
-        data.append({
-            'compound_id': compound_id,
-            'protein_name': protein_name,
-            'smiles': smiles,
-            'sequence': sequence,
-            'label': int(label)
-        })
-
-ligands = set(d['compound_id'] for d in data)
-sort_ligands = sorted(ligands)
-print(len(sort_ligands))
+# with open('KIBA.txt', 'r') as f:
+#     lines = f.readlines()
+#
+# data = []
+# for line in lines:
+#     parts = line.strip().split(' ', 4)
+#     if len(parts) == 5:
+#         compound_id, protein_name, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
+#         sequence, label = rest.rsplit(' ', 1)
+#         data.append({
+#             'compound_id': compound_id,
+#             'protein_name': protein_name,
+#             'smiles': smiles,
+#             'sequence': sequence,
+#             'label': int(label)
+#         })
+#
+# ligands = set(d['compound_id'] for d in data)
+# sort_ligands = sorted(ligands)
+# print(len(sort_ligands))
 
 # chrome_options = Options()
 # chrome_options.add_argument("--headless")
@@ -80,22 +80,12 @@ local_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/chrom
 service = Service(local_path)
 
 failed_compounds = [
-    "CHEMBL1974574",
-    "CHEMBL1978099",
-    "CHEMBL1978166",
-    "CHEMBL1980904",
-    "CHEMBL1981045",
-    "CHEMBL1982866",
-    "CHEMBL1996923",
     "CHEMBL269557",
     "CHEMBL384283",
     "CHEMBL396377",
     "CHEMBL409397",
     "CHEMBL413375",
-    "CHEMBL41783",
-    "CHEMBL86664"
 ]
-
 
 sorted_failed_compounds = sorted(failed_compounds)
 print("错误的sort",len(sorted_failed_compounds))
@@ -190,14 +180,14 @@ print(f"成功处理 {count} 个化合物,共用了 {total}")
 
 # 保存结果到 CSV 文件
 results = {
-    'Query': list(sort_ligands)[:len(PubChem_CID)],  # 确保长度匹配
+    'Query': list(sorted_failed_compounds)[:len(PubChem_CID)],  # 确保长度匹配
     'PubChem CID': PubChem_CID,
     'Molecular Weight': molecular_weight,
     'Molecular Formula': molecular_formula
 }
 df = pd.DataFrame(results)
-df.to_csv('compound_properties.csv', index=False)
-print("已将结果保存到 compound_properties.csv")
+df.to_csv('failed_compound_properties.csv', index=False)
+print("已将结果保存到 failed_compound_properties.csv")
 
 # 打印错误列表
 if error_cid:
