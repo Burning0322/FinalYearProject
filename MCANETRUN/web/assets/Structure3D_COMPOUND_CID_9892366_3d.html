@@ -1,0 +1,47 @@
+<div id="3dmolviewer_1742783857465606"  style="position: relative; width: 200px; height: 200px;">
+        <p id="3dmolwarning_1742783857465606" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js');
+}
+
+var viewer_1742783857465606 = null;
+var warn = document.getElementById("3dmolwarning_1742783857465606");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1742783857465606 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1742783857465606"),{backgroundColor:"white"});
+viewer_1742783857465606.zoomTo();
+	viewer_1742783857465606.addModel("9892366\n     RDKit          3D\n\n 35 40  0  0  1  0  0  0  0  0999 V2000\n    2.3284   -0.0652   -1.1346 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.9566    2.0659    1.6669 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.3347   -2.2694    0.2382 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.8059    2.2004    0.6226 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2299   -2.0036   -1.7188 N   0  0  0  0  0  0  0  0  0  0  0  0\n    4.9535    0.1952    1.4543 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.5130   -0.1173    1.0945 N   0  0  0  0  0  0  0  0  0  0  0  0\n    3.4562    0.4713   -0.4350 C   0  0  1  0  0  0  0  0  0  0  0  0\n    3.2028    1.9603   -0.1242 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.2063    2.2859    0.9976 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2857    1.4509    0.4923 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0945    3.1733   -0.0530 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2282    2.7224   -0.1519 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.4030    0.5761    0.5928 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7789   -0.3399    0.8189 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.5150   -1.5075   -0.4373 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0254    1.1705    0.9772 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5037   -0.7071    0.1976 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.3789   -1.7632   -2.5790 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0875   -2.8312   -0.1153 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0020   -3.1243   -0.9491 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.6007   -1.3156   -1.7789 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.7340   -1.0627   -1.4816 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7004    0.9748    1.1871 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5009    4.4060   -0.5899 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.8782   -1.1699    0.5011 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1680    3.5276   -0.8328 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.4851   -3.7985    0.8343 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6842   -4.3495   -0.8827 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.4528    5.1876   -1.2467 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7687    4.7554   -1.3696 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.1174    0.1446    0.5563 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.2625   -0.5238    2.6999 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8148   -5.0243    0.8993 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2520   -5.2953    0.0496 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  8  1  0\n  1 22  1  0\n  2 24  2  0\n  3 26  2  0\n  4 10  1  0\n  4 12  1  0\n  4 17  1  0\n  5 19  1  0\n  5 21  1  0\n  5 23  1  0\n  6 15  1  0\n  6 32  1  0\n  6 33  1  0\n  7 24  1  0\n  7 26  1  0\n  8  9  1  0\n  8 15  1  1\n  9 10  1  0\n 11 13  1  0\n 11 14  1  0\n 11 17  2  0\n 12 13  2  0\n 12 25  1  0\n 13 27  1  0\n 14 18  2  0\n 14 24  1  0\n 16 18  1  0\n 16 20  1  0\n 16 23  2  0\n 18 26  1  0\n 19 22  1  0\n 20 21  2  0\n 20 28  1  0\n 21 29  1  0\n 25 30  2  0\n 27 31  2  0\n 28 34  2  0\n 29 35  2  0\n 30 31  1  0\n 34 35  1  0\nM  END\n","sdf");
+	viewer_1742783857465606.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.3}});
+	viewer_1742783857465606.setBackgroundColor("white");
+	viewer_1742783857465606.zoomTo();
+viewer_1742783857465606.render();
+});
+</script>

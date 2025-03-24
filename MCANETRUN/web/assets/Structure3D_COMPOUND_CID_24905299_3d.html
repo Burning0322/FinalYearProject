@@ -1,0 +1,47 @@
+<div id="3dmolviewer_1742783858736046"  style="position: relative; width: 200px; height: 200px;">
+        <p id="3dmolwarning_1742783858736046" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js');
+}
+
+var viewer_1742783858736046 = null;
+var warn = document.getElementById("3dmolwarning_1742783858736046");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1742783858736046 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1742783858736046"),{backgroundColor:"white"});
+viewer_1742783858736046.zoomTo();
+	viewer_1742783858736046.addModel("24905299\n     RDKit          3D\n\n 25 28  0  0  1  0  0  0  0  0999 V2000\n    6.2355    2.1017   -0.0561 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    4.0765    2.2431    2.0291 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.5404    1.1506    1.7007 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2756   -0.3513   -0.9368 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.2196    0.4815   -0.9931 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8248   -2.5980   -0.2203 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.1188   -3.7534    0.6950 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.2734   -2.7369    0.8403 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2939    1.0544   -0.4495 C   0  0  1  0  0  0  0  0  0  0  0  0\n   -4.4060    1.8570   -1.1369 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.8573    0.2722    0.7466 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.6141    0.1130   -1.4415 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.1631    2.7089   -0.1215 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.6445    1.8655    1.0573 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9804   -1.5703   -0.4024 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.3662   -1.5327   -0.0860 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7770   -0.2437   -0.4735 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0964    0.3260   -0.3656 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.9143   -2.6777    0.4827 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1828   -3.6482    0.3354 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4651    1.0192    0.7874 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.0047    0.1841   -1.4146 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7423    1.5705    0.8914 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.2818    0.7356   -1.3106 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.6506    1.4287   -0.1576 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1 25  1  0\n  2 23  1  0\n  3 11  1  0\n  3 14  1  0\n  4  5  1  0\n  4 12  1  0\n  4 15  1  0\n  5 17  2  0\n  6 15  1  0\n  6 20  2  0\n  7 19  2  0\n  7 20  1  0\n  8 19  1  0\n  9 10  1  0\n  9 11  1  0\n  9 12  1  6\n 10 13  1  0\n 13 14  1  0\n 15 16  2  0\n 16 17  1  0\n 16 19  1  0\n 17 18  1  0\n 18 21  2  0\n 18 22  1  0\n 21 23  1  0\n 22 24  2  0\n 23 25  2  0\n 24 25  1  0\nM  END\n","sdf");
+	viewer_1742783858736046.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.3}});
+	viewer_1742783858736046.setBackgroundColor("white");
+	viewer_1742783858736046.zoomTo();
+viewer_1742783858736046.render();
+});
+</script>

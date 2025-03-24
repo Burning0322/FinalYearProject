@@ -1,0 +1,47 @@
+<div id="3dmolviewer_1742783857983868"  style="position: relative; width: 200px; height: 200px;">
+        <p id="3dmolwarning_1742783857983868" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js');
+}
+
+var viewer_1742783857983868 = null;
+var warn = document.getElementById("3dmolwarning_1742783857983868");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1742783857983868 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1742783857983868"),{backgroundColor:"white"});
+viewer_1742783857983868.zoomTo();
+	viewer_1742783857983868.addModel("10871128\n     RDKit          3D\n\n 25 29  0  0  0  0  0  0  0  0999 V2000\n   -2.2558   -2.6794    0.3770 O   0  0  0  0  0  0  0  0  0  0  0  0\n    2.2325   -2.6914   -0.3792 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.5403    0.2219    0.3791 N   0  0  0  0  0  0  0  0  0  0  0  0\n    1.5335    0.2138   -0.3763 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.0127   -3.0534   -0.0011 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.6744   -0.8589    0.1170 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6615   -0.8625   -0.1158 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.8751    0.2824    0.0472 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8811    0.2818   -0.0481 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.3518    1.5198    0.4853 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.3650    1.5172   -0.4843 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1199   -2.2864    0.1689 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.0988   -2.2923   -0.1701 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1579    1.3752    1.0101 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1702    1.3858   -1.0093 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.2573    2.1984    1.0908 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.2743    2.2029   -1.0887 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.6884   -0.6540   -0.6006 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6893   -0.6602    0.5983 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.7063    1.8405    0.2672 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.7213    1.8298   -0.2657 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.0286   -0.3139   -0.8059 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.0314   -0.3280    0.8040 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.5319    0.9135   -0.3793 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.5415    0.8972    0.3794 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1 12  2  0\n  2 13  2  0\n  3  6  1  0\n  3  8  1  0\n  3 14  1  0\n  4  7  1  0\n  4  9  1  0\n  4 15  1  0\n  5 12  1  0\n  5 13  1  0\n  6  7  2  0\n  6 12  1  0\n  7 13  1  0\n  8 10  2  0\n  8 18  1  0\n  9 11  2  0\n  9 19  1  0\n 10 16  1  0\n 10 20  1  0\n 11 17  1  0\n 11 21  1  0\n 14 16  2  0\n 15 17  2  0\n 18 22  2  0\n 19 23  2  0\n 20 24  2  0\n 21 25  2  0\n 22 24  1  0\n 23 25  1  0\nM  END\n","sdf");
+	viewer_1742783857983868.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.3}});
+	viewer_1742783857983868.setBackgroundColor("white");
+	viewer_1742783857983868.zoomTo();
+viewer_1742783857983868.render();
+});
+</script>

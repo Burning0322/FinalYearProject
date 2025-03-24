@@ -1,0 +1,47 @@
+<div id="3dmolviewer_1742783857683554"  style="position: relative; width: 200px; height: 200px;">
+        <p id="3dmolwarning_1742783857683554" style="background-color:#ffcccc;color:black">3Dmol.js failed to load for some reason.  Please check your browser console for error messages.<br></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.2/3Dmol-min.js');
+}
+
+var viewer_1742783857683554 = null;
+var warn = document.getElementById("3dmolwarning_1742783857683554");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1742783857683554 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1742783857683554"),{backgroundColor:"white"});
+viewer_1742783857683554.zoomTo();
+	viewer_1742783857683554.addModel("25125014\n     RDKit          3D\n\n 28 30  0  0  1  0  0  0  0  0999 V2000\n    3.9972   -2.6595   -1.6342 O   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6356   -3.0535    2.5080 O   0  0  0  0  0  0  0  0  0  0  0  0\n    5.8605   -0.6307   -2.1562 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.5547    1.3672    0.1160 N   0  0  0  0  0  0  0  0  0  0  0  0\n    1.9336   -1.8339    0.3771 N   0  0  0  0  0  0  0  0  0  0  0  0\n    1.6662    0.4519    0.2842 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1760    2.5782    0.0374 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5098    0.0342    0.0388 N   0  0  0  0  0  0  0  0  0  0  0  0\n    3.3791   -1.7530    0.4983 C   0  0  2  0  0  0  0  0  0  0  0  0\n    1.0764    2.8733    0.1684 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.0048   -1.4476   -0.8725 C   0  0  1  0  0  0  0  0  0  0  0  0\n    2.3838    3.5493    0.2281 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.8286    1.5197    0.1968 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1335   -0.7475    0.2911 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1482    0.0974    0.1215 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.9096   -3.0493    1.1106 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.3500   -0.9783    0.2070 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1864    3.4684    0.0702 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.4320   -0.9036   -0.8246 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.3033    3.1997   -0.9666 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.1461    3.2819    1.5481 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2455   -1.2028    0.0340 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.7193   -0.9391   -0.1032 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.5047   -0.7598    1.0357 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.3014   -0.8727   -1.3691 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.8719   -0.5145    0.9085 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.6686   -0.6273   -1.4962 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -7.4539   -0.4481   -0.3572 C   0  0  0  0  0  0  0  0  0  0  0  0\n 11  1  1  6\n  2 16  1  0\n  3 19  1  0\n  4  7  1  0\n  4 13  1  0\n  4 15  1  0\n  5  9  1  0\n  5 14  1  0\n  6 13  1  0\n  6 14  2  0\n  7 18  2  0\n  8 15  1  0\n  8 22  1  0\n  9 11  1  0\n  9 16  1  6\n 10 12  1  0\n 10 13  2  0\n 10 18  1  0\n 11 19  1  0\n 12 20  1  0\n 12 21  1  0\n 14 17  1  0\n 15 17  2  0\n 22 23  1  0\n 23 24  2  0\n 23 25  1  0\n 24 26  1  0\n 25 27  2  0\n 26 28  2  0\n 27 28  1  0\nM  END\n","sdf");
+	viewer_1742783857683554.setStyle({"stick": {"radius": 0.1}, "sphere": {"scale": 0.3}});
+	viewer_1742783857683554.setBackgroundColor("white");
+	viewer_1742783857683554.zoomTo();
+viewer_1742783857683554.render();
+});
+</script>
