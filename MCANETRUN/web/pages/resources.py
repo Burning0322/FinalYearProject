@@ -41,12 +41,9 @@ footer = html.Footer([
         html.A(html.I(className="bi bi-github"), href="https://github.com/Burning0322/FinalYearProject.git", target="_blank", style={"color": "black"}),
     ], style={"textAlign": "center", "padding": "10px 0"}),
 
-    # 分割线
     html.Hr(),
 
-    # 链接和订阅表单部分
     dbc.Row([
-        # 左侧链接列
         dbc.Col([
             html.H5("About"),
             html.Ul([
@@ -66,7 +63,6 @@ footer = html.Footer([
             ], style={"listStyleType": "none", "padding": 0}),
         ], md=3),
 
-        # 右侧订阅表单
         dbc.Col([
             html.H5("Sign up for updates on our latest innovations"),
             dcc.Input(
@@ -93,10 +89,8 @@ footer = html.Footer([
         ], md=4, style={"textAlign": "left"}),
     ], className="p-4"),
 
-    # 分割线
     html.Hr(),
 
-    # 底部版权信息
     html.Div([
         html.Span("ZSTU", style={"fontWeight": "bold", "marginRight": "20px"}),
         html.A("About ZSTU", href="https://www.zstu.edu.cn", style={"color": "black", "textDecoration": "none", "marginRight": "20px"}),
@@ -120,15 +114,13 @@ sdf_2d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/2D"
 sdf_3d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/3D"
 assets = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/web/assets"
 
-# 根据 PubChem CID 构造 SDF 文件名
 df["SDF File"] = df["PubChem CID"].apply(lambda cid: f"Structure2D_COMPOUND_CID_{cid}.sdf")
 df["SDF 3D File"] = df["PubChem CID"].apply(lambda cid: f"Structure3D_COMPOUND_CID_{cid}.sdf")
 
-# 从 SDF 文件生成 2D 图片
 def generate_2d_image(sdf_filename, output_filename):
     sdf_path = os.path.join(sdf_2d, sdf_filename)
     output_path = os.path.join(assets, output_filename)
-    if os.path.exists(output_path):  # 如果图片已存在，直接返回
+    if os.path.exists(output_path):
         return output_filename
     try:
         if not os.path.exists(sdf_path):
@@ -145,13 +137,11 @@ def generate_2d_image(sdf_filename, output_filename):
         print(f"Error generating 2D image for {sdf_filename}: {e}")
     return None
 
-# 预生成所有 2D 图片
 for index, row in df.iterrows():
     sdf_filename = row["SDF File"]
     output_filename = f"{sdf_filename.split('.')[0]}_2d_{index}.png"
     generate_2d_image(sdf_filename, output_filename)
 
-# 格式化 2D 结构
 def format_2d_structure(sdf_filename, index):
     output_filename = f"{sdf_filename.split('.')[0]}_2d_{index}.png"
     output_path = os.path.join(assets, output_filename)
@@ -159,26 +149,15 @@ def format_2d_structure(sdf_filename, index):
         return f'<img src="/assets/{output_filename}" style="width: 100px; height: auto;" />'
     return "2D structure not available"
 
-# def format_3d_structure(sdf_filename, index):
-#     mol_supplier = Chem.SDMolSupplier(sdf_filename)
-#     mol = next(mol_supplier)  # 取第一个分子
-#     if mol is None:
-#         raise ValueError("无法加载 SDF 文件，请检查文件路径或格式")
-#
-#     # 将分子转换为 SDF 字符串
-#     sdf_string = Chem.MolToMolBlock(mol)
-#     viewer = py3Dmol.view(width=800, height=600)
-#     viewer.addModel(sdf_string, 'sdf')
-#     viewer.setStyle({'stick': {'radius': 0.1}, 'sphere': {'scale': 0.3}})  # 球棒模型
-#     viewer.setBackgroundColor('black')  # 黑色背景
-#     viewer.zoomTo()
-#
-#     viewer_html = viewer._make_html()
-#
-# df["Structure 2D"] = [format_2d_structure(row["SDF File"], index) for index, row in df.iterrows()]
+df["Structure 2D"] = df.apply(
+    lambda row: f'![2D](/assets/{row["SDF File"].split(".")[0]}_2d_{row.name}.png)',
+    axis=1
+)
 
-# Apply formatting to DataFrame
-df["Structure 2D"] = [format_2d_structure(row["SDF File"], index) for index, row in df.iterrows()]
+
+df["Structure 3D"] = df["PubChem CID"].apply(
+    lambda cid: f'<iframe src="/assets/Structure3D_COMPOUND_CID_{cid}_3d.html" style="width: 200px; height: 200px; border: none;"></iframe>'
+)
 
 def get_3d_iframe(sdf_filename):
     sdf_path = os.path.join(sdf_3d, sdf_filename)
@@ -200,45 +179,45 @@ def get_3d_iframe(sdf_filename):
         viewer_html = viewer._make_html()
 
         return html.Iframe(
-            srcDoc=viewer_html,  # 不再替换 script 地址
+            srcDoc=viewer_html,
             style={"width": "200px", "height": "200px", "border": "none"}
         )
 
     except Exception as e:
         return html.Div(f"3D error: {e}")
 
-
-table = html.Table([
-    html.Thead(html.Tr([
-        html.Th("Query"),
-        html.Th("PubChem CID"),
-        html.Th("Weight (g/mol)"),
-        html.Th("Molecular Formula"),
-        html.Th("Structure 2D"),
-        html.Th("Structure 3D"),
-    ])),
-    html.Tbody([
-        html.Tr([
-            html.Td(row["Query"]),
-            html.Td(str(row["PubChem CID"])),
-            html.Td(str(row["Molecular Weight"])),
-            html.Td(html.Div(dcc.Markdown(row["Formatted Formula"], dangerously_allow_html=True))),
-            html.Td(html.Div([
-                html.Img(src=f"/assets/{row['SDF File'].split('.')[0]}_2d_{i}.png", style={"width": "100px"})
-            ])),
-            html.Td(html.Div([
-                get_3d_iframe(row["SDF 3D File"])  # ✅ 真实 iframe 对象
-            ]))
-        ]) for i, row in df.iterrows()
-    ])
-], style={"width": "100%", "borderCollapse": "collapse", "marginTop": "20px"})
-
+table = dash_table.DataTable(
+    data=df.to_dict('records'),
+    columns=[
+        {"name": "Query", "id": "Query", "type": "text"},
+        {"name": "PubChem CID", "id": "PubChem CID", "type": "text"},
+        {"name": "Weight (g/mol)", "id": "Molecular Weight", "type": "text"},
+        {"name": "Molecular Formula", "id": "Formatted Formula", "type": "text", "presentation": "markdown"},
+        {"name": "Structure 2D", "id": "Structure 2D", "type": "text", "presentation": "markdown"},
+        {"name": "Structure 3D", "id": "Structure 3D", "type": "text", "presentation": "markdown"}
+    ],
+    style_table={
+        "overflowX": "auto",  # 水平滚动
+        "width": "100%"
+    },
+    style_cell={
+        "textAlign": "left",
+        "whiteSpace": "normal",
+        "height": "auto"
+    },
+    style_data={
+        "minHeight": "200px"
+    },
+    page_size=10,
+    markdown_options={"html": True},
+)
 
 layout = html.Div([
     navbar,
     html.H1("Drug List"),
     dbc.Container([
-        table
+        table,
+        html.Div(id="3d-viewer", style={"width": "400px", "height": "400px"})
     ]),
     footer
 ])
