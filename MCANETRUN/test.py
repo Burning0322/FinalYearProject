@@ -1,54 +1,39 @@
+import os
 import pandas as pd
-import requests
-import time
 
-# 读取已有的 CID 列表
-df = pd.read_csv("details.csv")
+# 2D 文件夹路径
+folder_path = "2D"  # 替换为您的 2D 文件夹路径
 
-# PubChem 支持的字段（建议根据需要精简）
-fields = [
-    "MolecularFormula", "MolecularWeight", "SMILES", "CanonicalSMILES", "IsomericSMILES",
-    "IUPACName", "InChI", "InChIKey", "XLogP", "ExactMass", "MonoisotopicMass",
-    "TPSA", "Complexity", "Charge", "HBondDonorCount", "HBondAcceptorCount",
-    "RotatableBondCount", "HeavyAtomCount", "IsotopeAtomCount",
-    "DefinedAtomStereoCount", "UndefinedAtomStereoCount",
-    "DefinedBondStereoCount", "UndefinedBondStereoCount",
-    "CovalentUnitCount", "ConformerCount3D", "Volume3D",
-    "XStericQuadrupole3D", "YStericQuadrupole3D", "ZStericQuadrupole3D",
-    "FeatureAcceptorCount3D", "FeatureDonorCount3D", "FeatureAnionCount3D",
-    "FeatureCationCount3D", "FeatureRingCount3D", "FeatureHydrophobeCount3D",
-    "EffectiveRotorCount3D", "Fingerprint2D"
-]
+# 提取 2D 文件夹中所有 SDF 文件的 CID
+sdf_cids = []
+for filename in os.listdir(folder_path):
+    if filename.startswith("Structure2D_COMPOUND_CID_") and filename.endswith(".sdf"):
+        # 从文件名中提取 CID
+        cid = filename.replace("Structure2D_COMPOUND_CID_", "").replace(".sdf", "")
+        sdf_cids.append(cid)
 
-error_cid = []
+# 读取 kiba_data.csv
+df = pd.read_csv("kiba_data.csv")
 
-def fetch_pubchem_data(cid):
-    url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid}/property/{','.join(fields)}/JSON"
-    try:
-        r = requests.get(url, timeout=10)
-        if r.status_code != 200:
-            print(f"❌ HTTP {r.status_code} for CID {cid}")
-            return {}
-        json_data = r.json()
-        return json_data["PropertyTable"]["Properties"][0]
-    except Exception as e:
-        print(f"❌ Error fetching CID {cid}: {e}")
-        error_cid.append(cid)
-        return {}
+# 提取 kiba_data.csv 中的 compound_id
+kiba_cids = df['compound_id'].astype(str).tolist()  # 转换为字符串以确保类型一致
 
-results = []
-for cid in df["PubChem CID"]:
-    print(f"Fetching CID {cid}...")
-    data = fetch_pubchem_data(cid)
-    if data:
-        data["PubChem CID"] = cid
-        results.append(data)
-    print(data)
-    time.sleep(0.2)  # 避免请求过快被封
+# 统计数量
+print(f"2D 文件夹中的 SDF 文件数量：{len(sdf_cids)}")
+print(f"kiba_data.csv 中的记录数量：{len(kiba_cids)}")
 
-# 保存
-df_new = pd.DataFrame(results)
-print(error_cid)
-df_final = pd.merge(df, df_new, on="PubChem CID", how="left")
-df_final.to_csv("drug_full_extended.csv", index=False)
-print("✅ All data saved to drug_full_extended.csv")
+# 找出多余的 CID（在 sdf_cids 中但不在 kiba_cids 中）
+extra_cids = set(sdf_cids) - set(kiba_cids)
+
+# 打印多余的 CID 和对应的文件名
+print("\n多余的 SDF 文件（不在 kiba_data.csv 中）：")
+for cid in extra_cids:
+    filename = f"Structure2D_COMPOUND_CID_{cid}.sdf"
+    print(f"CID={cid}, 文件名={filename}")
+
+# 找出缺失的 CID（在 kiba_cids 中但不在 sdf_cids 中）
+missing_cids = set(kiba_cids) - set(sdf_cids)
+print("\n缺失的 SDF 文件（在 kiba_data.csv 中但不在 2D 文件夹中）：")
+for cid in missing_cids:
+    filename = f"Structure2D_COMPOUND_CID_{cid}.sdf"
+    print(f"CID={cid}, 文件名={filename}")
