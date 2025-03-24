@@ -1,9 +1,17 @@
 import dash
 from dash import html,dcc,dash_table,Input,Output,State
 import dash_bootstrap_components as dbc
-
+import mysql.connector
+from mysql.connector import Error
 
 dash.register_page(__name__, path="/dti")
+
+db_config = {
+    "host": "localhost",
+    "user": "root",
+    "password": "root",
+    "database": "dti"
+}
 
 navbar = dbc.Navbar(
     dbc.Container([
@@ -145,6 +153,8 @@ predict_button = html.Button(
     className="btn btn-primary",
     style={"width": "200px", "marginBottom": "20px"}
 )
+
+# 药物详情表格
 drug_details_table = dash_table.DataTable(
     id="drug-details-table",
     columns=[
@@ -152,30 +162,34 @@ drug_details_table = dash_table.DataTable(
         {"name": "Value", "id": "Value"}
     ],
     data=[],
-    style_table={"width": "100%"},
-    style_cell={"textAlign": "left"}
-)
-
-protein_details_table = dash_table.DataTable(
-    id="protein-details-table",
-    columns=[
-        {"name": "Property", "id": "Property"},
-        {"name": "Value", "id": "Value"}
+    style_table={
+        "width": "100%",
+        "maxHeight": "400px",  # 固定高度，超出部分显示滚动条
+        "overflowY": "auto"  # 启用垂直滚动
+    },
+    style_cell={"textAlign": "left", "padding": "5px"},
+    style_cell_conditional=[
+        {
+            "if": {"column_id": "Property"},
+            "width": "30%",
+            "fontWeight": "bold"
+        },
+        {
+            "if": {"column_id": "Value"},
+            "width": "70%",
+            "maxWidth": "500px",
+            "whiteSpace": "normal",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis"
+        }
     ],
-    data=[],
-    style_table={"width": "100%"},
-    style_cell={"textAlign": "left"}
-)
-
-drug_details_table = dash_table.DataTable(
-    id="drug-details-table",
-    columns=[
-        {"name": "Property", "id": "Property"},
-        {"name": "Value", "id": "Value"}
-    ],
-    data=[],
-    style_table={"width": "100%"},
-    style_cell={"textAlign": "left"}
+    tooltip_data=[
+        {
+            "Value": {"value": "{Value}", "type": "text"}
+        }
+    ] * 38,
+    tooltip_delay=0,
+    tooltip_duration=None,
 )
 
 protein_details_table = dash_table.DataTable(
@@ -209,3 +223,46 @@ layout = html.Div([
     ]),
     footer
 ])
+
+def fetch_drug_data(smiles):
+    try:
+        connection = mysql.connector.connect(**db_config)
+        if connection.is_connected():
+            query = "SELECT * FROM drug WHERE smiles = %s"
+            cursor = connection.cursor(dictionary=True)
+            cursor.execute(query, (smiles,))
+            result = cursor.fetchone()
+            return result
+    except Error as e:
+        print(f"数据库错误: {e}")
+        return None
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+
+@dash.callback(
+    Output("drug-details-table", "data"),
+    Input("predict-button", "n_clicks"),
+    State("drug-input", "value"),
+    prevent_initial_call=True
+)
+def update_drug_details(n_clicks, drug_input):
+    if not drug_input:
+        return []
+
+    smiles = drug_input.strip()
+
+    # 从数据库中读取数据
+    drug_data = fetch_drug_data(smiles)
+
+    if not drug_data:
+        return [{"Property": "Error", "Value": f"No data found for smiles {smiles}"}]
+
+    # 将数据库记录格式化为表格数据
+    table_data = [
+        {"Property": key, "Value": value if value is not None else "N/A"}
+        for key, value in drug_data.items()
+    ]
+
+    return table_data
