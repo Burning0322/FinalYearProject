@@ -6,7 +6,7 @@ from rdkit.Chem import AllChem
 import base64
 
 # 加载 SDF 文件
-sdf_file = "/Volumes/PASSPORT/FinalYearProject/MCANETRUN/json/Conformer3D_COMPOUND_CID_44138048.sdf"  # 替换为你的 SDF 文件路径
+sdf_file = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/3D/Structure3D_COMPOUND_CID_1400.sdf"  # 替换为你的 SDF 文件路径
 mol_supplier = Chem.SDMolSupplier(sdf_file)
 mol = next(mol_supplier)  # 取第一个分子
 
@@ -44,4 +44,4 @@ app.layout = html.Div([
 
 # 运行应用
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run(debug=True)

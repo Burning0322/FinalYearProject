@@ -1,7 +1,6 @@
 from app import app
 from dash import Input, Output
 
-
 content = {
     "en": {
         "navbar-title":"Drug Target Interaction Predict",
