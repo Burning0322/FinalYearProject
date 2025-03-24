@@ -2,6 +2,7 @@ import dash
 from dash import html,dcc,dash_table
 import dash_bootstrap_components as dbc
 import pandas as pd
+import py3Dmol
 
 dash.register_page(__name__, path="/resources")
 
@@ -104,14 +105,89 @@ footer = html.Footer([
     ], style={"textAlign": "center", "padding": "10px 0"})
 ], style={"backgroundColor": "#f8f9fa", "padding": "20px 0", "marginTop": "20px"})
 
+import re
+import os
+from rdkit import Chem
+from rdkit.Chem import Draw,AllChem
+
+def format_formula(formula):
+    return re.sub(r"([A-Z]+)(\d+)", r"\1<sub>\2</sub>", formula)
 df = pd.read_csv("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/web/drug.csv")
+
+df["Formatted Formula"] = df["Molecular Formula"].apply(format_formula)
+
+sdf_2d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/2D"
+# sdf_3d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/3D"
+assets = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/web/assets"
+
+# 根据 PubChem CID 构造 SDF 文件名
+df["SDF File"] = df["PubChem CID"].apply(lambda cid: f"Structure2D_COMPOUND_CID_{cid}.sdf")
+# df["SDF 3D File"] = df["PubChem CID"].apply(lambda cid: f"Structure3D_COMPOUND_CID_{cid}.sdf")
+
+# 从 SDF 文件生成 2D 图片
+def generate_2d_image(sdf_filename, output_filename):
+    sdf_path = os.path.join(sdf_2d, sdf_filename)
+    output_path = os.path.join(assets, output_filename)
+    if os.path.exists(output_path):  # 如果图片已存在，直接返回
+        return output_filename
+    try:
+        if not os.path.exists(sdf_path):
+            print(f"SDF file not found: {sdf_path}")
+            return None
+        supplier = Chem.SDMolSupplier(sdf_path)
+        mol = next((m for m in supplier if m is not None), None)
+        if mol:
+            Draw.MolToFile(mol, output_path, size=(200, 200))
+            return output_filename
+        else:
+            print(f"No valid molecule found in {sdf_filename}")
+    except Exception as e:
+        print(f"Error generating 2D image for {sdf_filename}: {e}")
+    return None
+
+# 预生成所有 2D 图片
+for index, row in df.iterrows():
+    sdf_filename = row["SDF File"]
+    output_filename = f"{sdf_filename.split('.')[0]}_2d_{index}.png"
+    generate_2d_image(sdf_filename, output_filename)
+
+# 格式化 2D 结构
+def format_2d_structure(sdf_filename, index):
+    output_filename = f"{sdf_filename.split('.')[0]}_2d_{index}.png"
+    output_path = os.path.join(assets, output_filename)
+    if os.path.exists(output_path):
+        return f'<img src="/assets/{output_filename}" style="width: 100px; height: auto;" />'
+    return "2D structure not available"
+
+# def format_3d_structure(sdf_filename, index):
+#     mol_supplier = Chem.SDMolSupplier(sdf_filename)
+#     mol = next(mol_supplier)  # 取第一个分子
+#     if mol is None:
+#         raise ValueError("无法加载 SDF 文件，请检查文件路径或格式")
+#
+#     # 将分子转换为 SDF 字符串
+#     sdf_string = Chem.MolToMolBlock(mol)
+#     viewer = py3Dmol.view(width=800, height=600)
+#     viewer.addModel(sdf_string, 'sdf')
+#     viewer.setStyle({'stick': {'radius': 0.1}, 'sphere': {'scale': 0.3}})  # 球棒模型
+#     viewer.setBackgroundColor('black')  # 黑色背景
+#     viewer.zoomTo()
+#
+#     viewer_html = viewer._make_html()
+#
+# df["Structure 2D"] = [format_2d_structure(row["SDF File"], index) for index, row in df.iterrows()]
+
+# Apply formatting to DataFrame
+df["Structure 2D"] = [format_2d_structure(row["SDF File"], index) for index, row in df.iterrows()]
 
 table = dash_table.DataTable(
     columns=[
         {"name": "Query", "id": "Query", "presentation": "markdown"},
         {"name": "PubChem CID", "id": "PubChem CID"},
         {"name": "Weight (g/mol)", "id": "Molecular Weight"},
-        {"name": "Molecular Formula", "id": "Molecular Formula", "presentation": "markdown"},
+        {"name": "Molecular Formula", "id": "Formatted Formula", "presentation": "markdown"},
+        {"name": "Structure 2D","id": "Structure 2D","presentation": "markdown"},
+        {"name": "Structure 3D","id": "Structure 3D","presentation": "markdown"},
     ],
     data=df.to_dict("records"),
     style_cell={"textAlign": "left", "padding": "5px"},
