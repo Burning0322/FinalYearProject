@@ -11,8 +11,7 @@ session = requests.Session()
 retries = Retry(total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
 session.mount('https://', HTTPAdapter(max_retries=retries))
 
-# 从 KIBA.txt 读取化合物
-with open('KIBA.txt', 'r') as f:
+with open('Davis.txt', 'r') as f:
     lines = f.readlines()
 
 data = []
@@ -20,9 +19,11 @@ for line in lines:
     parts = line.strip().split(' ', 4)
     if len(parts) == 5:
         compound_id = parts[0]
-        data.append({'compound_id': compound_id})
+        smiles = parts[2]
+        data.append({'compound_id': compound_id, 'smiles': smiles})
 
-ligands = sorted(set(d['compound_id'] for d in data))
+print(data)
+ligands = sorted(set(d['smiles'] for d in data))
 print(f"待处理化合物数量: {len(ligands)}")
 
 # 初始化列表
@@ -85,7 +86,7 @@ for query in ligands:
 
 print(f"成功处理 {count} 个化合物, 共用了 {total:.2f} 秒")
 df = pd.DataFrame(results)
-df.to_csv("details.csv", index=False)
+df.to_csv("davis.csv", index=False)
 
 
 # 打印错误列表

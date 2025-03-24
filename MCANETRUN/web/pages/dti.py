@@ -1,6 +1,7 @@
 import dash
-from dash import html,dcc
+from dash import html,dcc,dash_table,Input,Output,State
 import dash_bootstrap_components as dbc
+
 
 dash.register_page(__name__, path="/dti")
 
@@ -103,39 +104,108 @@ footer = html.Footer([
     ], style={"textAlign": "center", "padding": "10px 0"})
 ], style={"backgroundColor": "#f8f9fa", "padding": "20px 0", "marginTop": "20px"})
 
+input_section = dbc.Row([
+    # Drug 输入
+    dbc.Col([
+        html.Label("Drug", style={"fontWeight": "bold", "fontSize": "18px"}),
+        dcc.Input(
+            id="drug-input",
+            type="text",
+            placeholder="Enter SMILES (e.g., CCO for ethanol)",
+            style={"width": "100%", "padding": "8px", "marginBottom": "10px"}
+        ),
+        dcc.Upload(
+            id="drug-upload",
+            children=html.Button("Upload Drug File (.sdf)", className="btn btn-secondary"),
+            accept=".sdf",
+            style={"marginBottom": "20px"}
+        )
+    ], md=6),
+
+    # Protein 输入
+    dbc.Col([
+        html.Label("Protein", style={"fontWeight": "bold", "fontSize": "18px"}),
+        dcc.Input(
+            id="protein-input",
+            type="text",
+            placeholder="Enter Protein Name or Sequence",
+            style={"width": "100%", "padding": "8px", "marginBottom": "10px"}
+        ),
+        dcc.Upload(
+            id="protein-upload",
+            children=html.Button("Upload Protein File (.pdb)", className="btn btn-secondary"),
+            accept=".pdb"
+        )
+    ], md=6)
+], className="mb-4")
+
+predict_button = html.Button(
+    "Predict",
+    id="predict-button",
+    className="btn btn-primary",
+    style={"width": "200px", "marginBottom": "20px"}
+)
+drug_details_table = dash_table.DataTable(
+    id="drug-details-table",
+    columns=[
+        {"name": "Property", "id": "Property"},
+        {"name": "Value", "id": "Value"}
+    ],
+    data=[],
+    style_table={"width": "100%"},
+    style_cell={"textAlign": "left"}
+)
+
+protein_details_table = dash_table.DataTable(
+    id="protein-details-table",
+    columns=[
+        {"name": "Property", "id": "Property"},
+        {"name": "Value", "id": "Value"}
+    ],
+    data=[],
+    style_table={"width": "100%"},
+    style_cell={"textAlign": "left"}
+)
+
+drug_details_table = dash_table.DataTable(
+    id="drug-details-table",
+    columns=[
+        {"name": "Property", "id": "Property"},
+        {"name": "Value", "id": "Value"}
+    ],
+    data=[],
+    style_table={"width": "100%"},
+    style_cell={"textAlign": "left"}
+)
+
+protein_details_table = dash_table.DataTable(
+    id="protein-details-table",
+    columns=[
+        {"name": "Property", "id": "Property"},
+        {"name": "Value", "id": "Value"}
+    ],
+    data=[],
+    style_table={"width": "100%"},
+    style_cell={"textAlign": "left"}
+)
+
+details_section = dbc.Row([
+    dbc.Col([
+        html.H4("Drug Details", style={"fontWeight": "bold"}),
+        drug_details_table
+    ], md=6),
+    dbc.Col([
+        html.H4("Protein Details", style={"fontWeight": "bold"}),
+        protein_details_table
+    ], md=6)
+])
+
 layout = html.Div([
     navbar,
-    html.Div([
-        html.H1(id="portfolio-title", className="text-center mt-4"),
-        dbc.Row([
-            dbc.Col(dbc.Card([
-                dbc.CardBody([
-                    html.H4(id="what-is-dti-title", className="card-title"),
-                    html.P(id="what-is-dti-text"),
-                    html.Img(src="/assets/what-is-dti-img.jpg",
-                             style={"height": "100%", "width": "100%"},)
-                ]),
-            ]), md=4),
-            dbc.Col(dbc.Card([
-                dbc.CardBody([
-                    html.H4(id="what-is-affinity-title", className="card-title"),
-                    html.P(id="what-is-affinity-text"),
-                    html.Img(src="/assets/what-is-affinity-img.jpg",
-                             style={"height": "100%", "width": "100%"},)
-                ]),
-            ]), md=4),
-            dbc.Col(dbc.Card([
-                dbc.CardBody([
-                    html.H4(id="featured-usage-title", className="card-title"),
-                    html.P(id="featured-usage-text"),
-                    html.Img(src="/assets/featured-usage-img.jpg",
-                             style={"height": "100%", "width": "100%"},)
-                ]),
-            ]), md=4),
-        ], className="p-4")
+    dbc.Container([
+        input_section,
+        predict_button,
+        details_section
     ]),
     footer
 ])
-
-
-
