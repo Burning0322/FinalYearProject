@@ -117,12 +117,12 @@ df = pd.read_csv("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/w
 df["Formatted Formula"] = df["Molecular Formula"].apply(format_formula)
 
 sdf_2d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/2D"
-# sdf_3d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/3D"
+sdf_3d = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/3D"
 assets = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/web/assets"
 
 # 根据 PubChem CID 构造 SDF 文件名
 df["SDF File"] = df["PubChem CID"].apply(lambda cid: f"Structure2D_COMPOUND_CID_{cid}.sdf")
-# df["SDF 3D File"] = df["PubChem CID"].apply(lambda cid: f"Structure3D_COMPOUND_CID_{cid}.sdf")
+df["SDF 3D File"] = df["PubChem CID"].apply(lambda cid: f"Structure3D_COMPOUND_CID_{cid}.sdf")
 
 # 从 SDF 文件生成 2D 图片
 def generate_2d_image(sdf_filename, output_filename):
@@ -180,21 +180,59 @@ def format_2d_structure(sdf_filename, index):
 # Apply formatting to DataFrame
 df["Structure 2D"] = [format_2d_structure(row["SDF File"], index) for index, row in df.iterrows()]
 
-table = dash_table.DataTable(
-    columns=[
-        {"name": "Query", "id": "Query", "presentation": "markdown"},
-        {"name": "PubChem CID", "id": "PubChem CID"},
-        {"name": "Weight (g/mol)", "id": "Molecular Weight"},
-        {"name": "Molecular Formula", "id": "Formatted Formula", "presentation": "markdown"},
-        {"name": "Structure 2D","id": "Structure 2D","presentation": "markdown"},
-        {"name": "Structure 3D","id": "Structure 3D","presentation": "markdown"},
-    ],
-    data=df.to_dict("records"),
-    style_cell={"textAlign": "left", "padding": "5px"},
-    style_header={"backgroundColor": "#f5f5f5", "fontWeight": "bold"},
-    style_table={"overflowX": "auto"},
-    markdown_options={"html": True},
-)
+def get_3d_iframe(sdf_filename):
+    sdf_path = os.path.join(sdf_3d, sdf_filename)
+    try:
+        if not os.path.exists(sdf_path):
+            return html.Div("3D structure not available")
+
+        supplier = Chem.SDMolSupplier(sdf_path)
+        mol = next((m for m in supplier if m is not None), None)
+        if mol is None:
+            return html.Div("No valid molecule")
+
+        sdf_block = Chem.MolToMolBlock(mol)
+        viewer = py3Dmol.view(width=200, height=200)
+        viewer.addModel(sdf_block, 'sdf')
+        viewer.setStyle({'stick': {'radius': 0.1}, 'sphere': {'scale': 0.3}})
+        viewer.setBackgroundColor('white')
+        viewer.zoomTo()
+        viewer_html = viewer._make_html()
+
+        return html.Iframe(
+            srcDoc=viewer_html,  # 不再替换 script 地址
+            style={"width": "200px", "height": "200px", "border": "none"}
+        )
+
+    except Exception as e:
+        return html.Div(f"3D error: {e}")
+
+
+table = html.Table([
+    html.Thead(html.Tr([
+        html.Th("Query"),
+        html.Th("PubChem CID"),
+        html.Th("Weight (g/mol)"),
+        html.Th("Molecular Formula"),
+        html.Th("Structure 2D"),
+        html.Th("Structure 3D"),
+    ])),
+    html.Tbody([
+        html.Tr([
+            html.Td(row["Query"]),
+            html.Td(str(row["PubChem CID"])),
+            html.Td(str(row["Molecular Weight"])),
+            html.Td(html.Div(dcc.Markdown(row["Formatted Formula"], dangerously_allow_html=True))),
+            html.Td(html.Div([
+                html.Img(src=f"/assets/{row['SDF File'].split('.')[0]}_2d_{i}.png", style={"width": "100px"})
+            ])),
+            html.Td(html.Div([
+                get_3d_iframe(row["SDF 3D File"])  # ✅ 真实 iframe 对象
+            ]))
+        ]) for i, row in df.iterrows()
+    ])
+], style={"width": "100%", "borderCollapse": "collapse", "marginTop": "20px"})
+
 
 layout = html.Div([
     navbar,
