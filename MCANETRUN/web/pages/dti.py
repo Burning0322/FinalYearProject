@@ -3,6 +3,7 @@ from dash import html,dcc,dash_table,Input,Output,State
 import dash_bootstrap_components as dbc
 import mysql.connector
 from mysql.connector import Error
+import re
 
 dash.register_page(__name__, path="/dti")
 
@@ -154,43 +155,33 @@ predict_button = html.Button(
     style={"width": "200px", "marginBottom": "20px"}
 )
 
-# 药物详情表格
 drug_details_table = dash_table.DataTable(
     id="drug-details-table",
     columns=[
         {"name": "Property", "id": "Property"},
-        {"name": "Value", "id": "Value"}
+        {"name": "Value", "id": "Value", "presentation": "markdown"}  # 启用markdown渲染
     ],
     data=[],
     style_table={
         "width": "100%",
-        "maxHeight": "400px",  # 固定高度，超出部分显示滚动条
-        "overflowY": "auto"  # 启用垂直滚动
+        "maxHeight": "400px",
+        "overflowY": "auto"
     },
-    style_cell={"textAlign": "left", "padding": "5px"},
-    style_cell_conditional=[
-        {
-            "if": {"column_id": "Property"},
-            "width": "30%",
-            "fontWeight": "bold"
-        },
-        {
-            "if": {"column_id": "Value"},
-            "width": "70%",
-            "maxWidth": "500px",
-            "whiteSpace": "normal",
-            "overflow": "hidden",
-            "textOverflow": "ellipsis"
-        }
-    ],
-    tooltip_data=[
-        {
-            "Value": {"value": "{Value}", "type": "text"}
-        }
-    ] * 38,
-    tooltip_delay=0,
-    tooltip_duration=None,
+    style_cell={
+        "textAlign": "left",
+        "padding": "5px",
+        "whiteSpace": "normal"
+    },
+    markdown_options={"html": True},  # 允许HTML标签
+    tooltip_duration=None
 )
+
+# 修改回调函数中的格式化逻辑
+def format_molecular_formula(formula):
+    """将C18H22N4O2转换为C₁₈H₂₂N₄O₂"""
+    subscript_map = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+    return re.sub(r'([A-Za-z])(\d+)', lambda m: m.group(1) + m.group(2).translate(subscript_map), formula)
+
 
 protein_details_table = dash_table.DataTable(
     id="protein-details-table",
@@ -241,6 +232,7 @@ def fetch_drug_data(smiles):
             cursor.close()
             connection.close()
 
+
 @dash.callback(
     Output("drug-details-table", "data"),
     Input("predict-button", "n_clicks"),
@@ -252,17 +244,25 @@ def update_drug_details(n_clicks, drug_input):
         return []
 
     smiles = drug_input.strip()
-
-    # 从数据库中读取数据
     drug_data = fetch_drug_data(smiles)
 
     if not drug_data:
-        return [{"Property": "Error", "Value": f"No data found for smiles {smiles}"}]
+        return [{"Property": "Error", "Value": f"No data found for SMILES: {smiles}"}]
 
-    # 将数据库记录格式化为表格数据
-    table_data = [
-        {"Property": key, "Value": value if value is not None else "N/A"}
-        for key, value in drug_data.items()
-    ]
+    table_data = []
+    for key, value in drug_data.items():
+        if value is None:
+            value = "N/A"
+
+        # 特殊处理分子式
+        if key == "molecular_formula":
+            value = format_molecular_formula(value)
+            # 使用Markdown的HTML渲染
+            value = f"<span style='font-size:1.1em'>{value}</span>"
+
+        table_data.append({
+            "Property": key.replace("_", " ").title(),
+            "Value": str(value)
+        })
 
     return table_data
