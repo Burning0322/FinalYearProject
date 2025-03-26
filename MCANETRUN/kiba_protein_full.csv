@@ -1,0 +1,226 @@
+UniProt Accession,Gene Names,Organism,Protein Name
+O00141,SGK1,Homo sapiens,Serine/threonine-protein kinase Sgk1
+O00311,CDC7,Homo sapiens,Cell division cycle 7-related protein kinase
+O00329,PIK3CD,Homo sapiens,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit delta isoform"
+O00418,EEF2K,Homo sapiens,Eukaryotic elongation factor 2 kinase
+O00444,PLK4,Homo sapiens,Serine/threonine-protein kinase PLK4
+O14757,CHEK1,Homo sapiens,Serine/threonine-protein kinase Chk1
+O14920,IKBKB,Homo sapiens,Inhibitor of nuclear factor kappa-B kinase subunit beta
+O14965,AURKA,Homo sapiens,Aurora kinase A
+O15075,DCLK1,Homo sapiens,Serine/threonine-protein kinase DCLK1
+O15111,CHUK,Homo sapiens,Inhibitor of nuclear factor kappa-B kinase subunit alpha
+O15264,MAPK13,Homo sapiens,Mitogen-activated protein kinase 13
+O15530,PDPK1,Homo sapiens,3-phosphoinositide-dependent protein kinase 1
+O43293,DAPK3,Homo sapiens,Death-associated protein kinase 3
+O43741,PRKAB2,Homo sapiens,5'-AMP-activated protein kinase subunit beta-2
+O43781,DYRK3,Homo sapiens,Dual specificity tyrosine-phosphorylation-regulated kinase 3
+O60285,NUAK1,Homo sapiens,NUAK family SNF1-like kinase 1
+O60674,JAK2,Homo sapiens,Tyrosine-protein kinase JAK2
+O75116,ROCK2,Homo sapiens,Rho-associated protein kinase 2
+O75582,RPS6KA5,Homo sapiens,Ribosomal protein S6 kinase alpha-5
+O75676,RPS6KA4,Homo sapiens,Ribosomal protein S6 kinase alpha-4
+O94806,PRKD3,Homo sapiens,Serine/threonine-protein kinase D3
+O95819,MAP4K4,Homo sapiens,Mitogen-activated protein kinase kinase kinase kinase 4
+O96013,PAK4,Homo sapiens,Serine/threonine-protein kinase PAK 4
+O96017,CHEK2,Homo sapiens,Serine/threonine-protein kinase Chk2
+P00519,ABL1,Homo sapiens,Tyrosine-protein kinase ABL1
+P00533,EGFR,Homo sapiens,Epidermal growth factor receptor
+P04049,RAF1,Homo sapiens,RAF proto-oncogene serine/threonine-protein kinase
+P04626,ERBB2,Homo sapiens,Receptor tyrosine-protein kinase erbB-2
+P04629,NTRK1,Homo sapiens,High affinity nerve growth factor receptor
+P05129,PRKCG,Homo sapiens,Protein kinase C gamma type
+P05771,PRKCB,Homo sapiens,Protein kinase C beta type
+P06213,INSR,Homo sapiens,Insulin receptor
+P06239,LCK,Homo sapiens,Tyrosine-protein kinase Lck
+P06241,FYN,Homo sapiens,Tyrosine-protein kinase Fyn
+P06493,CDK1,Homo sapiens,Cyclin-dependent kinase 1
+P07332,FES,Homo sapiens,Tyrosine-protein kinase Fes/Fps
+P07333,CSF1R,Homo sapiens,Macrophage colony-stimulating factor 1 receptor
+P07947,YES1,Homo sapiens,Tyrosine-protein kinase Yes
+P07948,LYN,Homo sapiens,Tyrosine-protein kinase Lyn
+P07949,RET,Homo sapiens,Proto-oncogene tyrosine-protein kinase receptor Ret
+P08069,IGF1R,Homo sapiens,Insulin-like growth factor 1 receptor
+P08581,MET,Homo sapiens,Hepatocyte growth factor receptor
+P08631,HCK,Homo sapiens,Tyrosine-protein kinase HCK
+P09619,PDGFRB,Homo sapiens,Platelet-derived growth factor receptor beta
+P09769,FGR,Homo sapiens,Tyrosine-protein kinase Fgr
+P10721,KIT,Homo sapiens,Mast/stem cell growth factor receptor Kit
+P11309,PIM1,Homo sapiens,Serine/threonine-protein kinase pim-1
+P11362,FGFR1,Homo sapiens,Fibroblast growth factor receptor 1
+P11802,CDK4,Homo sapiens,Cyclin-dependent kinase 4
+P12931,SRC,Homo sapiens,Proto-oncogene tyrosine-protein kinase Src
+P15056,BRAF,Homo sapiens,Serine/threonine-protein kinase B-raf
+P15735,PHKG2,Homo sapiens,"Phosphorylase b kinase gamma catalytic chain, liver/testis isoform"
+P16234,PDGFRA,Homo sapiens,Platelet-derived growth factor receptor alpha
+P16591,FER,Homo sapiens,Tyrosine-protein kinase Fer
+P17252,PRKCA,Homo sapiens,Protein kinase C alpha type
+P17612,PRKACA,Homo sapiens,cAMP-dependent protein kinase catalytic subunit alpha
+P17948,FLT1,Homo sapiens,Vascular endothelial growth factor receptor 1
+P19784,CSNK2A2,Homo sapiens,Casein kinase II subunit alpha'
+P21802,FGFR2,Homo sapiens,Fibroblast growth factor receptor 2
+P22455,FGFR4,Homo sapiens,Fibroblast growth factor receptor 4
+P22607,FGFR3,Homo sapiens,Fibroblast growth factor receptor 3
+P22612,PRKACG,Homo sapiens,cAMP-dependent protein kinase catalytic subunit gamma
+P22694,PRKACB,Homo sapiens,cAMP-dependent protein kinase catalytic subunit beta
+P23443,RPS6KB1,Homo sapiens,Ribosomal protein S6 kinase beta-1
+P23458,JAK1,Homo sapiens,Tyrosine-protein kinase JAK1
+P24723,PRKCH,Homo sapiens,Protein kinase C eta type
+P24941,CDK2,Homo sapiens,Cyclin-dependent kinase 2
+P27361,MAPK3,Homo sapiens,Mitogen-activated protein kinase 3
+P27448,MARK3,Homo sapiens,MAP/microtubule affinity-regulating kinase 3
+P28482,MAPK1,Homo sapiens,Mitogen-activated protein kinase 1
+P29317,EPHA2,Homo sapiens,Ephrin type-A receptor 2
+P29323,EPHB2,Homo sapiens,Ephrin type-B receptor 2
+P29376,LTK,Homo sapiens,Leukocyte tyrosine kinase receptor
+P29597,TYK2,Homo sapiens,Non-receptor tyrosine-protein kinase TYK2
+P30291,WEE1,Homo sapiens,Wee1-like protein kinase
+P30530,AXL,Homo sapiens,Tyrosine-protein kinase receptor UFO
+P31749,AKT1,Homo sapiens,RAC-alpha serine/threonine-protein kinase
+P31751,AKT2,Homo sapiens,RAC-beta serine/threonine-protein kinase
+P34947,GRK5,Homo sapiens,G protein-coupled receptor kinase 5
+P35916,FLT4,Homo sapiens,Vascular endothelial growth factor receptor 3
+P35968,KDR,Homo sapiens,Vascular endothelial growth factor receptor 2
+P36507,MAP2K2,Homo sapiens,Dual specificity mitogen-activated protein kinase kinase 2
+P36888,FLT3,Homo sapiens,Receptor-type tyrosine-protein kinase FLT3
+P41240,CSK,Homo sapiens,Tyrosine-protein kinase CSK
+P41279,MAP3K8,Homo sapiens,Mitogen-activated protein kinase kinase kinase 8
+P41743,PRKCI,Homo sapiens,Protein kinase C iota type
+P42336,PIK3CA,Homo sapiens,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform"
+P42338,PIK3CB,Homo sapiens,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit beta isoform"
+P42679,MATK,Homo sapiens,Megakaryocyte-associated tyrosine-protein kinase
+P42684,ABL2,Homo sapiens,Tyrosine-protein kinase ABL2
+P42685,FRK,Homo sapiens,Tyrosine-protein kinase FRK
+P43403,ZAP70,Homo sapiens,Tyrosine-protein kinase ZAP-70
+P43405,SYK,Homo sapiens,Tyrosine-protein kinase SYK
+P45983,MAPK8,Homo sapiens,Mitogen-activated protein kinase 8
+P45984,MAPK9,Homo sapiens,Mitogen-activated protein kinase 9
+P48729,CSNK1A1,Homo sapiens,Casein kinase I isoform alpha
+P48730,CSNK1D,Homo sapiens,Casein kinase I isoform delta
+P48736,PIK3CG,Homo sapiens,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit gamma isoform"
+P49137,MAPKAPK2,Homo sapiens,MAP kinase-activated protein kinase 2
+P49336,CDK8,Homo sapiens,Cyclin-dependent kinase 8
+P49674,CSNK1E,Homo sapiens,Casein kinase I isoform epsilon
+P49759,CLK1,Homo sapiens,Dual specificity protein kinase CLK1
+P49760,CLK2,Homo sapiens,Dual specificity protein kinase CLK2
+P49840,GSK3A,Homo sapiens,Glycogen synthase kinase-3 alpha
+P49841,GSK3B,Homo sapiens,Glycogen synthase kinase-3 beta
+P50613,CDK7,Homo sapiens,Cyclin-dependent kinase 7
+P50750,CDK9,Homo sapiens,Cyclin-dependent kinase 9
+P51451,BLK,Homo sapiens,Tyrosine-protein kinase Blk
+P51617,IRAK1,Homo sapiens,Interleukin-1 receptor-associated kinase 1
+P51812,RPS6KA3,Homo sapiens,Ribosomal protein S6 kinase alpha-3
+P51813,BMX,Homo sapiens,Cytoplasmic tyrosine-protein kinase BMX
+P51817,PRKX,Homo sapiens,cAMP-dependent protein kinase catalytic subunit PRKX
+P51955,NEK2,Homo sapiens,Serine/threonine-protein kinase Nek2
+P51957,NEK4,Homo sapiens,Serine/threonine-protein kinase Nek4
+P52333,JAK3,Homo sapiens,Tyrosine-protein kinase JAK3
+P52564,MAP2K6,Homo sapiens,Dual specificity mitogen-activated protein kinase kinase 6
+P53350,PLK1,Homo sapiens,Serine/threonine-protein kinase PLK1
+P53667,LIMK1,Homo sapiens,LIM domain kinase 1
+P53778,MAPK12,Homo sapiens,Mitogen-activated protein kinase 12
+P53779,MAPK10,Homo sapiens,Mitogen-activated protein kinase 10
+P54619,PRKAG1,Homo sapiens,5'-AMP-activated protein kinase subunit gamma-1
+P54646,PRKAA2,Homo sapiens,5'-AMP-activated protein kinase catalytic subunit alpha-2
+P54760,EPHB4,Homo sapiens,Ephrin type-B receptor 4
+P67870,CSNK2B,Homo sapiens,Casein kinase II subunit beta
+P68400,CSNK2A1,Homo sapiens,Casein kinase II subunit alpha
+P78368,CSNK1G2,Homo sapiens,Casein kinase I isoform gamma-2
+P80192,MAP3K9,Homo sapiens,Mitogen-activated protein kinase kinase kinase 9
+Q00534,CDK6,Homo sapiens,Cyclin-dependent kinase 6
+Q00535,CDK5,Homo sapiens,Cyclin-dependent kinase 5
+Q02156,PRKCE,Homo sapiens,Protein kinase C epsilon type
+Q02750,MAP2K1,Homo sapiens,Dual specificity mitogen-activated protein kinase kinase 1
+Q02763,TEK,Homo sapiens,Angiopoietin-1 receptor
+Q02779,MAP3K10,Homo sapiens,Mitogen-activated protein kinase kinase kinase 10
+Q04759,PRKCQ,Homo sapiens,Protein kinase C theta type
+Q04771,ACVR1,Homo sapiens,Activin receptor type-1
+Q04912,MST1R,Homo sapiens,Macrophage-stimulating protein receptor
+Q05397,PTK2,Homo sapiens,Focal adhesion kinase 1
+Q05513,PRKCZ,Homo sapiens,Protein kinase C zeta type
+Q05655,PRKCD,Homo sapiens,Protein kinase C delta type
+Q06187,BTK,Homo sapiens,Tyrosine-protein kinase BTK
+Q06418,TYRO3,Homo sapiens,Tyrosine-protein kinase receptor TYRO3
+Q07912,TNK2,Homo sapiens,Activated CDC42 kinase 1
+Q08881,ITK,Homo sapiens,Tyrosine-protein kinase ITK/TSK
+Q12851,MAP4K2,Homo sapiens,Mitogen-activated protein kinase kinase kinase kinase 2
+Q12866,MERTK,Homo sapiens,Tyrosine-protein kinase Mer
+Q13131,PRKAA1,Homo sapiens,5'-AMP-activated protein kinase catalytic subunit alpha-1
+Q13153,PAK1,Homo sapiens,Serine/threonine-protein kinase PAK 1
+Q13177,PAK2,Homo sapiens,Serine/threonine-protein kinase PAK 2
+Q13188,STK3,Homo sapiens,Serine/threonine-protein kinase 3
+Q13237,PRKG2,Homo sapiens,cGMP-dependent protein kinase 2
+Q13464,ROCK1,Homo sapiens,Rho-associated protein kinase 1
+Q13554,CAMK2B,Homo sapiens,Calcium/calmodulin-dependent protein kinase type II subunit beta
+Q13555,CAMK2G,Homo sapiens,Calcium/calmodulin-dependent protein kinase type II subunit gamma
+Q13557,CAMK2D,Homo sapiens,Calcium/calmodulin-dependent protein kinase type II subunit delta
+Q13627,DYRK1A,Homo sapiens,Dual specificity tyrosine-phosphorylation-regulated kinase 1A
+Q13882,PTK6,Homo sapiens,Protein-tyrosine kinase 6
+Q13976,PRKG1,Homo sapiens,cGMP-dependent protein kinase 1
+Q14012,CAMK1,Homo sapiens,Calcium/calmodulin-dependent protein kinase type 1
+Q14164,IKBKE,Homo sapiens,Inhibitor of nuclear factor kappa-B kinase subunit epsilon
+Q14289,PTK2B,Homo sapiens,Protein-tyrosine kinase 2-beta
+Q14680,MELK,Homo sapiens,Maternal embryonic leucine zipper kinase
+Q15078,CDK5R1,Homo sapiens,Cyclin-dependent kinase 5 activator 1
+Q15118,PDK1,Homo sapiens,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 1, mitochondrial"
+Q15139,PRKD1,Homo sapiens,Serine/threonine-protein kinase D1
+Q15303,ERBB4,Homo sapiens,Receptor tyrosine-protein kinase erbB-4
+Q15418,RPS6KA1,Homo sapiens,Ribosomal protein S6 kinase alpha-1
+Q15759,MAPK11,Homo sapiens,Mitogen-activated protein kinase 11
+Q16288,NTRK3,Homo sapiens,NT-3 growth factor receptor
+Q16512,PKN1,Homo sapiens,Serine/threonine-protein kinase N1
+Q16513,PKN2,Homo sapiens,Serine/threonine-protein kinase N2
+Q16539,MAPK14,Homo sapiens,Mitogen-activated protein kinase 14
+Q16566,CAMK4,Homo sapiens,Calcium/calmodulin-dependent protein kinase type IV
+Q16584,MAP3K11,Homo sapiens,Mitogen-activated protein kinase kinase kinase 11
+Q16620,NTRK2,Homo sapiens,BDNF/NT-3 growth factors receptor
+Q16644,MAPKAPK3,Homo sapiens,MAP kinase-activated protein kinase 3
+Q5VT25,CDC42BPA,Homo sapiens,Serine/threonine-protein kinase MRCK alpha
+Q7KZI7,MARK2,Homo sapiens,Serine/threonine-protein kinase MARK2
+Q7L7X3,TAOK1,Homo sapiens,Serine/threonine-protein kinase TAO1
+Q86V86,PIM3,Homo sapiens,Serine/threonine-protein kinase pim-3
+Q8IU85,CAMK1D,Homo sapiens,Calcium/calmodulin-dependent protein kinase type 1D
+Q8IW41,MAPKAPK5,Homo sapiens,MAP kinase-activated protein kinase 5
+Q8N4C8,MINK1,Homo sapiens,Misshapen-like kinase 1
+Q8NE63,HIPK4,Homo sapiens,Homeodomain-interacting protein kinase 4
+Q8TDC3,BRSK1,Homo sapiens,Serine/threonine-protein kinase BRSK1
+Q96GD4,AURKB,Homo sapiens,Aurora kinase B
+Q96KB5,PBK,Homo sapiens,Lymphokine-activated killer T-cell-originated protein kinase
+Q96L34,MARK4,Homo sapiens,MAP/microtubule affinity-regulating kinase 4
+Q96PF2,TSSK2,Homo sapiens,Testis-specific serine/threonine-protein kinase 2
+Q96RG2,PASK,Homo sapiens,PAS domain-containing serine/threonine-protein kinase
+Q96RR4,CAMKK2,Homo sapiens,Calcium/calmodulin-dependent protein kinase kinase 2
+Q96SB4,SRPK1,Homo sapiens,SRSF protein kinase 1
+Q99683,MAP3K5,Homo sapiens,Mitogen-activated protein kinase kinase kinase 5
+Q9BUB5,MKNK1,Homo sapiens,MAP kinase-interacting serine/threonine-protein kinase 1
+Q9BWU1,CDK19,Homo sapiens,Cyclin-dependent kinase 19
+Q9BXA7,TSSK1B,Homo sapiens,Testis-specific serine/threonine-protein kinase 1
+Q9BZL6,PRKD2,Homo sapiens,Serine/threonine-protein kinase D2
+Q9H0K1,SIK2,Homo sapiens,Serine/threonine-protein kinase SIK2
+Q9H2G2,SLK,Homo sapiens,STE20-like serine/threonine-protein kinase
+Q9H2X6,HIPK2,Homo sapiens,Homeodomain-interacting protein kinase 2
+Q9H3Y6,SRMS,Homo sapiens,Tyrosine-protein kinase Srms
+Q9H4B4,PLK3,Homo sapiens,Serine/threonine-protein kinase PLK3
+Q9HAZ1,CLK4,Homo sapiens,Dual specificity protein kinase CLK4
+Q9HBH9,MKNK2,Homo sapiens,MAP kinase-interacting serine/threonine-protein kinase 2
+Q9HBY8,SGK2,Homo sapiens,Serine/threonine-protein kinase Sgk2
+Q9HC98,NEK6,Homo sapiens,Serine/threonine-protein kinase Nek6
+Q9HCP0,CSNK1G1,Homo sapiens,Casein kinase I isoform gamma-1
+Q9NR20,DYRK4,Homo sapiens,Dual specificity tyrosine-phosphorylation-regulated kinase 4
+Q9NWZ3,IRAK4,Homo sapiens,Interleukin-1 receptor-associated kinase 4
+Q9NYL2,MAP3K20,Homo sapiens,Mitogen-activated protein kinase kinase kinase 20
+Q9P1W9,PIM2,Homo sapiens,Serine/threonine-protein kinase pim-2
+Q9P289,STK26,Homo sapiens,Serine/threonine-protein kinase 26
+Q9UBE8,NLK,Homo sapiens,Serine/threonine-protein kinase NLK
+Q9UBF8,PI4KB,Homo sapiens,Phosphatidylinositol 4-kinase beta
+Q9UBS0,RPS6KB2,Homo sapiens,Ribosomal protein S6 kinase beta-2
+Q9UEE5,STK17A,Homo sapiens,Serine/threonine-protein kinase 17A
+Q9UGI9,PRKAG3,Homo sapiens,5'-AMP-activated protein kinase subunit gamma-3
+Q9UGJ0,PRKAG2,Homo sapiens,5'-AMP-activated protein kinase subunit gamma-2
+Q9UHD2,TBK1,Homo sapiens,Serine/threonine-protein kinase TBK1
+Q9UM73,ALK,Homo sapiens,ALK tyrosine kinase receptor
+Q9UQM7,CAMK2A,Homo sapiens,Calcium/calmodulin-dependent protein kinase type II subunit alpha
+Q9Y243,AKT3,Homo sapiens,RAC-gamma serine/threonine-protein kinase
+Q9Y463,DYRK1B,Homo sapiens,Dual specificity tyrosine-phosphorylation-regulated kinase 1B
+Q9Y478,PRKAB1,Homo sapiens,5'-AMP-activated protein kinase subunit beta-1
+Q9Y4K4,MAP4K5,Homo sapiens,Mitogen-activated protein kinase kinase kinase kinase 5
+Q9Y6M4,CSNK1G3,Homo sapiens,Casein kinase I isoform gamma-3
