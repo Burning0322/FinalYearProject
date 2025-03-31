@@ -11,8 +11,8 @@ navbar = dbc.Navbar(
         dbc.Nav([
             dbc.NavItem(dbc.NavLink("Home", href="/",id="navbar-home")),
             dbc.NavItem(dbc.NavLink("Resources", href="/resources",id="navbar-resources")),
-            dbc.NavItem(dbc.NavLink("DTI", href="#",id="navbar-dti")),
-            dbc.NavItem(dbc.NavLink("About Us", href="#",id="navbar-about")),
+            dbc.NavItem(dbc.NavLink("DTI", href="/dti",id="navbar-dti")),
+            dbc.NavItem(dbc.NavLink("About Us", href="/about",id="navbar-about")),
             dbc.NavItem(dbc.Button("Contact", color="primary", className="ms-2",id="navbar-contact")),
             dbc.NavItem(
                 dcc.Dropdown(

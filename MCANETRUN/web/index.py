@@ -41,6 +41,5 @@ def update_language(language):
         content[language]["navbar-contact"],
     )
 
-
 if __name__ == "__main__":
     app.run(debug=True)

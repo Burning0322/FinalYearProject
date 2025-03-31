@@ -3,17 +3,35 @@ from dash import html,dcc,dash_table
 import dash_bootstrap_components as dbc
 import pandas as pd
 import py3Dmol
+import mysql.connector
 
 dash.register_page(__name__, path="/resources")
+
+db_config = {
+    "host": "localhost",
+    "user": "root",
+    "password": "root",
+    "database": "dti"
+}
 
 navbar = dbc.Navbar(
     dbc.Container([
         dbc.NavbarBrand("Drug Target Interaction", className="ms-2", style={"fontWeight": "bold", "fontSize": "24px"},id="navbar-title"),
         dbc.Nav([
             dbc.NavItem(dbc.NavLink("Home", href="/",id="navbar-home")),
-            dbc.NavItem(dbc.NavLink("Resources", href="/resources",id="navbar-resources")),
-            dbc.NavItem(dbc.NavLink("DTI", href="#",id="navbar-dti")),
-            dbc.NavItem(dbc.NavLink("About Us", href="#",id="navbar-about")),
+            dbc.NavItem(dbc.DropdownMenu(
+                children=[
+                    dbc.DropdownMenuItem("All",href="/resources",id="navbar-resources"),
+                    dbc.DropdownMenuItem("Drug", href="/drug"),
+                    dbc.DropdownMenuItem("Protein", href="/protein")
+                ],
+                nav=True,
+                in_navbar=True,
+                label="Resources",
+                id="navbar-resources-dropdown"
+            )),
+            dbc.NavItem(dbc.NavLink("DTI", href="/dti",id="navbar-dti")),
+            dbc.NavItem(dbc.NavLink("About Us", href="/about",id="navbar-about")),
             dbc.NavItem(dbc.Button("Contact", color="primary", className="ms-2",id="navbar-contact")),
             dbc.NavItem(
                 dcc.Dropdown(
@@ -27,6 +45,7 @@ navbar = dbc.Navbar(
                     style={"width": "100px", "marginLeft": "10px"}
                 )
             ),
+            
         ], className="ms-auto", navbar=True)
     ]),
     color="light",
@@ -106,7 +125,28 @@ from rdkit.Chem import Draw,AllChem
 
 def format_formula(formula):
     return re.sub(r"([A-Z]+)(\d+)", r"\1<sub>\2</sub>", formula)
-df = pd.read_csv("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/web/drug.csv")
+
+def get_drug_data():
+    try:
+        conn = mysql.connector.connect(**db_config)
+        query = """
+            SELECT
+                query AS Query,
+                compound_id AS 'PubChem CID',
+                molecular_weight AS 'Molecular Weight',
+                molecular_formula AS 'Molecular Formula'
+            FROM drug
+        """
+        df = pd.read_sql(query, conn)
+        conn.close()
+        return df
+    except Exception as e:
+        print(f"Database error: {e}")
+        return pd.DataFrame()
+
+df = get_drug_data()
+# df = pd.read_csv("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/web/drug.csv")
+
 
 df["Formatted Formula"] = df["Molecular Formula"].apply(format_formula)
 
@@ -212,9 +252,14 @@ table = dash_table.DataTable(
     markdown_options={"html": True},
 )
 
+search = html.Div([
+
+])
+
 layout = html.Div([
     navbar,
-    html.H1("Drug List"),
+    html.H1("List",id="List title"),
+    search,
     dbc.Container([
         table,
         html.Div(id="3d-viewer", style={"width": "400px", "height": "400px"})
