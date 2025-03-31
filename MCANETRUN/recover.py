@@ -26,7 +26,7 @@ fields = [
 
 # Open the input file
 # Open the input file (assuming it's a CSV)
-with open('details.csv', 'r') as f:
+with open('kiba_details.csv', 'r') as f:
     lines = f.readlines()
 
 data = []

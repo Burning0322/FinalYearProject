@@ -22,8 +22,7 @@ for line in lines:
         smiles = parts[2]
         data.append({'compound_id': compound_id, 'smiles': smiles})
 
-print(data)
-ligands = sorted(set(d['smiles'] for d in data))
+ligands = sorted(set(d['compound_id'] for d in data))
 print(f"待处理化合物数量: {len(ligands)}")
 
 # 初始化列表
