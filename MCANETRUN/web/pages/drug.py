@@ -10,6 +10,7 @@ dash.register_page(__name__, path="/drug")
 db_config = {
     "host": "localhost",
     "user": "root",
+    "port": 3306,
     "password": "root",
     "database": "dti"
 }
@@ -126,9 +127,33 @@ from rdkit.Chem import Draw,AllChem
 def format_formula(formula):
     return re.sub(r"([A-Z]+)(\d+)", r"\1<sub>\2</sub>", formula)
 
+# def get_drug_data():
+#     try:
+#         conn = mysql.connector.connect(**db_config)
+#         query = """
+#             SELECT
+#                 query AS Query,
+#                 compound_id AS 'PubChem CID',
+#                 molecular_weight AS 'Molecular Weight',
+#                 molecular_formula AS 'Molecular Formula'
+#             FROM drug
+#         """
+#         df = pd.read_sql(query, conn)
+#         conn.close()
+#         return df
+#     except Exception as e:
+#         print(f"Database error: {e}")
+#         return pd.DataFrame()
+
+from sqlalchemy import create_engine
+import pandas as pd
+
 def get_drug_data():
     try:
-        conn = mysql.connector.connect(**db_config)
+        engine = create_engine(
+            f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
+        )
+
         query = """
             SELECT
                 query AS Query,
@@ -137,9 +162,9 @@ def get_drug_data():
                 molecular_formula AS 'Molecular Formula'
             FROM drug
         """
-        df = pd.read_sql(query, conn)
-        conn.close()
+        df = pd.read_sql(query, engine)
         return df
+
     except Exception as e:
         print(f"Database error: {e}")
         return pd.DataFrame()
@@ -164,7 +189,7 @@ def generate_2d_image(sdf_filename, output_filename):
         return output_filename
     try:
         if not os.path.exists(sdf_path):
-            print(f"SDF file not found: {sdf_path}")
+            # print(f"SDF file not found: {sdf_path}")
             return None
         supplier = Chem.SDMolSupplier(sdf_path)
         mol = next((m for m in supplier if m is not None), None)

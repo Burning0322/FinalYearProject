@@ -5,6 +5,7 @@ import pandas as pd
 import py3Dmol
 import mysql.connector
 import os
+from sqlalchemy import create_engine
 
 dash.register_page(__name__, path="/protein")
 
@@ -12,13 +13,39 @@ dash.register_page(__name__, path="/protein")
 db_config = {
     "host": "localhost",
     "user": "root",
+    "port": 3306,
     "password": "root",
     "database": "dti"
 }
+#
+# def get_protein_data():
+#     try:
+#         conn = mysql.connector.connect(**db_config)
+#         query = """
+#             SELECT
+#                 uniprot_id AS "UniProt ID",
+#                 uniprot_accession AS 'UniProt Accession',
+#                 gene_names AS 'Gene Name',
+#                 organism AS 'Organism',
+#                 protein_name AS 'Protein Name',
+#                 sequence AS 'Sequence',
+#                 length AS 'Length'
+#             FROM protein;
+#         """
+#         df = pd.read_sql(query, conn)
+#         conn.close()
+#         return df
+#     except Exception as e:
+#         print(f"Database error: {e}")
+#         return pd.DataFrame()
 
 def get_protein_data():
     try:
-        conn = mysql.connector.connect(**db_config)
+        # 构建 SQLAlchemy 数据库引擎
+        engine = create_engine(
+            f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
+        )
+
         query = """
             SELECT
                 uniprot_id AS "UniProt ID",
@@ -30,9 +57,10 @@ def get_protein_data():
                 length AS 'Length'
             FROM protein;
         """
-        df = pd.read_sql(query, conn)
-        conn.close()
+
+        df = pd.read_sql(query, engine)
         return df
+
     except Exception as e:
         print(f"Database error: {e}")
         return pd.DataFrame()
