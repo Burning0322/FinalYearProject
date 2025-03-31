@@ -10,7 +10,17 @@ navbar = dbc.Navbar(
         dbc.NavbarBrand("Drug Target Interaction", className="ms-2", style={"fontWeight": "bold", "fontSize": "24px"},id="navbar-title"),
         dbc.Nav([
             dbc.NavItem(dbc.NavLink("Home", href="/",id="navbar-home")),
-            dbc.NavItem(dbc.NavLink("Resources", href="/resources",id="navbar-resources")),
+            dbc.NavItem(dbc.DropdownMenu(
+                children=[
+                    dbc.DropdownMenuItem("All", href="/resources", id="navbar-resources"),
+                    dbc.DropdownMenuItem("Drug", href="/drug"),
+                    dbc.DropdownMenuItem("Protein", href="/protein")
+                ],
+                nav=True,
+                in_navbar=True,
+                label="Resources",
+                id="navbar-resources-dropdown"
+            )),
             dbc.NavItem(dbc.NavLink("DTI", href="/dti",id="navbar-dti")),
             dbc.NavItem(dbc.NavLink("About Us", href="/about",id="navbar-about")),
             dbc.NavItem(dbc.Button("Contact", color="primary", className="ms-2",id="navbar-contact")),
