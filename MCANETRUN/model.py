@@ -37,8 +37,8 @@ class Model(nn.Module):
     def __init__(self, drug_embedding, protein_embedding):
         super(Model, self).__init__()
 
-        self.drug_embedding = nn.Parameter(drug_embedding, requires_grad=False)
-        self.protein_embedding = nn.Parameter(protein_embedding, requires_grad=False)
+        self.drug_embedding = nn.Parameter(drug_embedding, requires_grad=True)
+        self.protein_embedding = nn.Parameter(protein_embedding, requires_grad=True)
 
         self.drug_CNN = nn.Sequential(
             nn.Conv1d(in_channels=drug_dim, out_channels=conv, kernel_size=drug_kernel[0]),
@@ -116,7 +116,6 @@ class Dataset(Dataset):
         self.drug_embedding = drug_embedding
         self.protein_embedding = protein_embedding
 
-        # ✅ 改为字典映射：smiles/sequence → index
         self.smiles2idx = {}
         self.protein2idx = {}
 
@@ -153,7 +152,6 @@ class Dataset(Dataset):
             'label': torch.tensor(label, dtype=torch.long)
         }
 
-
 dataset = Dataset('/kaggle/input/davis-n-kiba/Davis.txt', drug_embedding, protein_embedding)
 train_size = int(0.7 * len(dataset))
 test_size = int(0.2 * len(dataset))
@@ -164,6 +162,9 @@ train_dataset, test_dataset, val_dataset = random_split(dataset, [train_size, te
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+
+print(f"总样本数: {len(dataset)}")
+print(f"训练集: {len(train_dataset)}，验证集: {len(val_dataset)}，测试集: {len(test_dataset)}")
 
 model = Model(drug_embedding, protein_embedding).to(device)
 criterion = nn.CrossEntropyLoss()
@@ -236,6 +237,7 @@ for epoch in range(epochs):
 
     print(f"\nEpoch [{epoch + 1}/{epochs}], Train Loss: {train_loss / len(train_loader):.4f}, "
           f"Val Loss: {current_val_loss:.4f}, Val Accuracy: {val_accuracy:.2f}%")
+
 
     epoch_end_time = time.time()
     print(f"Epoch Time: {epoch_end_time - epoch_start_time:.2f} seconds")
