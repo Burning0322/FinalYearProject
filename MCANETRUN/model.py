@@ -116,6 +116,7 @@ class Dataset(Dataset):
         self.drug_embedding = drug_embedding
         self.protein_embedding = protein_embedding
 
+        # ✅ 改为字典映射：smiles/sequence → index
         self.smiles2idx = {}
         self.protein2idx = {}
 
@@ -238,7 +239,6 @@ for epoch in range(epochs):
     print(f"\nEpoch [{epoch + 1}/{epochs}], Train Loss: {train_loss / len(train_loader):.4f}, "
           f"Val Loss: {current_val_loss:.4f}, Val Accuracy: {val_accuracy:.2f}%")
 
-
     epoch_end_time = time.time()
     print(f"Epoch Time: {epoch_end_time - epoch_start_time:.2f} seconds")
 
@@ -248,7 +248,6 @@ torch.save(model.state_dict(), "model.pth")
 
 total_end_time = time.time()
 print(f"Total training time: {total_end_time - total_start_time:.2f} seconds")
-
 
 def evaluate(model, loader, device):
     model.eval()
