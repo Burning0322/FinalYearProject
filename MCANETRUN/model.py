@@ -20,6 +20,7 @@ protein_afterCNN = protein_max_length - protein_kernel[0] - protein_kernel[1] - 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
+print(f"Number of GPUs available: {torch.cuda.device_count()}")
 
 # Load embeddings
 drug_embedding = torch.load("/kaggle/input/ligands-n-protein/ligands_davis.pt").to(device)
@@ -116,7 +117,6 @@ class Dataset(Dataset):
         self.drug_embedding = drug_embedding
         self.protein_embedding = protein_embedding
 
-        # ✅ 改为字典映射：smiles/sequence → index
         self.smiles2idx = {}
         self.protein2idx = {}
 
@@ -168,6 +168,10 @@ print(f"总样本数: {len(dataset)}")
 print(f"训练集: {len(train_dataset)}，验证集: {len(val_dataset)}，测试集: {len(test_dataset)}")
 
 model = Model(drug_embedding, protein_embedding).to(device)
+if torch.cuda.device_count() > 1:
+    print(f"Using {torch.cuda.device_count()} GPUs!")
+    model = nn.DataParallel(model)  # Wrap model for multi-GPU
+model = model.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=1e-4)
 
@@ -239,6 +243,7 @@ for epoch in range(epochs):
     print(f"\nEpoch [{epoch + 1}/{epochs}], Train Loss: {train_loss / len(train_loader):.4f}, "
           f"Val Loss: {current_val_loss:.4f}, Val Accuracy: {val_accuracy:.2f}%")
 
+
     epoch_end_time = time.time()
     print(f"Epoch Time: {epoch_end_time - epoch_start_time:.2f} seconds")
 
@@ -248,6 +253,7 @@ torch.save(model.state_dict(), "model.pth")
 
 total_end_time = time.time()
 print(f"Total training time: {total_end_time - total_start_time:.2f} seconds")
+
 
 def evaluate(model, loader, device):
     model.eval()
