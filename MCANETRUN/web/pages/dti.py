@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 import mysql.connector
 from mysql.connector import Error
 import re
+import requests
 
 dash.register_page(__name__, path="/dti")
 
@@ -235,22 +236,158 @@ layout = html.Div([
     footer
 ])
 
+
 def fetch_drug_data(smiles):
     try:
+        # First try database
         connection = mysql.connector.connect(**db_config)
         if connection.is_connected():
             query = "SELECT * FROM drug WHERE smiles = %s"
             cursor = connection.cursor(dictionary=True)
             cursor.execute(query, (smiles,))
             result = cursor.fetchone()
-            return result
+            if result:
+                return result
     except Error as e:
         print(f"数据库错误: {e}")
-        return None
     finally:
-        if connection.is_connected():
+        if 'connection' in locals() and connection.is_connected():
             cursor.close()
             connection.close()
+
+    # If not in database, fetch from PubChem
+    try:
+        # Basic properties request
+        properties = (
+            "MolecularFormula,MolecularWeight,CanonicalSMILES,IsomericSMILES,"
+            "IUPACName,InChI,InChIKey,XLogP,ExactMass,MonoisotopicMass,TPSA,"
+            "Complexity,Charge,HBondDonorCount,HBondAcceptorCount,RotatableBondCount,"
+            "HeavyAtomCount,IsotopeAtomCount,DefinedAtomStereoCount,UndefinedAtomStereoCount,"
+            "DefinedBondStereoCount,UndefinedBondStereoCount,CovalentUnitCount"
+        )
+        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/{smiles}/property/{properties}/JSON"
+        response = requests.get(url, timeout=10)
+
+        if response.status_code == 200:
+            data = response.json()
+            if 'PropertyTable' in data and 'Properties' in data['PropertyTable']:
+                props = data['PropertyTable']['Properties'][0]
+                cid = str(props.get('CID', 'N/A'))  # Compound ID
+
+                # Map PubChem properties to database fields
+                result = {
+                    'query': smiles,
+                    'compound_id': cid,
+                    'molecular_formula': props.get('MolecularFormula'),
+                    'molecular_weight': str(props.get('MolecularWeight')),
+                    'smiles': smiles,
+                    'canonical_smiles': props.get('CanonicalSMILES'),
+                    'isomeric_smiles': props.get('IsomericSMILES'),
+                    'iupac_name': props.get('IUPACName'),
+                    'inchi': props.get('InChI'),
+                    'inchi_key': props.get('InChIKey'),
+                    'xlogp': str(props.get('XLogP')) if props.get('XLogP') is not None else None,
+                    'exact_mass': str(props.get('ExactMass')),
+                    'monoisotopic_mass': str(props.get('MonoisotopicMass')),
+                    'tpsa': str(props.get('TPSA')),
+                    'complexity': str(props.get('Complexity')),
+                    'charge': str(props.get('Charge')),
+                    'h_bond_donor_count': str(props.get('HBondDonorCount')),
+                    'h_bond_acceptor_count': str(props.get('HBondAcceptorCount')),
+                    'rotatable_bond_count': str(props.get('RotatableBondCount')),
+                    'heavy_atom_count': str(props.get('HeavyAtomCount')),
+                    'isotope_atom_count': str(props.get('IsotopeAtomCount')),
+                    'defined_atom_stereo_count': str(props.get('DefinedAtomStereoCount')),
+                    'undefined_atom_stereo_count': str(props.get('UndefinedAtomStereoCount')),
+                    'defined_bond_stereo_count': str(props.get('DefinedBondStereoCount')),
+                    'undefined_bond_stereo_count': str(props.get('UndefinedBondStereoCount')),
+                    'covalent_unit_count': str(props.get('CovalentUnitCount')),
+                    # 3D properties and others not available in basic properties endpoint
+                    'conformer_count_3d': None,
+                    'volume_3d': None,
+                    'x_steric_quadrupole_3d': None,
+                    'y_steric_quadrupole_3d': None,
+                    'z_steric_quadrupole_3d': None,
+                    'feature_acceptor_count_3d': None,
+                    'feature_donor_count_3d': None,
+                    'feature_anion_count_3d': None,
+                    'feature_cation_count_3d': None,
+                    'feature_ring_count_3d': None,
+                    'feature_hydrophobe_count_3d': None,
+                    'effective_rotor_count_3d': None,
+                    'fingerprint_2d': None  # Requires separate fingerprint endpoint
+                }
+
+                # Optional: Fetch 3D conformer data (limited availability)
+                conformer_url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid}/conformers/JSON"
+                conformer_response = requests.get(conformer_url, timeout=10)
+                if conformer_response.status_code == 200:
+                    conformer_data = conformer_response.json()
+                    if 'PC_Compounds' in conformer_data:
+                        conformer = conformer_data['PC_Compounds'][0]
+                        result['conformer_count_3d'] = str(len(conformer.get('conformers', [])))
+
+                try:
+                    connection = mysql.connector.connect(**db_config)
+                    if connection.is_connected():
+                        cursor = connection.cursor()
+                        insert_query = """
+                            INSERT INTO drug (
+                                query, compound_id, molecular_formula, molecular_weight, smiles,
+                                canonical_smiles, isomeric_smiles, iupac_name, inchi, inchi_key,
+                                xlogp, exact_mass, monoisotopic_mass, tpsa, complexity, charge,
+                                h_bond_donor_count, h_bond_acceptor_count, rotatable_bond_count,
+                                heavy_atom_count, isotope_atom_count, defined_atom_stereo_count,
+                                undefined_atom_stereo_count, defined_bond_stereo_count,
+                                undefined_bond_stereo_count, covalent_unit_count, conformer_count_3d
+                            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
+                                      %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                            ON DUPLICATE KEY UPDATE
+                                molecular_formula = VALUES(molecular_formula),
+                                molecular_weight = VALUES(molecular_weight),
+                                canonical_smiles = VALUES(canonical_smiles),
+                                isomeric_smiles = VALUES(isomeric_smiles),
+                                iupac_name = VALUES(iupac_name),
+                                inchi = VALUES(inchi),
+                                inchi_key = VALUES(inchi_key),
+                                xlogp = VALUES(xlogp),
+                                exact_mass = VALUES(exact_mass),
+                                monoisotopic_mass = VALUES(monoisotopic_mass),
+                                tpsa = VALUES(tpsa),
+                                complexity = VALUES(complexity),
+                                charge = VALUES(charge),
+                                h_bond_donor_count = VALUES(h_bond_donor_count),
+                                h_bond_acceptor_count = VALUES(h_bond_acceptor_count),
+                                rotatable_bond_count = VALUES(rotatable_bond_count),
+                                heavy_atom_count = VALUES(heavy_atom_count),
+                                isotope_atom_count = VALUES(isotope_atom_count),
+                                defined_atom_stereo_count = VALUES(defined_atom_stereo_count),
+                                undefined_atom_stereo_count = VALUES(undefined_atom_stereo_count),
+                                defined_bond_stereo_count = VALUES(defined_bond_stereo_count),
+                                undefined_bond_stereo_count = VALUES(undefined_bond_stereo_count),
+                                covalent_unit_count = VALUES(covalent_unit_count),
+                                conformer_count_3d = VALUES(conformer_count_3d)
+                        """
+                        cursor.execute(insert_query, tuple(result.values()))
+                        connection.commit()
+                except Error as e:
+                    print(f"保存到数据库时出错: {e}")
+                finally:
+                    if 'connection' in locals() and connection.is_connected():
+                        cursor.close()
+                        connection.close()
+
+                return result
+            else:
+                return {"error": "药物不存在", "smiles": smiles}
+        else:
+            print(f"PubChem API returned status code: {response.status_code}")
+            return {"error": "药物不存在", "smiles": smiles}
+
+    except requests.RequestException as e:
+        print(f"在线获取数据失败: {e}")
+
+    return {"error": "药物不存在", "smiles": smiles}
 
 
 @dash.callback(
