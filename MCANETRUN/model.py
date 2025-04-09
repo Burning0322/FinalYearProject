@@ -36,6 +36,7 @@ conv = 40
 attention_dim = conv * 4
 mix_attention_head = 5
 
+
 class SharedMultiheadCrossAttention(nn.Module):
     def __init__(self, embed_dim, num_heads):
         super().__init__()
@@ -72,6 +73,7 @@ class SharedMultiheadCrossAttention(nn.Module):
 
         return 0.5 * drug_feat + 0.5 * out_d, 0.5 * protein_feat + 0.5 * out_p
 
+
 class Model(nn.Module):
     def __init__(self, drug_embedding, protein_embedding):
         super().__init__()
@@ -104,18 +106,7 @@ class Model(nn.Module):
         self.protein_pool = nn.MaxPool1d(protein_afterCNN)
         self.attention = SharedMultiheadCrossAttention(attention_dim, mix_attention_head)
 
-        self.fc = nn.Sequential(
-            nn.Dropout(0.1),
-            nn.Linear(conv * 8, 1024),
-            nn.LeakyReLU(),
-            nn.Dropout(0.1),
-            nn.Linear(1024, 1024),
-            nn.LeakyReLU(),
-            nn.Dropout(0.1),
-            nn.Linear(1024, 512),
-            nn.LeakyReLU(),
-            nn.Linear(512, 2)
-        )
+        self.fusion = CrossDotFusion(conv * 4)
 
     def forward(self, drug_idx, protein_idx):
         drug = self.drug_embedding[drug_idx].permute(0, 2, 1)
@@ -125,7 +116,7 @@ class Model(nn.Module):
         drug_att, protein_att = self.attention(drug_feat, protein_feat)
         drug_att = self.drug_pool(drug_att.permute(0, 2, 1)).squeeze(2)
         protein_att = self.protein_pool(protein_att.permute(0, 2, 1)).squeeze(2)
-        return self.fc(torch.cat([drug_att, protein_att], dim=1))
+        return self.fusion(drug_att, protein_att)
 
 class Dataset(Dataset):
     def __init__(self, file_path):
@@ -149,6 +140,25 @@ class Dataset(Dataset):
         d, p, y = self.data[idx]
         return {'drug_idx': torch.tensor(d), 'protein_idx': torch.tensor(p), 'label': torch.tensor(y)}
 
+class CrossDotFusion(nn.Module):
+    def __init__(self, input_dim):
+        super().__init__()
+        self.fc = nn.Sequential(
+            nn.Linear(input_dim * 3 + 1, 1024),
+            nn.LeakyReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(1024, 512),
+            nn.LeakyReLU(),
+            nn.Linear(512, 2)
+        )
+
+    def forward(self, drug, protein):
+        dot = (drug * protein).sum(dim=-1, keepdim=True)  # (B, 1)
+        hadamard = drug * protein  # (B, D)
+        fusion = torch.cat([drug, protein, hadamard, dot], dim=1)  # (B, 3D + 1)
+        return self.fc(fusion)
+
+
 def evaluate(model, loader):
     model.eval()
     y_true, y_pred, y_prob = [], [], []
@@ -162,7 +172,9 @@ def evaluate(model, loader):
             y_pred += pred.tolist()
             y_prob += prob.tolist()
     acc = 100 * (np.array(y_true) == np.array(y_pred)).sum() / len(y_true)
-    return acc, precision_score(y_true, y_pred), recall_score(y_true, y_pred), f1_score(y_true, y_pred), roc_auc_score(y_true, y_prob), average_precision_score(y_true, y_prob)
+    return acc, precision_score(y_true, y_pred), recall_score(y_true, y_pred), f1_score(y_true, y_pred), roc_auc_score(
+        y_true, y_prob), average_precision_score(y_true, y_prob)
+
 
 # Load dataset and prepare K-Fold
 dataset = Dataset("/kaggle/input/davis-n-kiba/Davis.txt")
@@ -226,4 +238,5 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(all_indices)):
 # Average metrics across folds
 avg = np.mean(fold_results, axis=0)
 print(f"\n=== Average over {k_folds} folds ===")
-print(f"Accuracy: {avg[0]:.2f}%, Precision: {avg[1]:.4f}, Recall: {avg[2]:.4f}, F1: {avg[3]:.4f}, AUC: {avg[4]:.4f}, PRC: {avg[5]:.4f}")
+print(
+    f"Accuracy: {avg[0]:.2f}%, Precision: {avg[1]:.4f}, Recall: {avg[2]:.4f}, F1: {avg[3]:.4f}, AUC: {avg[4]:.4f}, PRC: {avg[5]:.4f}")
