@@ -1,4 +1,5 @@
 import dash
+import torch.backends.mps
 from dash import html, dcc, dash_table, Input, Output, State
 import dash_bootstrap_components as dbc
 import mysql.connector
@@ -193,7 +194,18 @@ details_section = dbc.Row([
     dbc.Col([html.H4("Protein Details", style={"fontWeight": "bold"}), protein_details_table], md=6)
 ])
 
-layout = html.Div([navbar, dbc.Container([input_section, predict_button, details_section]), footer])
+prediction_result = html.Div(
+    id="prediction-result",
+    style={
+        "marginTop": "20px",
+        "padding": "15px",
+        "border": "1px solid #eee",
+        "borderRadius": "5px",
+        "textAlign": "center"
+    }
+)
+
+layout = html.Div([navbar, dbc.Container([input_section, predict_button, details_section,prediction_result]), footer])
 
 # Helper function for database connection
 def get_db_connection():
@@ -390,8 +402,46 @@ def fetch_protein_data(sequence):
         print(f"在线获取蛋白质数据失败: {e}")
         return {"error": "蛋白质不存在"}
 
+try:
+    from pages.renhongmodel import Model
+    from pages.renhongmodel import Dataset
+except ImportError as e:
+    print(f"Failed to import Model: {e}")
+    raise
+
+device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+
+model_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/final/best_model_fold_5.pth"
+
+dataset = Dataset("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt")
+
+drug_embedding_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/ligands_davis.pt"
+protein_embedding_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/protein_davis.pt"
+
+drug_embedding_tensor = torch.load(drug_embedding_path, map_location=device)
+protein_embedding_tensor = torch.load(protein_embedding_path, map_location=device)
+
+model = Model(drug_embedding_tensor, protein_embedding_tensor)
+model.load_state_dict(torch.load(model_path, map_location=device))
+model.to(device)
+model.eval()
+
+def smiles_to_idx(smiles):
+    smiles = smiles.strip()
+    if smiles not in smiles2idx:
+        raise ValueError(f"Unknown SMILES: {smiles}")
+    return torch.tensor([smiles2idx[smiles]], dtype=torch.long, device=device)
+
+def protein_sequence_to_idx(sequence):
+    sequence = sequence.strip()
+    if sequence not in protein2idx:
+        raise ValueError(f"Unknown protein sequence: {sequence}")
+    return torch.tensor([protein2idx[sequence]], dtype=torch.long, device=device)
+
 @dash.callback(
-    [Output("drug-details-table", "data"), Output("protein-details-table", "data")],
+    [Output("drug-details-table", "data"),
+     Output("protein-details-table", "data"),
+     Output("prediction-result", "children")],
     Input("predict-button", "n_clicks"),
     [State("drug-input", "value"), State("protein-input", "value")],
     prevent_initial_call=True
@@ -399,6 +449,7 @@ def fetch_protein_data(sequence):
 def update_details(n_clicks, drug_input, protein_input):
     drug_table_data = []
     protein_table_data = []
+    prediction_result = ""
 
     # Fetch drug data
     if drug_input:
@@ -436,4 +487,37 @@ def update_details(n_clicks, drug_input, protein_input):
     else:
         protein_table_data = [{"Property": "Error", "Value": "Please enter a UniProt Accession"}]
 
-    return drug_table_data, protein_table_data
+    if drug_input and protein_input and not any("error" in d for d in [drug_data, protein_data]):
+        try:
+            # 获取蛋白质序列（从数据库或API返回中提取，假设字段为"sequence"）
+            protein_sequence = protein_data.get("sequence", "")
+            if not protein_sequence:
+                raise ValueError("Protein sequence not found in database")
+
+            # 转换为模型所需的索引
+            drug_idx = smiles_to_idx(drug_input)
+            protein_idx = protein_sequence_to_idx(protein_sequence)
+
+            # 模型预测
+            with torch.no_grad():
+                logits = model(drug_idx, protein_idx)
+                prob_interaction = torch.softmax(logits, dim=1)[0, 1].item()
+
+            prediction_result = html.Div([
+                html.H5("Prediction Result", style={"color": "green", "fontWeight": "bold"}),
+                html.P(f"Probability of Drug-Target Interaction: {prob_interaction:.4f}"),
+                html.P(f"Threshold (if binary): {'Interacts' if prob_interaction >= 0.6 else 'Does not interact'}")
+            ])
+
+        except ValueError as ve:
+            prediction_result = html.Div([
+                html.H5("Input Error", style={"color": "red", "fontWeight": "bold"}),
+                html.P(f"Error: {str(ve)}")
+            ])
+        except Exception as e:
+            prediction_result = html.Div([
+                html.H5("Prediction Error", style={"color": "red", "fontWeight": "bold"}),
+                html.P(f"Model error: {str(e)}")
+            ])
+
+    return drug_table_data, protein_table_data, prediction_result
