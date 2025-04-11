@@ -422,18 +422,35 @@ prot_t5_tokenizer = T5Tokenizer.from_pretrained(protein_path)
 # 特征提取函数
 def extract_drug_features(smiles):
     inputs = chemberta_tokenizer(smiles, padding="max_length", truncation=True, max_length=drug_max_length, return_tensors="pt").to(device)
+    print(f"Drug input IDs shape: {inputs['input_ids'].shape}")
+    print(f"Drug input IDs (first 10 tokens): {inputs['input_ids'][0, :10]}")
     with torch.no_grad():
         outputs = chemberta_model(**inputs)
         features = outputs.last_hidden_state  # [1, drug_max_length, 384]
+    print(f"Drug features shape: {features.shape}")
+    print(f"Drug features (first token, first 5 dimensions): {features[0, 0, :5]}")
     return features
 
+
 def extract_protein_features(sequence):
-    inputs = prot_t5_tokenizer(sequence, return_tensors="pt", padding="max_length", truncation=True, max_length=protein_max_length).to(device)
+    # 必须加空格分开每个氨基酸，否则 tokenizer 识别错误
+    spaced_sequence = " ".join(sequence.strip())
+
+    inputs = prot_t5_tokenizer(spaced_sequence, return_tensors="pt", padding="max_length", truncation=True,
+                               max_length=protein_max_length)
     inputs = {k: v.to(device) for k, v in inputs.items()}
+
+    print(f"Protein input IDs shape: {inputs['input_ids'].shape}")
+    print(f"Protein input IDs (first 10 tokens): {inputs['input_ids'][0, :10]}")
+
     with torch.no_grad():
         outputs = prot_t5_model(**inputs)
         features = outputs.last_hidden_state  # [1, protein_max_length, 1024]
+
+    print(f"Protein features shape: {features.shape}")
+    print(f"Protein features (first token, first 5 dimensions): {features[0, 0, :5]}")
     return features
+
 
 # 模型定义
 class SharedMultiheadCrossAttention(torch.nn.Module):
@@ -533,6 +550,10 @@ state_dict = torch.load(model_path, map_location=device, weights_only=True)
 state_dict = {k: v for k, v in state_dict.items() if 'embedding' not in k}  # 过滤掉嵌入层权重
 model.load_state_dict(state_dict, strict=False)
 model.eval()
+print("模型权重加载完成，打印部分权重：")
+for name, param in model.named_parameters():
+    if "fc" in name:  # 打印全连接层的权重
+        print(f"{name}: {param.data[:2]}")
 
 # 数据库查找和特征提取逻辑
 def get_drug_embedding(smiles):
@@ -551,7 +572,22 @@ def get_protein_embedding(sequence):
         print("未在数据库中找到蛋白质，使用 ProtT5 提取特征")
     return extract_protein_features(sequence)
 
-# 回调函数
+def fetch_interaction_label(smiles, sequence, file_path):
+    try:
+        # 从CSV文件加载数据
+        df = pd.read_csv(file_path)  # 假设davis.txt已经转换成CSV格式
+        # 查找对应的药物和蛋白质序列
+        matched_row = df[(df['Smiles'] == smiles) & (df['Protein Sequence'] == sequence)]
+
+        if not matched_row.empty:
+            # 如果找到了匹配项，返回标签
+            return matched_row.iloc[0]['Label']  # 假设标签列名为 'Label'
+        else:
+            return None  # 如果没有找到匹配项，返回None
+    except Exception as e:
+        print(f"读取文件时出错: {e}")
+        return None
+
 @dash.callback(
     [Output("drug-details-table", "data"),
      Output("protein-details-table", "data"),
@@ -565,38 +601,67 @@ def update_details(n_clicks, drug_input, protein_input):
     protein_table_data = []
     prediction_result = ""
 
+    # 获取用户输入的药物和蛋白质序列
     if drug_input:
         smiles = drug_input.strip()
-        print("药物 SMILES:", smiles)
-        try:
-            drug_features = get_drug_embedding(smiles)  # [1, 94, 384]
-            drug_table_data = [{"Property": "SMILES", "Value": smiles}]
-        except Exception as e:
-            drug_table_data = [{"Property": "错误", "Value": f"提取药物特征失败: {str(e)}"}]
+        drug_data = fetch_drug_data(smiles)
+        if "error" in drug_data:
+            drug_table_data = [{"Property": "Error", "Value": f"No data found for SMILES: {smiles}"}]
+        else:
+            for key, value in drug_data.items():
+                if value is None:
+                    value = "N/A"
+                if key == "molecular_formula":
+                    value = format_molecular_formula(value)
+                    value = f"<span style='font-size:1.1em'>{value}</span>"
+                drug_table_data.append({
+                    "Property": key.replace("_", " ").title(),
+                    "Value": str(value)
+                })
+    else:
+        drug_table_data = [{"Property": "Error", "Value": "Please enter a SMILES string"}]
 
     if protein_input:
-        sequence = protein_input.strip()
-        print("蛋白质序列:", sequence[:30] + "..." if len(sequence) > 30 else sequence)
-        try:
-            protein_features = get_protein_embedding(sequence)  # [1, 1000, 1024]
-            protein_table_data = [{"Property": "蛋白质序列", "Value": sequence}]
-        except Exception as e:
-            protein_table_data = [{"Property": "错误", "Value": f"提取蛋白质特征失败: {str(e)}"}]
+        accession = protein_input.strip()
+        protein_data = fetch_protein_data(accession)
+        if "error" in protein_data:
+            protein_table_data = [{"Property": "Error", "Value": f"No data found for UniProt Accession: {accession}"}]
+        else:
+            for key, value in protein_data.items():
+                if value is None:
+                    value = "N/A"
+                protein_table_data.append({
+                    "Property": key.replace("_", " ").title(),
+                    "Value": str(value)
+                })
+    else:
+        protein_table_data = [{"Property": "Error", "Value": "Please enter a UniProt Accession"}]
 
     if drug_input and protein_input:
+        smiles = drug_input.strip()
+        sequence = protein_input.strip()
+        drug_features = get_drug_embedding(smiles)
+        protein_features = get_protein_embedding(sequence)
+
         print(f"药物特征形状: {drug_features.shape}")
         print(f"蛋白质特征形状: {protein_features.shape}")
+
+        # 查找davis.txt或CSV文件中是否已有标签
+        file_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.csv"  # 这里使用对应的文件路径
+        existing_label = fetch_interaction_label(smiles, sequence, file_path)
+
         try:
             with torch.no_grad():
                 logits = model(drug_features, protein_features)
+                print(f"Logits: {logits}")
                 prob_interaction = torch.softmax(logits, dim=1)[0, 1].item()
-
+            print("预测结果:", prob_interaction,"Label:", existing_label)
             prediction_result = html.Div([
                 html.H5("预测结果", style={"color": "green", "fontWeight": "bold"}),
                 html.P(f"药物-靶点相互作用概率: {prob_interaction:.4f}"),
-                html.P(f"阈值判断: {'相互作用' if prob_interaction >= 0.6 else '无相互作用'}")
+                html.P(f"阈值判断: {'相互作用' if prob_interaction >= 0.9 else '无相互作用'}"),
+                html.P(f"真实标签: {'相互作用' if existing_label == 1 else '无相互作用'}")
             ])
-
         except Exception as e:
             prediction_result = html.Div([
                 html.H5("预测错误", style={"color": "red", "fontWeight": "bold"}),
