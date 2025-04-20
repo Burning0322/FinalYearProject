@@ -11,6 +11,7 @@ from transformers import AutoModel, AutoTokenizer, T5Tokenizer, T5EncoderModel
 import torch.nn as nn
 import math
 import numpy as np
+from rdkit import Chem
 
 dash.register_page(__name__, path="/dti")
 
@@ -102,7 +103,7 @@ footer = html.Footer([
             ),
             html.Div([
                 html.Small([
-                    "I accept ZheJiang Sci-Tech University's ",
+                    "I accept Zhejiang Sci-Tech University's ",
                     html.A("Terms and Conditions", href="#", style={"color": "black"}),
                     " and acknowledge that my information will be used in accordance with ZSTU's ",
                     html.A("Privacy Policy", href="#", style={"color": "black"}),
@@ -200,7 +201,11 @@ layout = html.Div([navbar, dbc.Container([input_section, predict_button, details
 
 # 数据库连接辅助函数
 def get_db_connection():
-    return mysql.connector.connect(**db_config)
+    try:
+        return mysql.connector.connect(**db_config)
+    except Error as e:
+        print(f"数据库连接错误: {e}")
+        return None
 
 # 格式化分子式
 def format_molecular_formula(formula):
@@ -209,21 +214,18 @@ def format_molecular_formula(formula):
 
 # 从数据库或 PubChem 获取药物数据
 def fetch_drug_data(smiles):
-    conn = None
-    try:
-        conn = get_db_connection()
-        if conn.is_connected():
+    conn = get_db_connection()
+    if conn and conn.is_connected():
+        try:
             query = "SELECT * FROM drug WHERE smiles = %s"
             cursor = conn.cursor(dictionary=True)
             cursor.execute(query, (smiles,))
             result = cursor.fetchone()
             if result:
-                print(result)
                 return result
-    except Error as e:
-        print(f"数据库错误: {e}")
-    finally:
-        if conn and conn.is_connected():
+        except Error as e:
+            print(f"数据库错误: {e}")
+        finally:
             cursor.close()
             conn.close()
 
@@ -297,21 +299,18 @@ def fetch_drug_data(smiles):
 
 # 从数据库或 UniProt 获取蛋白质数据
 def fetch_protein_data(sequence):
-    conn = None
-    try:
-        conn = get_db_connection()
-        if conn.is_connected():
+    conn = get_db_connection()
+    if conn and conn.is_connected():
+        try:
             query = "SELECT * FROM protein WHERE sequence = %s"
             cursor = conn.cursor(dictionary=True)
             cursor.execute(query, (sequence,))
             result = cursor.fetchone()
             if result:
-                print(result)
                 return result
-    except Error as e:
-        print(f"数据库错误: {e}")
-    finally:
-        if conn and conn.is_connected():
+        except Error as e:
+            print(f"数据库错误: {e}")
+        finally:
             cursor.close()
             conn.close()
 
@@ -321,7 +320,7 @@ def fetch_protein_data(sequence):
         if not matched_row.empty:
             protein_name = matched_row.iloc[0]['Protein Name']
             conn = get_db_connection()
-            if conn.is_connected():
+            if conn and conn.is_connected():
                 cursor = conn.cursor(dictionary=True)
                 query = "SELECT * FROM protein WHERE gene_names = %s"
                 cursor.execute(query, (protein_name,))
@@ -331,12 +330,8 @@ def fetch_protein_data(sequence):
                 conn.close()
                 if result:
                     return result
-    except Error as e:
-        print(f"数据库错误: {e}")
-    finally:
-        if conn and conn.is_connected():
-            cursor.close()
-            conn.close()
+    except Exception as e:
+        print(f"数据查询错误: {e}")
 
     try:
         url = f"https://rest.uniprot.org/uniprotkb/stream?format=tsv&query=sequence:{sequence}"
@@ -355,7 +350,7 @@ def fetch_protein_data(sequence):
                     'length': len(sequence)
                 }
                 conn = get_db_connection()
-                if conn.is_connected():
+                if conn and conn.is_connected():
                     cursor = conn.cursor()
                     insert_query = """
                         INSERT INTO protein (uniprot_accession, uniprot_id, protein_name, gene_names, organism, sequence, length)
@@ -379,7 +374,7 @@ def fetch_protein_data(sequence):
             else:
                 return {"error": "未找到对应的蛋白质数据"}
         else:
-            print(f"Error: {response.status_code}")
+            print(f"UniProt API 错误: {response.status_code}")
             return {"error": "无法通过序列获取数据"}
     except requests.RequestException as e:
         print(f"在线获取蛋白质数据失败: {e}")
@@ -395,8 +390,6 @@ protein_afterCNN = protein_max_length - sum(protein_kernel) + 3
 conv = 40
 attention_dim = conv * 4
 mix_attention_head = 5
-drug_dim = 384
-protein_dim = 1024
 dropout = 0.5
 threshold = 0.7
 
@@ -404,7 +397,7 @@ threshold = 0.7
 device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 print("当前设备:", device)
 
-# 加载预训练模型用于特征提取
+# 加载预训练模型用于动态嵌入
 drug_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/ChemBERTa-77M-MLM"
 chemberta_model = AutoModel.from_pretrained(drug_path).to(device)
 chemberta_tokenizer = AutoTokenizer.from_pretrained(drug_path)
@@ -413,60 +406,32 @@ print("ChemBERTa模型加载完成")
 
 protein_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/prot_t5_xl_uniref50"
 prot_t5_model = T5EncoderModel.from_pretrained(protein_path).to(device)
-prot_t5_tokenizer = T5Tokenizer.from_pretrained(protein_path)
+prot_t5_tokenizer = T5Tokenizer.from_pretrained(protein_path, legacy=False)
 prot_t5_model.eval()
 print("Prot-T5模型加载完成")
 
-dataset = "davis"
-drug_embedding = torch.load(f"/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/ligands_{dataset}.pt", map_location=device, weights_only=True)
-protein_embedding = torch.load(f"/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/protein_{dataset}.pt", map_location=device, weights_only=True)
-print(f"药物嵌入形状: {drug_embedding.shape}")
-print(f"蛋白质嵌入形状: {protein_embedding.shape}")
+# 加载静态嵌入
+drug_embedding = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/ligands_davis.pt", map_location=device)
+protein_embedding = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/protein_davis.pt", map_location=device)
+print("静态嵌入数据加载完成")
 
-# 嵌入缓存
-drug_cache = {}
-protein_cache = {}
-
-# 特征提取函数
+# 特征提取函数（动态嵌入）
 def extract_drug_features(smiles):
-    inputs = chemberta_tokenizer(smiles, padding="max_length", truncation=True,
-                                max_length=drug_max_length, return_tensors="pt").to(device)
+    inputs = chemberta_tokenizer(smiles, padding=True, truncation=True, max_length=drug_max_length, return_tensors="pt").to(device)
     with torch.no_grad():
         outputs = chemberta_model(**inputs)
         features = outputs.last_hidden_state
-        features = torch.nn.functional.normalize(features, p=2, dim=-1)  # L2 归一化
     return features
 
 def extract_protein_features(sequence):
-    spaced_sequence = " ".join(sequence.strip())
-    inputs = prot_t5_tokenizer(spaced_sequence, padding="max_length", truncation=True,
-                               max_length=protein_max_length, return_tensors="pt").to(device)
+    spaced_sequence = " ".join(list(re.sub(r"[UZOB]", "X", sequence.strip())))
+    inputs = prot_t5_tokenizer(spaced_sequence, padding="max_length", truncation=True, max_length=protein_max_length, return_tensors="pt").to(device)
     with torch.no_grad():
         outputs = prot_t5_model(**inputs)
         features = outputs.last_hidden_state
-        features = torch.nn.functional.normalize(features, p=2, dim=-1)  # L2 归一化
     return features
 
-# 获取嵌入
-def get_drug_embedding(smiles, base_embedding):
-    if smiles in drug_cache:
-        features = drug_cache[smiles]
-    else:
-        features = extract_drug_features(smiles)
-        drug_cache[smiles] = features
-    new_idx = base_embedding.size(0)
-    return new_idx, torch.cat([base_embedding, features], dim=0)
-
-def get_protein_embedding(sequence, base_embedding):
-    if sequence in protein_cache:
-        features = protein_cache[sequence]
-    else:
-        features = extract_protein_features(sequence)
-        protein_cache[sequence] = features
-    new_idx = base_embedding.size(0)
-    return new_idx, torch.cat([base_embedding, features], dim=0)
-
-# 模型定义
+# 双向多头交叉注意力模块
 class BidirectionalMultiheadCrossAttention(nn.Module):
     def __init__(self, embed_dim, num_heads):
         super().__init__()
@@ -474,49 +439,68 @@ class BidirectionalMultiheadCrossAttention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = embed_dim // num_heads
         self.scale = math.sqrt(self.head_dim)
+
         self.W_q_drug = nn.Linear(embed_dim, embed_dim)
         self.W_k_drug = nn.Linear(embed_dim, embed_dim)
         self.W_v_drug = nn.Linear(embed_dim, embed_dim)
+
         self.W_q_protein = nn.Linear(embed_dim, embed_dim)
         self.W_k_protein = nn.Linear(embed_dim, embed_dim)
         self.W_v_protein = nn.Linear(embed_dim, embed_dim)
+
         self.out_proj_d = nn.Linear(embed_dim, embed_dim)
         self.out_proj_p = nn.Linear(embed_dim, embed_dim)
 
     def forward(self, drug_feat, protein_feat):
         B, L_d, _ = drug_feat.size()
         _, L_p, _ = protein_feat.size()
+
         Q_d = self.W_q_drug(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
         K_p = self.W_k_protein(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
         V_p = self.W_v_protein(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+
         Q_p = self.W_q_protein(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
         K_d = self.W_k_drug(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
         V_d = self.W_v_drug(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+
         attn_output_d1 = torch.matmul(torch.softmax(torch.matmul(Q_d, K_p.transpose(-2, -1)) / self.scale, dim=-1), V_p)
         attn_output_p1 = torch.matmul(torch.softmax(torch.matmul(Q_p, K_d.transpose(-2, -1)) / self.scale, dim=-1), V_d)
+
         attn_output_d1 = attn_output_d1.transpose(1, 2).contiguous().view(B, L_d, self.embed_dim)
         attn_output_p1 = attn_output_p1.transpose(1, 2).contiguous().view(B, L_p, self.embed_dim)
+
         updated_drug_feat = self.out_proj_d(attn_output_d1)
         updated_protein_feat = self.out_proj_p(attn_output_p1)
+
         Q_d2 = self.W_q_drug(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
         K_p2 = self.W_k_protein(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
         V_p2 = self.W_v_protein(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+
         Q_p2 = self.W_q_protein(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
         K_d2 = self.W_k_drug(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
         V_d2 = self.W_v_drug(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+
         attn_output_d2 = torch.matmul(torch.softmax(torch.matmul(Q_d2, K_p2.transpose(-2, -1)) / self.scale, dim=-1), V_p2)
         attn_output_p2 = torch.matmul(torch.softmax(torch.matmul(Q_p2, K_d2.transpose(-2, -1)) / self.scale, dim=-1), V_d2)
+
         attn_output_d2 = attn_output_d2.transpose(1, 2).contiguous().view(B, L_d, self.embed_dim)
         attn_output_p2 = attn_output_p2.transpose(1, 2).contiguous().view(B, L_p, self.embed_dim)
+
         final_drug_feat = self.out_proj_d(attn_output_d2)
         final_protein_feat = self.out_proj_p(attn_output_p2)
+
         return final_drug_feat, final_protein_feat
 
+# 模型定义
 class Model(nn.Module):
     def __init__(self, drug_embedding, protein_embedding):
         super().__init__()
         self.drug_embedding = nn.Parameter(drug_embedding, requires_grad=True)
         self.protein_embedding = nn.Parameter(protein_embedding, requires_grad=True)
+
+        drug_dim = drug_embedding.shape[2]
+        protein_dim = protein_embedding.shape[2]
+
         self.drug_CNN = nn.Sequential(
             nn.Conv1d(drug_dim, conv, drug_kernel[0]),
             nn.BatchNorm1d(conv),
@@ -528,6 +512,7 @@ class Model(nn.Module):
             nn.BatchNorm1d(conv * 4),
             nn.ReLU(),
         )
+
         self.protein_CNN = nn.Sequential(
             nn.Conv1d(protein_dim, conv, protein_kernel[0]),
             nn.BatchNorm1d(conv),
@@ -539,9 +524,13 @@ class Model(nn.Module):
             nn.BatchNorm1d(conv * 4),
             nn.ReLU(),
         )
-        self.drug_pool = nn.MaxPool1d(drug_afterCNN)
-        self.protein_pool = nn.MaxPool1d(protein_afterCNN)
+
+        # self.drug_pool = nn.MaxPool1d(drug_afterCNN)
+        # self.protein_pool = nn.MaxPool1d(protein_afterCNN)
+        self.drug_pool = nn.AdaptiveMaxPool1d(1)
+        self.protein_pool = nn.AdaptiveMaxPool1d(1)
         self.attention = BidirectionalMultiheadCrossAttention(attention_dim, mix_attention_head)
+
         self.fc = nn.Sequential(
             nn.Dropout(dropout),
             nn.Linear(conv * 8, 1024),
@@ -567,30 +556,46 @@ class Model(nn.Module):
         protein_att = self.protein_pool(protein_att.permute(0, 2, 1)).squeeze(2)
         return self.fc(torch.cat([drug_att, protein_att], dim=1))
 
-# 加载模型
+    def predict_from_features(self, drug_feat, protein_feat):
+        drug = drug_feat.permute(0, 2, 1)
+        protein = protein_feat.permute(0, 2, 1)
+        drug_feat = self.drug_CNN(drug).permute(0, 2, 1)
+        protein_feat = self.protein_CNN(protein).permute(0, 2, 1)
+        drug_att, protein_att = self.attention(drug_feat, protein_feat)
+        drug_att = self.drug_pool(drug_att.permute(0, 2, 1)).squeeze(2)
+        protein_att = self.protein_pool(protein_att.permute(0, 2, 1)).squeeze(2)
+        return self.fc(torch.cat([drug_att, protein_att], dim=1))
+
+class Dataset:
+    def __init__(self, file_path):
+        self.smiles2idx, self.protein2idx, self.data = {}, {}, []
+        with open(file_path, 'r') as f:
+            for line in f:
+                parts = line.strip().split(' ', 4)  # 根据你的数据文件格式调整分割逻辑
+                if len(parts) == 5:
+                    _, _, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
+                    sequence, label = rest.rsplit(' ', 1)
+                    if smiles not in self.smiles2idx:
+                        self.smiles2idx[smiles] = len(self.smiles2idx)
+                    if sequence not in self.protein2idx:
+                        self.protein2idx[sequence] = len(self.protein2idx)
+                    self.data.append((self.smiles2idx[smiles], self.protein2idx[sequence], int(label)))
+
+# 实例化 Dataset 并创建全局索引
+dataset = Dataset("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt")
+smiles2idx = dataset.smiles2idx
+protein2idx = dataset.protein2idx
+print("索引映射创建完成")
+
+# 加载5个预训练模型
 models = []
 for fold in range(5):
-    model = Model(drug_embedding=drug_embedding, protein_embedding=protein_embedding).to(device)
-    state_dict = torch.load(
-        f"/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/final/ligandsnprotein/model_fold_{fold}.pt",
-        map_location=device, weights_only=True
-    )
-    model.load_state_dict(state_dict, strict=False)  # Allow missing keys
+    model = Model(drug_embedding, protein_embedding).to(device)
+    state_dict = torch.load(f"/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/final/ligandsnprotein/model_fold_{fold}.pt", map_location=device)
+    model.load_state_dict(state_dict)
     model.eval()
     models.append(model)
-print("模型加载完成")
-
-# 检查交互标签
-def fetch_interaction_label(smiles, sequence, file_path):
-    try:
-        df = pd.read_csv(file_path)
-        matched_row = df[(df['Smiles'] == smiles) & (df['Protein Sequence'] == sequence)]
-        if not matched_row.empty:
-            return matched_row.iloc[0]['Label']
-        return None
-    except Exception as e:
-        print(f"读取文件时出错: {e}")
-        return None
+print("5个模型加载完成")
 
 @dash.callback(
     [Output("drug-details-table", "data"),
@@ -605,6 +610,7 @@ def update_details(n_clicks, drug_input, protein_input):
     protein_table_data = []
     prediction_result = ""
 
+    # 处理药物输入
     if drug_input:
         smiles = drug_input.strip()
         drug_data = fetch_drug_data(smiles)
@@ -621,8 +627,9 @@ def update_details(n_clicks, drug_input, protein_input):
     else:
         drug_table_data = [{"Property": "Error", "Value": "请填写SMILES字符串"}]
 
+    # 处理蛋白质输入
     if protein_input:
-        sequence = protein_input.strip()
+        sequence = protein_input.strip().upper()
         protein_data = fetch_protein_data(sequence)
         if "error" in protein_data:
             protein_table_data = [{"Property": "Error", "Value": f"No data found for sequence: {sequence[:30]}..."}]
@@ -634,43 +641,42 @@ def update_details(n_clicks, drug_input, protein_input):
     else:
         protein_table_data = [{"Property": "Error", "Value": "请填写蛋白质序列"}]
 
+    # 进行预测
     if drug_input and protein_input:
-        smiles = drug_input.strip()
-        sequence = protein_input.strip()
-
-        drug_idx, temp_drug_embedding = get_drug_embedding(smiles, drug_embedding)
-        protein_idx, temp_protein_embedding = get_protein_embedding(sequence, protein_embedding)
-        drug_idx_tensor = torch.tensor([drug_idx], dtype=torch.long).to(device)
-        protein_idx_tensor = torch.tensor([protein_idx], dtype=torch.long).to(device)
-
-        file_path = "/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.csv"
-        existing_label = fetch_interaction_label(smiles, sequence, file_path)
-
         try:
-            probs = []
-            for model in models:
-                model.drug_embedding = nn.Parameter(temp_drug_embedding, requires_grad=False)
-                model.protein_embedding = nn.Parameter(temp_protein_embedding, requires_grad=False)
+            smiles = drug_input.strip()
+            sequence = protein_input.strip().upper()
+
+            # 获取索引
+            drug_idx = smiles2idx.get(smiles)
+            protein_idx = protein2idx.get(sequence)
+
+            if drug_idx is not None and protein_idx is not None:
+                # 使用静态嵌入进行预测
+                drug_idx_tensor = torch.tensor([drug_idx]).to(device)
+                protein_idx_tensor = torch.tensor([protein_idx]).to(device)
+                probs = []
                 with torch.no_grad():
-                    logits = model(drug_idx_tensor, protein_idx_tensor)
-                    prob_interaction = torch.softmax(logits, dim=1)[0, 1].item()
-                    probs.append(prob_interaction)
-            avg_prob = sum(probs) / len(probs)
-
-            prediction_result = html.Div([
-                html.H5("预测结果", style={"color": "green", "fontWeight": "bold"}),
-                html.P(f"药物-靶点相互作用概率: {avg_prob:.4f}"),
-                html.P(f"阈值判断: {'相互作用' if avg_prob >= threshold else '无相互作用'}"),
-                html.P(f"真实标签: {existing_label if existing_label is not None else '未知'}")
-            ])
-
-            with open("prediction_log.txt", "a") as log_file:
-                log_file.write(f"SMILES: {smiles}, Sequence: {sequence[:30]}..., Prediction: {avg_prob:.4f}, Label: {existing_label}\n")
+                    for model in models:
+                        out = model(drug_idx_tensor, protein_idx_tensor)
+                        prob = torch.softmax(out, dim=1)[0, 1].item()
+                        probs.append(prob)
+                avg_prob = sum(probs) / len(probs)
+                prediction_result = f"预测结果：结合概率 = {avg_prob:.4f}, " + ("结合" if avg_prob >= threshold else "不结合")
+            else:
+                # 使用动态嵌入进行预测
+                drug_feat = extract_drug_features(smiles)
+                protein_feat = extract_protein_features(sequence)
+                probs = []
+                with torch.no_grad():
+                    for model in models:
+                        out = model.predict_from_features(drug_feat, protein_feat)
+                        prob = torch.softmax(out, dim=1)[0, 1].item()
+                        probs.append(prob)
+                avg_prob = sum(probs) / len(probs)
+                prediction_result = f"预测结果（动态嵌入）：结合概率 = {avg_prob:.4f}, " + ("结合" if avg_prob >= threshold else "不结合")
 
         except Exception as e:
-            prediction_result = html.Div([
-                html.H5("预测错误", style={"color": "red", "fontWeight": "bold"}),
-                html.P(f"错误: {str(e)}")
-            ])
+            prediction_result = f"预测失败：{str(e)}"
 
     return drug_table_data, protein_table_data, prediction_result
