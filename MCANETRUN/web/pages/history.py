@@ -134,6 +134,7 @@ history = html.Div([
     dash_table.DataTable(
         id="history-table",
         columns=[
+            {"name": "ID", "id": "id", "hidden": True},
             {"name": "Drug SMILES", "id": "drug_smiles"},
             {"name": "Protein Sequence", "id": "protein_sequence"},
             {"name": "Probability", "id": "probability"},
@@ -228,8 +229,10 @@ def display_delete_selected_dialog(n_clicks, selected_rows):
     return False
 
 # 回调 4：执行“Delete Selected”操作
+# 回调 4：执行“Delete Selected”操作
 @dash.callback(
     Output("history-table", "data", allow_duplicate=True),
+    Output("history-table", "selected_rows", allow_duplicate=True),
     Input("confirm-delete-selected", "submit_n_clicks"),
     State("history-table", "selected_rows"),
     State("history-table", "data"),
@@ -240,27 +243,30 @@ def delete_selected(submit_n_clicks, selected_rows, current_data):
         conn = get_db_connection()
         if conn and conn.is_connected():
             try:
-                cursor = conn.cursor()
-                # 假设每条记录有唯一的 id 字段，从 current_data 中获取选中行的 id
+                cursor = conn.cursor(dictionary=True)  # 👈 指定 dictionary=True
                 selected_ids = [current_data[i]["id"] for i in selected_rows]
                 query = f"DELETE FROM history WHERE id IN ({','.join(map(str, selected_ids))})"
                 cursor.execute(query)
                 conn.commit()
                 print(f"已删除 {len(selected_ids)} 条记录")
-                # 重新加载数据
+
+                # 重新加载数据（使用字典游标，确保返回字典列表）
                 cursor.execute("SELECT * FROM history ORDER BY timestamp DESC")
                 data = cursor.fetchall()
-                return data if data else [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A", "prediction": "暂无历史记录", "timestamp": "N/A"}]
+                if not data:  # 与 update_history_table 逻辑一致
+                    return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A", "prediction": "暂无历史记录", "timestamp": "N/A"}], []
+                return data, []  # 👈 直接返回真实数据
             except Error as e:
                 print(f"删除失败: {e}")
-                return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A", "prediction": f"删除失败: {e}", "timestamp": "N/A"}]
+                return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A", "prediction": f"删除失败: {e}", "timestamp": "N/A"}], []
             finally:
                 cursor.close()
                 conn.close()
         else:
             print("数据库连接失败")
-            return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A", "prediction": "数据库连接失败", "timestamp": "N/A"}]
-    return dash.no_update
+            return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A", "prediction": "数据库连接失败", "timestamp": "N/A"}], []
+    return dash.no_update, dash.no_update
+
 
 # 回调 5：导出 CSV
 @dash.callback(
