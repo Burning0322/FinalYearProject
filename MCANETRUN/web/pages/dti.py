@@ -6,12 +6,8 @@ import mysql.connector
 from mysql.connector import Error
 import re
 import requests
-import pandas as pd
 from transformers import AutoModel, AutoTokenizer, T5Tokenizer, T5EncoderModel
 import torch.nn as nn
-import math
-import numpy as np
-from rdkit import Chem
 
 dash.register_page(__name__, path="/dti")
 
@@ -41,7 +37,7 @@ navbar = dbc.Navbar(
                 id="navbar-resources-dropdown"
             )),
             dbc.NavItem(dbc.NavLink("DTI", href="/dti", id="navbar-dti")),
-            dbc.NavItem(dbc.NavLink("About Us", href="/about", id="navbar-about")),
+            dbc.NavItem(dbc.NavLink("History", href="/history", id="navbar-history")),
             dbc.NavItem(dbc.Button("Contact", color="primary", className="ms-2", id="navbar-contact")),
             dbc.NavItem(
                 dcc.Dropdown(
@@ -145,11 +141,15 @@ input_section = dbc.Row([
 ], className="mb-4")
 
 # 预测按钮
-predict_button = html.Button(
+predict_button = html.Div(
+    [
+    html.Button(
     "Predict",
     id="predict-button",
     className="btn btn-primary",
     style={"width": "200px", "marginBottom": "20px"}
+    )
+    ],style={"textAlign":"center"}
 )
 
 # 药物详情表格
@@ -197,7 +197,10 @@ prediction_result = html.Div(
 )
 
 # 页面布局
-layout = html.Div([navbar, dbc.Container([input_section, predict_button, details_section, prediction_result]), footer])
+layout = html.Div([navbar, dbc.Container([input_section,
+                                        predict_button,
+                                        details_section,
+                                        prediction_result]), footer])
 
 # 数据库连接辅助函数
 def get_db_connection():
@@ -222,6 +225,7 @@ def fetch_drug_data(smiles):
             cursor.execute(query, (smiles,))
             result = cursor.fetchone()
             if result:
+                print(f"查询药物结果: {result}")
                 return result
         except Error as e:
             print(f"数据库错误: {e}")
@@ -315,10 +319,24 @@ def fetch_protein_data(sequence):
             conn.close()
 
     try:
-        df = pd.read_csv("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/DavisNKiba.csv")
-        matched_row = df[df['Protein Sequence'] == sequence]
-        if not matched_row.empty:
-            protein_name = matched_row.iloc[0]['Protein Name']
+        with open('/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt', 'r') as f:
+            lines = f.readlines()
+
+        data = []
+        for line in lines:
+            parts = line.strip().split(' ', 4)
+            if len(parts) == 5:
+                compound_id, protein_name, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
+                sequence, label = rest.rsplit(' ', 1)
+                data.append({
+                    'compound_id': compound_id,
+                    'protein_name': protein_name,
+                    'smiles': smiles,
+                    'sequence': sequence,
+                    'label': int(label)
+                })
+
+        try:
             conn = get_db_connection()
             if conn and conn.is_connected():
                 cursor = conn.cursor(dictionary=True)
@@ -329,7 +347,10 @@ def fetch_protein_data(sequence):
                 cursor.close()
                 conn.close()
                 if result:
+                    print(f"查询蛋白质结果: {result}")
                     return result
+        except Exception as db_err:
+            print(f"数据库查询错误: {db_err}")
     except Exception as e:
         print(f"数据查询错误: {e}")
 
@@ -387,9 +408,10 @@ drug_kernel = [4, 6, 8]
 protein_kernel = [4, 8, 12]
 drug_afterCNN = drug_max_length - sum(drug_kernel) + 3
 protein_afterCNN = protein_max_length - sum(protein_kernel) + 3
-conv = 40
+
+conv = 21
 attention_dim = conv * 4
-mix_attention_head = 5
+mix_attention_head = 3
 dropout = 0.5
 threshold = 0.7
 
@@ -431,22 +453,22 @@ def extract_protein_features(sequence):
         features = outputs.last_hidden_state
     return features
 
-# 双向多头交叉注意力模块
+
 class BidirectionalMultiheadCrossAttention(nn.Module):
     def __init__(self, embed_dim, num_heads):
         super().__init__()
         self.embed_dim = embed_dim
         self.num_heads = num_heads
         self.head_dim = embed_dim // num_heads
-        self.scale = math.sqrt(self.head_dim)
+        self.scale = self.head_dim ** -0.5
 
-        self.W_q_drug = nn.Linear(embed_dim, embed_dim)
-        self.W_k_drug = nn.Linear(embed_dim, embed_dim)
-        self.W_v_drug = nn.Linear(embed_dim, embed_dim)
+        self.w_q = nn.Linear(embed_dim, embed_dim)
+        self.w_k = nn.Linear(embed_dim, embed_dim)
+        self.w_v = nn.Linear(embed_dim, embed_dim)
 
-        self.W_q_protein = nn.Linear(embed_dim, embed_dim)
-        self.W_k_protein = nn.Linear(embed_dim, embed_dim)
-        self.W_v_protein = nn.Linear(embed_dim, embed_dim)
+        self.W_q_shared = nn.Linear(embed_dim, embed_dim)
+        self.W_k_shared = nn.Linear(embed_dim, embed_dim)
+        self.W_v_shared = nn.Linear(embed_dim, embed_dim)
 
         self.out_proj_d = nn.Linear(embed_dim, embed_dim)
         self.out_proj_p = nn.Linear(embed_dim, embed_dim)
@@ -455,16 +477,21 @@ class BidirectionalMultiheadCrossAttention(nn.Module):
         B, L_d, _ = drug_feat.size()
         _, L_p, _ = protein_feat.size()
 
-        Q_d = self.W_q_drug(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-        K_p = self.W_k_protein(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-        V_p = self.W_v_protein(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+        Q_d = self.W_q_shared(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+        K_p = self.W_k_shared(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+        V_p = self.W_v_shared(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
 
-        Q_p = self.W_q_protein(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-        K_d = self.W_k_drug(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-        V_d = self.W_v_drug(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+        Q_p = self.W_q_shared(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+        K_d = self.W_k_shared(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+        V_d = self.W_v_shared(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
 
-        attn_output_d1 = torch.matmul(torch.softmax(torch.matmul(Q_d, K_p.transpose(-2, -1)) / self.scale, dim=-1), V_p)
-        attn_output_p1 = torch.matmul(torch.softmax(torch.matmul(Q_p, K_d.transpose(-2, -1)) / self.scale, dim=-1), V_d)
+        attn_scores_d = torch.matmul(Q_d, K_p.transpose(-2, -1)) / self.scale
+        attn_weights_d = torch.softmax(attn_scores_d, dim=-1)
+        attn_output_d1 = torch.matmul(attn_weights_d, V_p)
+
+        attn_scores_p = torch.matmul(Q_p, K_d.transpose(-2, -1)) / self.scale
+        attn_weights_p = torch.softmax(attn_scores_p, dim=-1)
+        attn_output_p1 = torch.matmul(attn_weights_p, V_d)
 
         attn_output_d1 = attn_output_d1.transpose(1, 2).contiguous().view(B, L_d, self.embed_dim)
         attn_output_p1 = attn_output_p1.transpose(1, 2).contiguous().view(B, L_p, self.embed_dim)
@@ -472,16 +499,21 @@ class BidirectionalMultiheadCrossAttention(nn.Module):
         updated_drug_feat = self.out_proj_d(attn_output_d1)
         updated_protein_feat = self.out_proj_p(attn_output_p1)
 
-        Q_d2 = self.W_q_drug(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-        K_p2 = self.W_k_protein(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-        V_p2 = self.W_v_protein(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+        Q_d2 = self.W_q_shared(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+        K_p2 = self.W_k_shared(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+        V_p2 = self.W_v_shared(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
 
-        Q_p2 = self.W_q_protein(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-        K_d2 = self.W_k_drug(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-        V_d2 = self.W_v_drug(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+        Q_p2 = self.W_q_shared(updated_protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
+        K_d2 = self.W_k_shared(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
+        V_d2 = self.W_v_shared(updated_drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
 
-        attn_output_d2 = torch.matmul(torch.softmax(torch.matmul(Q_d2, K_p2.transpose(-2, -1)) / self.scale, dim=-1), V_p2)
-        attn_output_p2 = torch.matmul(torch.softmax(torch.matmul(Q_p2, K_d2.transpose(-2, -1)) / self.scale, dim=-1), V_d2)
+        attn_scores_d2 = torch.matmul(Q_d2, K_p2.transpose(-2, -1)) / self.scale
+        attn_weights_d2 = torch.softmax(attn_scores_d2, dim=-1)
+        attn_output_d2 = torch.matmul(attn_weights_d2, V_p2)
+
+        attn_scores_p2 = torch.matmul(Q_p2, K_d2.transpose(-2, -1)) / self.scale
+        attn_weights_p2 = torch.softmax(attn_scores_p2, dim=-1)
+        attn_output_p2 = torch.matmul(attn_weights_p2, V_d2)
 
         attn_output_d2 = attn_output_d2.transpose(1, 2).contiguous().view(B, L_d, self.embed_dim)
         attn_output_p2 = attn_output_p2.transpose(1, 2).contiguous().view(B, L_p, self.embed_dim)
@@ -491,7 +523,6 @@ class BidirectionalMultiheadCrossAttention(nn.Module):
 
         return final_drug_feat, final_protein_feat
 
-# 模型定义
 class Model(nn.Module):
     def __init__(self, drug_embedding, protein_embedding):
         super().__init__()
@@ -525,10 +556,8 @@ class Model(nn.Module):
             nn.ReLU(),
         )
 
-        # self.drug_pool = nn.MaxPool1d(drug_afterCNN)
-        # self.protein_pool = nn.MaxPool1d(protein_afterCNN)
-        self.drug_pool = nn.AdaptiveMaxPool1d(1)
-        self.protein_pool = nn.AdaptiveMaxPool1d(1)
+        self.drug_pool = nn.MaxPool1d(drug_afterCNN)
+        self.protein_pool = nn.MaxPool1d(protein_afterCNN)
         self.attention = BidirectionalMultiheadCrossAttention(attention_dim, mix_attention_head)
 
         self.fc = nn.Sequential(
@@ -547,13 +576,18 @@ class Model(nn.Module):
     def forward(self, drug_idx, protein_idx):
         drug = self.drug_embedding[drug_idx]
         protein = self.protein_embedding[protein_idx]
+
         drug = drug.permute(0, 2, 1)
         protein = protein.permute(0, 2, 1)
+
         drug_feat = self.drug_CNN(drug).permute(0, 2, 1)
         protein_feat = self.protein_CNN(protein).permute(0, 2, 1)
+
         drug_att, protein_att = self.attention(drug_feat, protein_feat)
+
         drug_att = self.drug_pool(drug_att.permute(0, 2, 1)).squeeze(2)
         protein_att = self.protein_pool(protein_att.permute(0, 2, 1)).squeeze(2)
+
         return self.fc(torch.cat([drug_att, protein_att], dim=1))
 
     def predict_from_features(self, drug_feat, protein_feat):
@@ -591,7 +625,7 @@ print("索引映射创建完成")
 models = []
 for fold in range(5):
     model = Model(drug_embedding, protein_embedding).to(device)
-    state_dict = torch.load(f"/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/final/ligandsnprotein/model_fold_{fold}.pt", map_location=device)
+    state_dict = torch.load(f"/Volumes/PASSPORT/FinalYearProject/final/updated/davis/model_fold_{fold}.pt", map_location=device)
     model.load_state_dict(state_dict)
     model.eval()
     models.append(model)
@@ -600,7 +634,8 @@ print("5个模型加载完成")
 @dash.callback(
     [Output("drug-details-table", "data"),
      Output("protein-details-table", "data"),
-     Output("prediction-result", "children")],
+     Output("prediction-result", "children"),
+     ],
     Input("predict-button", "n_clicks"),
     [State("drug-input", "value"), State("protein-input", "value")],
     prevent_initial_call=True
