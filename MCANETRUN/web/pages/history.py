@@ -118,6 +118,7 @@ footer = html.Footer([
     ], style={"textAlign": "center", "padding": "10px 0"})
 ], style={"backgroundColor": "#f8f9fa", "padding": "20px 0", "marginTop": "20px"})
 
+
 history = html.Div([
     html.H1("Prediction History", style={"textAlign": "center", "marginBottom": "20px"}),
     dbc.Row([
@@ -228,7 +229,7 @@ def display_delete_selected_dialog(n_clicks, selected_rows):
         return True
     return False
 
-# 回调 4：执行“Delete Selected”操作
+
 # 回调 4：执行“Delete Selected”操作
 @dash.callback(
     Output("history-table", "data", allow_duplicate=True),
@@ -285,3 +286,39 @@ def export_selected_csv(n_clicks, selected_rows, current_data):
             return dcc.send_data_frame(df.to_csv, "selected_history.csv", index=False)
     print("未选中行或未点击按钮，无法导出")
     return None
+
+
+# 回调 6：执行“Clear All”操作
+@dash.callback(
+    Output("history-table", "data", allow_duplicate=True),
+    Output("history-table", "selected_rows", allow_duplicate=True),
+    Input("confirm-clear", "submit_n_clicks"),
+    prevent_initial_call=True
+)
+def clear_all_history(submit_n_clicks):
+    if submit_n_clicks:
+        conn = get_db_connection()
+        if conn and conn.is_connected():
+            try:
+                cursor = conn.cursor()
+                # 删除 history 表中的所有记录
+                query = "DELETE FROM history"
+                cursor.execute(query)
+                conn.commit()
+                print("已清除所有历史记录")
+
+                # 返回空表提示
+                return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A",
+                         "prediction": "暂无历史记录", "timestamp": "N/A"}], []
+            except Error as e:
+                print(f"清除所有记录失败: {e}")
+                return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A",
+                         "prediction": f"清除失败: {e}", "timestamp": "N/A"}], []
+            finally:
+                cursor.close()
+                conn.close()
+        else:
+            print("数据库连接失败")
+            return [{"drug_smiles": "N/A", "protein_sequence": "N/A", "probability": "N/A",
+                     "prediction": "数据库连接失败", "timestamp": "N/A"}], []
+    return dash.no_update, dash.no_update
