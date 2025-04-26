@@ -140,6 +140,22 @@ input_section = dbc.Row([
     ], md=6)
 ], className="mb-4")
 
+dataset_select = dbc.Row([
+    dbc.Col([
+        html.Label("Dataset",
+                  style={"fontWeight": "bold", "fontSize": "18px"}),
+        dcc.Dropdown(
+            id="dataset-dropdown",
+            options=[
+                {'label': 'Davis', 'value': 'davis'},
+                {'label': 'KIBA', 'value': 'kiba'}
+            ],
+            placeholder="Select a dataset...",
+            style={"width": "100%", "marginBottom": "10px"},
+        )
+    ], md=12)
+], className="mb-4")
+
 # 预测按钮
 predict_button = html.Div(
     [
@@ -198,6 +214,7 @@ prediction_result = html.Div(
 
 # 页面布局
 layout = html.Div([navbar, dbc.Container([input_section,
+                                        dataset_select,
                                         predict_button,
                                         details_section,
                                         prediction_result]), footer])
@@ -318,41 +335,41 @@ def fetch_protein_data(sequence):
             cursor.close()
             conn.close()
 
-    try:
-        with open('/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt', 'r') as f:
-            lines = f.readlines()
-
-        data = []
-        for line in lines:
-            parts = line.strip().split(' ', 4)
-            if len(parts) == 5:
-                compound_id, protein_name, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
-                sequence, label = rest.rsplit(' ', 1)
-                data.append({
-                    'compound_id': compound_id,
-                    'protein_name': protein_name,
-                    'smiles': smiles,
-                    'sequence': sequence,
-                    'label': int(label)
-                })
-
-        try:
-            conn = get_db_connection()
-            if conn and conn.is_connected():
-                cursor = conn.cursor(dictionary=True)
-                query = "SELECT * FROM protein WHERE gene_names = %s"
-                cursor.execute(query, (protein_name,))
-                results = cursor.fetchall()
-                result = results[0] if results else None
-                cursor.close()
-                conn.close()
-                if result:
-                    print(f"查询蛋白质结果: {result}")
-                    return result
-        except Exception as db_err:
-            print(f"数据库查询错误: {db_err}")
-    except Exception as e:
-        print(f"数据查询错误: {e}")
+    # try:
+    #     with open('/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt', 'r') as f:
+    #         lines = f.readlines()
+    #
+    #     data = []
+    #     for line in lines:
+    #         parts = line.strip().split(' ', 4)
+    #         if len(parts) == 5:
+    #             compound_id, protein_name, smiles, rest = parts[0], parts[1], parts[2], parts[3] + ' ' + parts[4]
+    #             sequence, label = rest.rsplit(' ', 1)
+    #             data.append({
+    #                 'compound_id': compound_id,
+    #                 'protein_name': protein_name,
+    #                 'smiles': smiles,
+    #                 'sequence': sequence,
+    #                 'label': int(label)
+    #             })
+    #
+    #     try:
+    #         conn = get_db_connection()
+    #         if conn and conn.is_connected():
+    #             cursor = conn.cursor(dictionary=True)
+    #             query = "SELECT * FROM protein WHERE gene_names = %s"
+    #             cursor.execute(query, (protein_name,))
+    #             results = cursor.fetchall()
+    #             result = results[0] if results else None
+    #             cursor.close()
+    #             conn.close()
+    #             if result:
+    #                 print(f"查询蛋白质结果: {result}")
+    #                 return result
+    #     except Exception as db_err:
+    #         print(f"数据库查询错误: {db_err}")
+    # except Exception as e:
+    #     print(f"数据查询错误: {e}")
 
     try:
         url = f"https://rest.uniprot.org/uniprotkb/stream?format=tsv&query=sequence:{sequence}"
@@ -401,7 +418,6 @@ def fetch_protein_data(sequence):
         print(f"在线获取蛋白质数据失败: {e}")
         return {"error": "蛋白质不存在"}
 
-# 超参数
 drug_max_length = 94
 protein_max_length = 1000
 drug_kernel = [4, 6, 8]
@@ -433,8 +449,10 @@ prot_t5_model.eval()
 print("Prot-T5模型加载完成")
 
 # 加载静态嵌入
-drug_embedding = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/ligands_davis.pt", map_location=device)
-protein_embedding = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/protein_davis.pt", map_location=device)
+drug_embedding_davis = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/ligands_davis.pt", map_location=device)
+protein_embedding_davis = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/protein_davis.pt", map_location=device)
+drug_embedding_kiba = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/ligands_kiba.pt", map_location=device)
+protein_embedding_kiba = torch.load("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/protein_kiba.pt", map_location=device)
 print("静态嵌入数据加载完成")
 
 # 特征提取函数（动态嵌入）
@@ -452,7 +470,6 @@ def extract_protein_features(sequence):
         outputs = prot_t5_model(**inputs)
         features = outputs.last_hidden_state
     return features
-
 
 class BidirectionalMultiheadCrossAttention(nn.Module):
     def __init__(self, embed_dim, num_heads):
@@ -616,36 +633,104 @@ class Dataset:
                     self.data.append((self.smiles2idx[smiles], self.protein2idx[sequence], int(label)))
 
 # 实例化 Dataset 并创建全局索引
-dataset = Dataset("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt")
-smiles2idx = dataset.smiles2idx
-protein2idx = dataset.protein2idx
-print("索引映射创建完成")
+dataset_davis = Dataset("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/Davis.txt")
+smiles2idx_davis = dataset_davis.smiles2idx
+protein2idx_davis = dataset_davis.protein2idx
+print("Davis索引映射创建完成")
+
+dataset_kiba = Dataset("/Users/renhonglow/PycharmProjects/FinalYearProject/MCANETRUN/data/KIBA.txt")
+smiles2idx_kiba = dataset_kiba.smiles2idx
+protein2idx_kiba = dataset_kiba.protein2idx
+print("Kiba索引映射创建完成")
 
 # 加载5个预训练模型
-models = []
+models_davis = []
 for fold in range(5):
-    model = Model(drug_embedding, protein_embedding).to(device)
+    model = Model(drug_embedding_davis, protein_embedding_davis).to(device)
     state_dict = torch.load(f"/Volumes/PASSPORT/FinalYearProject/final/updated/davis/model_fold_{fold}.pt", map_location=device)
     model.load_state_dict(state_dict)
     model.eval()
-    models.append(model)
-print("5个模型加载完成")
+    models_davis.append(model)
+print("Davis 5个模型加载完成")
+
+models_kiba = []
+for fold in range(5):
+    model = Model(drug_embedding_kiba, protein_embedding_kiba).to(device)
+    state_dict = torch.load(f"/Volumes/PASSPORT/FinalYearProject/final/updated/kiba/model_fold_{fold}.pt", map_location=device)
+    model.load_state_dict(state_dict)
+    model.eval()
+    models_kiba.append(model)
+print("Kiba 5个模型加载完成")
+
+
+def history(smiles,sequence,avg_prob,result):
+    conn = get_db_connection()
+    if conn and conn.is_connected():
+        try:
+            cursor = conn.cursor()
+            # 检查是否已存在记录
+            check_query = """
+                          SELECT id \
+                          FROM history \
+                          WHERE drug_smiles = %s \
+                            AND protein_sequence = %s \
+                          """
+            cursor.execute(check_query, (smiles, sequence))
+            if cursor.fetchone():
+                # 如果存在，更新记录
+                update_query = """
+                               UPDATE history \
+                               SET probability = %s, prediction =%s, \
+                                   timestamp  = NOW()
+                               WHERE drug_smiles = %s \
+                                 AND protein_sequence = %s \
+                               """
+                cursor.execute(update_query, (avg_prob,result, smiles, sequence))
+            else:
+                # 如果不存在，插入新记录
+                insert_query = """
+                               INSERT INTO history (drug_smiles, protein_sequence,probability, prediction, timestamp)
+                               VALUES (%s, %s, %s, %s, NOW()) \
+                               """
+                cursor.execute(insert_query, (smiles, sequence,avg_prob,result))
+            conn.commit()
+            print("预测结果已写入数据库")
+        except Error as e:
+            print(f"写入数据库失败: {e}")
+        finally:
+            cursor.close()
+            conn.close()
 
 @dash.callback(
     [Output("drug-details-table", "data"),
      Output("protein-details-table", "data"),
-     Output("prediction-result", "children"),
-     ],
+     Output("prediction-result", "children")],
     Input("predict-button", "n_clicks"),
-    [State("drug-input", "value"), State("protein-input", "value")],
+    [State("drug-input", "value"),
+     State("protein-input", "value"),
+     State("dataset-dropdown", "value")],  # Add dataset selection
     prevent_initial_call=True
 )
-def update_details(n_clicks, drug_input, protein_input):
+def update_details(n_clicks, drug_input, protein_input, dataset):
     drug_table_data = []
     protein_table_data = []
     prediction_result = ""
 
-    # 处理药物输入
+    # Check if a valid dataset is selected
+    if not dataset or dataset not in ['davis', 'kiba']:
+        return drug_table_data, protein_table_data, "Please select a valid dataset (Davis or KIBA)"
+
+    # Select dataset-specific mappings and models
+    if dataset == 'davis':
+        smiles2idx = smiles2idx_davis
+        protein2idx = protein2idx_davis
+        models = models_davis
+    elif dataset == 'kiba':
+        smiles2idx = smiles2idx_kiba
+        protein2idx = protein2idx_kiba
+        models = models_kiba
+
+    # Process drug input
     if drug_input:
         smiles = drug_input.strip()
         drug_data = fetch_drug_data(smiles)
@@ -662,7 +747,7 @@ def update_details(n_clicks, drug_input, protein_input):
     else:
         drug_table_data = [{"Property": "Error", "Value": "请填写SMILES字符串"}]
 
-    # 处理蛋白质输入
+    # Process protein input
     if protein_input:
         sequence = protein_input.strip().upper()
         protein_data = fetch_protein_data(sequence)
@@ -676,18 +761,18 @@ def update_details(n_clicks, drug_input, protein_input):
     else:
         protein_table_data = [{"Property": "Error", "Value": "请填写蛋白质序列"}]
 
-    # 进行预测
+    # Perform prediction if both inputs are provided
     if drug_input and protein_input:
         try:
             smiles = drug_input.strip()
             sequence = protein_input.strip().upper()
 
-            # 获取索引
+            # Get indices for static embeddings
             drug_idx = smiles2idx.get(smiles)
             protein_idx = protein2idx.get(sequence)
 
             if drug_idx is not None and protein_idx is not None:
-                # 使用静态嵌入进行预测
+                # Use static embeddings for prediction
                 drug_idx_tensor = torch.tensor([drug_idx]).to(device)
                 protein_idx_tensor = torch.tensor([protein_idx]).to(device)
                 probs = []
@@ -697,9 +782,9 @@ def update_details(n_clicks, drug_input, protein_input):
                         prob = torch.softmax(out, dim=1)[0, 1].item()
                         probs.append(prob)
                 avg_prob = sum(probs) / len(probs)
-                prediction_result = f"预测结果：结合概率 = {avg_prob:.4f}, " + ("结合" if avg_prob >= threshold else "不结合")
+                prediction_result = f"预测结果 ({dataset.upper()}): 结合概率 = {avg_prob:.4f}, " + ("1" if avg_prob >= threshold else "0")
             else:
-                # 使用动态嵌入进行预测
+                # Use dynamic embeddings for prediction
                 drug_feat = extract_drug_features(smiles)
                 protein_feat = extract_protein_features(sequence)
                 probs = []
@@ -709,9 +794,31 @@ def update_details(n_clicks, drug_input, protein_input):
                         prob = torch.softmax(out, dim=1)[0, 1].item()
                         probs.append(prob)
                 avg_prob = sum(probs) / len(probs)
-                prediction_result = f"预测结果（动态嵌入）：结合概率 = {avg_prob:.4f}, " + ("结合" if avg_prob >= threshold else "不结合")
+                prediction_result = f"预测结果 ({dataset.upper()} - 动态嵌入): 结合概率 = {avg_prob:.4f}, " + ("1" if avg_prob >= threshold else "0")
+
+            # Log prediction to history
+            history(smiles, sequence, avg_prob, "1" if avg_prob >= threshold else "0")
 
         except Exception as e:
-            prediction_result = f"预测失败：{str(e)}"
+            prediction_result = f"预测失败 ({dataset.upper()}): {str(e)}"
 
     return drug_table_data, protein_table_data, prediction_result
+
+@dash.callback(
+    Output("output-display", "children"),
+    Input("predict-button", "n_clicks"),
+    State("dataset-dropdown", "value"),
+    prevent_initial_call=True
+)
+def update_output(n_clicks, dataset):
+    if not dataset:
+        return "请先选择一个数据集！"
+
+    if dataset == 'davis':
+        data_info = "加载 Davis 数据集..."
+    elif dataset == 'kiba':
+        data_info = "加载 KIBA 数据集..."
+    else:
+        data_info = "无效的数据集选择！"
+
+    return f"你选择的数据集是：{dataset.upper()}，{data_info}"
