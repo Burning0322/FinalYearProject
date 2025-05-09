@@ -29,8 +29,8 @@ protein_kernel = [4, 8, 12]
 dropout = 0.5
 
 # 加载嵌入
-drug_embedding = torch.load("autodl-tmp/davis_ligands.pt", weights_only=True).to(device)
-protein_embedding = torch.load("autodl-tmp/protein_davis.pt", weights_only=True).to(device)
+drug_embedding = torch.load("autodl-tmp/kiba_ligands.pt", weights_only=True).to(device)
+protein_embedding = torch.load("autodl-tmp/protein_kiba.pt", weights_only=True).to(device)
 
 drug_max_length = drug_embedding.shape[1]
 protein_max_length = protein_embedding.shape[1]
@@ -120,6 +120,20 @@ class Dataset(Dataset):
         self.smiles_list = self.df['drug_smiles'].tolist()
         self.protein_list = self.df['target_sequence'].tolist()
         self.labels = self.df['affinity'].tolist()
+
+        if pd.isna(self.labels).any():
+            print(f"警告：affinity 列中找到 {pd.isna(self.labels).sum()} 个 NaN 值")
+            self.df = self.df.dropna(subset=['affinity'])
+            self.smiles_list = self.df['drug_smiles'].tolist()
+            self.protein_list = self.df['target_sequence'].tolist()
+            self.labels = self.df['affinity'].tolist()
+
+        # 检查 affinity 列中的非数值数据
+        try:
+            self.labels = [float(label) for label in self.labels]
+        except ValueError as e:
+            print(f"错误：affinity 列中包含非数值数据：{e}")
+            raise
 
         self.smiles2idx = {smiles: idx for idx, smiles in enumerate(set(self.smiles_list))}
         self.protein2idx = {seq: idx for idx, seq in enumerate(set(self.protein_list))}
@@ -212,10 +226,10 @@ def evaluate(model, loader, dataset, return_preds=False):
         return metrics, y_pred_original, y_true_original
     return metrics
 
-dataset = Dataset("autodl-tmp/davis.csv",
-                  augment_smiles=True,
+dataset = Dataset("autodl-tmp/kiba.csv",
+                  augment_smiles=False,
                   augment_factor=2,
-                  augment_protein=False,  # 修改为 False，与原始代码一致
+                  augment_protein=True,  # 修改为 False，与原始代码一致
                   mutation_rate=0.001,
                   augment_affinity=False,
                   noise_std=0.1)

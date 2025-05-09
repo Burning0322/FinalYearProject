@@ -27,8 +27,8 @@ protein_kernel = [4, 8, 12]
 dropout = 0.5
 
 # 加载嵌入
-drug_embedding = torch.load("ligands_davis.pt").to(device)
-protein_embedding = torch.load("protein_davis.pt").to(device)
+drug_embedding = torch.load("autodl-tmp/ligands_davis.pt").to(device)
+protein_embedding = torch.load("autodl-tmp/protein_davis.pt").to(device)
 
 drug_max_length = drug_embedding.shape[1]
 protein_max_length = protein_embedding.shape[1]
@@ -41,55 +41,6 @@ protein_afterCNN = protein_max_length - sum(protein_kernel) + 3
 conv = 16
 attention_dim = conv * 4
 mix_attention_head = 8
-
-class BidirectionalMultiheadCrossAttention(nn.Module):
-    def __init__(self, embed_dim, num_heads):
-        super().__init__()
-        self.embed_dim = embed_dim
-        self.num_heads = num_heads
-        self.head_dim = embed_dim // num_heads
-        self.scale = self.head_dim ** -0.5
-
-        # 共享的线性变换矩阵
-        self.W_q_shared = nn.Linear(embed_dim, embed_dim)
-        self.W_k_shared = nn.Linear(embed_dim, embed_dim)
-        self.W_v_shared = nn.Linear(embed_dim, embed_dim)
-
-        # 独立的输出投影层
-        self.out_proj_d = nn.Linear(embed_dim, embed_dim)
-        self.out_proj_p = nn.Linear(embed_dim, embed_dim)
-
-    def forward(self, drug_feat, protein_feat):
-        B, L_d, _ = drug_feat.size()
-        _, L_p, _ = protein_feat.size()
-
-        # 生成 Query、Key 和 Value
-        Q_d = self.W_q_shared(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-        K_p = self.W_k_shared(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-        V_p = self.W_v_shared(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-
-        Q_p = self.W_q_shared(protein_feat).view(B, L_p, self.num_heads, self.head_dim).transpose(1, 2)
-        K_d = self.W_k_shared(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-        V_d = self.W_v_shared(drug_feat).view(B, L_d, self.num_heads, self.head_dim).transpose(1, 2)
-
-        # 计算注意力分数和权重
-        attn_scores_d = torch.matmul(Q_d, K_p.transpose(-2, -1)) / self.scale
-        attn_weights_d = torch.softmax(attn_scores_d, dim=-1)
-        attn_output_d = torch.matmul(attn_weights_d, V_p)
-
-        attn_scores_p = torch.matmul(Q_p, K_d.transpose(-2, -1)) / self.scale
-        attn_weights_p = torch.softmax(attn_scores_p, dim=-1)
-        attn_output_p = torch.matmul(attn_weights_p, V_d)
-
-        # 调整形状
-        attn_output_d = attn_output_d.transpose(1, 2).contiguous().view(B, L_d, self.embed_dim)
-        attn_output_p = attn_output_p.transpose(1, 2).contiguous().view(B, L_p, self.embed_dim)
-
-        # 输出投影
-        final_drug_feat = self.out_proj_d(attn_output_d)
-        final_protein_feat = self.out_proj_p(attn_output_p)
-
-        return final_drug_feat, final_protein_feat
 
 class Model(nn.Module):
     def __init__(self, drug_embedding, protein_embedding):
@@ -123,7 +74,7 @@ class Model(nn.Module):
 
         self.drug_pool = nn.MaxPool1d(drug_afterCNN)
         self.protein_pool = nn.MaxPool1d(protein_afterCNN)
-        self.attention = BidirectionalMultiheadCrossAttention(attention_dim, mix_attention_head)
+        self.attention = nn.MultiheadAttention(attention_dim, mix_attention_head)
 
         self.fc = nn.Sequential(
             nn.Dropout(dropout),
@@ -136,20 +87,35 @@ class Model(nn.Module):
         )
 
     def forward(self, drug_idx, protein_idx):
-        drug = self.drug_embedding[drug_idx]
-        protein = self.protein_embedding[protein_idx]
+        # 获取嵌入
+        drug = self.drug_embedding[drug_idx]  # [B, L_d, drug_dim]
+        protein = self.protein_embedding[protein_idx]  # [B, L_p, protein_dim]
 
-        drug = drug.permute(0, 2, 1)
-        protein = protein.permute(0, 2, 1)
+        # 调整形状为 [batch, channels, seq_len] 以适应 CNN
+        drug = drug.permute(0, 2, 1)  # [B, drug_dim, L_d]
+        protein = protein.permute(0, 2, 1)  # [B, protein_dim, L_p]
 
-        drug_feat = self.drug_CNN(drug).permute(0, 2, 1)
-        protein_feat = self.protein_CNN(protein).permute(0, 2, 1)
+        # 通过 CNN 提取特征
+        drug_feat = self.drug_CNN(drug)  # [B, conv*4, L_d']
+        protein_feat = self.protein_CNN(protein)  # [B, conv*4, L_p']
 
-        drug_att, protein_att = self.attention(drug_feat, protein_feat)
+        # 调整形状为 [seq_len, batch, embed_dim] 以适应 MultiheadAttention
+        drug_QKV = drug_feat.permute(2, 0, 1)  # [L_d', B, conv*4]
+        protein_QKV = protein_feat.permute(2, 0, 1)  # [L_p', B, conv*4]
 
-        drug_att = self.drug_pool(drug_att.permute(0, 2, 1)).squeeze(2)
-        protein_att = self.protein_pool(protein_att.permute(0, 2, 1)).squeeze(2)
+        # 交叉注意力
+        drug_att, _ = self.attention(drug_QKV, protein_QKV, protein_QKV)  # [L_d', B, conv*4]
+        protein_att, _ = self.attention(protein_QKV, drug_QKV, drug_QKV)  # [L_p', B, conv*4]
 
+        # 调整回 [batch, channels, seq_len] 以适应池化
+        drug_att = drug_att.permute(1, 2, 0)  # [B, conv*4, L_d']
+        protein_att = protein_att.permute(1, 2, 0)  # [B, conv*4, L_p']
+
+        # 池化
+        drug_att = self.drug_pool(drug_att).squeeze(2)  # [B, conv*4]
+        protein_att = self.protein_pool(protein_att).squeeze(2)  # [B, conv*4]
+
+        # 全连接层
         return self.fc(torch.cat([drug_att, protein_att], dim=1))
 
 class Dataset(Dataset):
@@ -238,7 +204,7 @@ def evaluate(model, loader, return_probs=False):
         return metrics, np.array(y_prob), np.array(y_true)
     return metrics
 
-dataset = Dataset("Davis.txt",
+dataset = Dataset("autodl-tmp/Davis.txt",
                   augment_smiles=True,
                   augment_factor=2,
                   augment_protein=False,
@@ -261,7 +227,7 @@ models = []
 for fold, (train_idx, val_idx) in enumerate(kf.split(train_indices)):
     print(f"\n=== 第 {fold + 1}/{k_folds} 折 ===")
 
-    log_dir = f"/root/autodl-tmp/tf-logs/fold_{fold + 1}"
+    log_dir = f"/root/tf-logs/fold_{fold + 1}"
     writer = SummaryWriter(log_dir=log_dir)
 
     train_loader = DataLoader(Subset(dataset, [train_indices[i] for i in train_idx]),
